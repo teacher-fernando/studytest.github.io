@@ -9,7 +9,7 @@
     <!-- Google Fonts: Inter & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2 family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -52,94 +52,10 @@
             box-shadow: 1px 1px 0px 0px #121110 !important;
         }
 
-        /* SCREEN OPTIMIZATIONS FOR ALL PORTABLE VIEWPORTS (S23, iPhone, etc.) */
+        /* SCREEN OPTIMIZATIONS FOR PORTABLE MOBILE VIEWPORTS */
         @media (max-width: 640px) {
             body {
-                /* Allow natural swipe/scroll globally if content exceeds, but maintain clean aesthetic */
                 overflow-y: auto !important;
-            }
-        }
-
-        /* Height-based media query adjustments to shrink vertical headers and spacing */
-        @media (max-height: 850px) {
-            .btn-tactile {
-                padding-top: 0.4rem !important;
-                padding-bottom: 0.4rem !important;
-            }
-            #screen-home {
-                padding: 1rem !important;
-            }
-            #screen-home h1 {
-                font-size: 1.15rem !important;
-                line-height: 1.35rem !important;
-            }
-            #screen-home h2 {
-                margin-bottom: 0.2rem !important;
-            }
-            #screen-home .grid {
-                gap: 0.4rem !important;
-            }
-            #screen-home button {
-                min-height: 75px !important;
-                padding: 0.4rem 0.6rem !important;
-            }
-            #screen-home button.col-span-2 {
-                min-height: 52px !important;
-            }
-            #screen-home .space-y-5 {
-                gap: 0.4rem !important;
-                display: flex !important;
-                flex-direction: column !important;
-            }
-            #screen-home .space-y-5 > div {
-                margin-bottom: 0px !important;
-            }
-            .choice-btn {
-                padding-top: 0.6rem !important;
-                padding-bottom: 0.6rem !important;
-                border-radius: 0.6rem !important;
-            }
-        }
-
-        @media (max-height: 740px) {
-            .btn-tactile {
-                padding-top: 0.35rem !important;
-                padding-bottom: 0.35rem !important;
-            }
-            #screen-home {
-                padding: 0.75rem !important;
-            }
-            #screen-home .mb-5 {
-                margin-bottom: 0.4rem !important;
-            }
-            #screen-home .mb-4 {
-                margin-bottom: 0.2rem !important;
-            }
-            #screen-home button {
-                min-height: 65px !important;
-                padding: 0.35rem 0.5rem !important;
-            }
-            #screen-home button.col-span-2 {
-                min-height: 48px !important;
-            }
-            #screen-home .space-y-5 {
-                gap: 0.35rem !important;
-                display: flex !important;
-                flex-direction: column !important;
-            }
-            #screen-home .space-y-5 > div {
-                margin-bottom: 0px !important;
-            }
-            #screen-home h2 {
-                font-size: 9px !important;
-                margin-bottom: 0.1rem !important;
-            }
-            #feedback-sheet {
-                padding: 0.65rem !important;
-            }
-            #feedback-explanation {
-                padding: 0.4rem !important;
-                margin-bottom: 0.6rem !important;
             }
         }
     </style>
@@ -147,19 +63,19 @@
 <body class="flex items-center justify-center min-h-screen p-0 sm:p-4 overflow-y-auto select-none">
 
     <!-- Main layout container simulating a tall vertical mobile layout but supporting flexible dvh heights -->
-    <div class="w-full max-w-[420px] h-[100dvh] sm:h-[840px] sm:max-h-[95vh] sm:my-auto sm:rounded-[28px] bg-[#faf9f6] text-[#121110] shadow-2xl flex flex-col relative border-0 sm:border-[8px] border-[#121110] overflow-y-auto sm:overflow-hidden shrink-0">
+    <div class="w-full max-w-[420px] h-[100dvh] sm:h-[840px] sm:max-h-[95vh] sm:my-auto sm:rounded-[28px] bg-[#faf9f6] text-[#121110] shadow-2xl flex flex-col relative border-0 sm:border-[8px] border-[#121110] overflow-hidden shrink-0">
         
-        <!-- Header - Highly optimized to be extremely short on mobile to save vertical viewport space -->
-        <div class="bg-[#121110] px-4 sm:px-6 py-2 sm:py-3.5 flex justify-between items-center text-[11px] sm:text-xs text-[#faf9f6] border-b-2 border-[#121110] shrink-0">
-            <span class="font-extrabold tracking-wider title-font flex items-center gap-1.5 sm:gap-2">
-                <span class="w-2 h-2 rounded-full bg-[#ffb900]"></span>
-                INTER 2 - Teacher Fernando
+        <!-- Header - Completely optimized to NEVER wrap even on very narrow viewports -->
+        <div class="bg-[#121110] px-3.5 py-2 sm:py-3 flex justify-between items-center text-[10px] sm:text-xs text-[#faf9f6] border-b-2 border-[#121110] shrink-0 min-h-[42px] select-none">
+            <span class="font-extrabold tracking-wider title-font flex items-center gap-1.5 whitespace-nowrap overflow-hidden text-ellipsis flex-1 pr-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#ffb900] shrink-0 animate-pulse"></span>
+                <span class="truncate">INTER 2 - Teacher Fernando</span>
             </span>
-            <div class="flex items-center gap-3 sm:gap-4">
-                <button id="soundToggleBtn" onclick="toggleMute()" class="hover:text-[#ffb900] transition duration-200">
-                    <i id="soundIcon" class="fa-solid fa-volume-high text-xs sm:text-sm"></i>
+            <div class="flex items-center gap-2.5 shrink-0 whitespace-nowrap">
+                <button id="soundToggleBtn" onclick="toggleMute()" class="hover:text-[#ffb900] p-1 transition duration-200 flex items-center justify-center">
+                    <i id="soundIcon" class="fa-solid fa-volume-high text-[11px] sm:text-xs"></i>
                 </button>
-                <span class="text-[8px] sm:text-[10px] font-black tracking-widest bg-[#0052cc] text-white px-1.5 py-0.5 rounded border border-white/10 uppercase">BIMESTER 2</span>
+                <span class="text-[8px] sm:text-[9px] font-black tracking-widest bg-[#0052cc] text-white px-1.5 py-0.5 rounded border border-white/10 uppercase whitespace-nowrap inline-block">BIMESTER 2</span>
             </div>
         </div>
 
@@ -397,18 +313,18 @@
         </div>
 
         <!-- SCREEN 2: ACTIVE QUESTION ROUND -->
-        <div id="screen-activity" class="hidden flex-1 flex flex-col overflow-hidden relative bg-[#faf9f6]">
+        <div id="screen-activity" class="hidden flex-1 flex flex-col overflow-hidden relative bg-[#faf9f6] min-h-0">
             
-            <!-- Active Sub Header - Extremely slimmed down for vertical viewports -->
-            <div class="bg-white px-3 sm:px-4 py-1.5 sm:py-2.5 border-b-2 border-[#121110] flex items-center justify-between shrink-0">
-                <button onclick="returnToHome()" class="btn-tactile text-[#121110] flex items-center gap-1 text-[10px] font-bold py-1 px-2.5 bg-[#f0ede4] border-2 border-[#121110] rounded-md transition shrink-0">
-                    <i class="fa-solid fa-arrow-left text-[8px]"></i> Home
+            <!-- Active Sub Header - Extremely compact and clean -->
+            <div class="bg-white px-3 sm:px-4 py-1.5 sm:py-2 border-b-2 border-[#121110] flex items-center justify-between shrink-0 select-none">
+                <button onclick="returnToHome()" class="btn-tactile text-[#121110] flex items-center gap-1 text-[9px] font-bold py-1 px-2.5 bg-[#f0ede4] border-2 border-[#121110] rounded-md transition shrink-0">
+                    <i class="fa-solid fa-arrow-left text-[7px]"></i> Home
                 </button>
                 <div class="text-center flex-1 mx-2 min-w-0">
                     <span id="activity-title" class="text-[9px] sm:text-[10px] font-black tracking-wider text-[#121110] uppercase font-mono block truncate">Module</span>
                 </div>
                 <!-- Mini written progress -->
-                <div class="text-right text-[10px] sm:text-xs font-bold text-[#0052cc] shrink-0 min-w-[45px] whitespace-nowrap">
+                <div class="text-right text-[10px] sm:text-xs font-bold text-[#0052cc] shrink-0 min-w-[35px] whitespace-nowrap">
                     <span id="header-progress">0/10</span>
                 </div>
             </div>
@@ -418,9 +334,9 @@
                 <div id="activeProgressBar" class="bg-[#0052cc] h-full w-0 transition-all duration-300"></div>
             </div>
 
-            <!-- Question and choices space. Optimized to allow vertical scroll if option text is extremely long -->
-            <div id="activity-content" class="flex-1 overflow-y-auto p-3.5 sm:p-5 flex flex-col justify-between">
-                <!-- programmatically loaded -->
+            <!-- Question and choices space. Completely scrollable vertical container with min-h-0 -->
+            <div id="activity-content" class="flex-1 overflow-y-auto p-3.5 sm:p-5 flex flex-col justify-start min-h-0">
+                <!-- programmatically loaded inside helper -->
             </div>
 
             <!-- Slide-up Feedback panel -->
@@ -681,7 +597,7 @@
                 { id: 22, sentence: "By next week, the municipal team ________ all the old street lamps.", choices: ["will be replacing", "will have replaced", "replace", "replaced"], correct: "will have replaced" },
                 { id: 23, sentence: "Please do not make a noise at 2 PM. The baby ________.", choices: ["will be sleeping", "will have slept", "sleeps", "slept"], correct: "will be sleeping" },
                 { id: 24, sentence: "By tomorrow afternoon, the heavy storm ________ completely.", choices: ["will be stopping", "will have stopped", "stops", "stopped"], correct: "will have stopped" },
-                { id: 25, sentence: "Next Sunday, they ________ their wedding anniversary with a big party.", choices: ["will be celebrating", "will have celebrated", "celebrate", "celebrated"], correct: "will be celebrating" },
+                { id: 25, sentence: "Next Sunday, they ________ their wedding anniversary with a big party.", choices: ["will be celebrating", "will have celebrating", "celebrate", "celebrated"], correct: "will be celebrating" },
                 { id: 26, sentence: "By the end of the year, our school ________ ten new computers.", choices: ["will be purchasing", "will have purchased", "purchase", "purchased"], correct: "will have purchased" },
                 { id: 27, sentence: "Tomorrow night, I ________ for my physics exam all evening.", choices: ["will be studying", "will have studied", "study", "studied"], correct: "will be studying" },
                 { id: 28, sentence: "I hope that by next year, the developers ________ the new mobile app.", choices: ["will be releasing", "will have released", "release", "released"], correct: "will have released" },
@@ -741,13 +657,13 @@
                 { id: 29, sentence: "Lately, we ________ our plastic bags to protect the environment.", choices: ["have been reusing", "had been reusing", "reuse", "reused"], correct: "have been reusing" },
                 { id: 30, sentence: "They ________ the ancient temple for hours before they found the main door.", choices: ["have been exploring", "had been exploring", "explore", "explored"], correct: "have been exploring" },
                 { id: 31, sentence: "He ________ guitar lessons since January and can play three songs.", choices: ["has been taking", "had been taking", "takes", "took"], correct: "has been taking" },
-                { id: 32, sentence: "The street was blocked because the workers ________ the pipeline all morning.", choices: ["have been repairing", "had been repairing", "repair", "repaired"], correct: "had been repairing" },
+                { id: 32, sentence: "The street was blocked because the workers ________ the pipeline all morning.", choices: ["have been repairing", "had been repairing", "repair", "repaired"], correct: "have been repairing" },
                 { id: 33, sentence: "I ________ to music on my phone since I boarded the train.", choices: ["have been listening", "had been listening", "listen", "listened"], correct: "have been listening" },
                 { id: 34, sentence: "Before the teacher entered, the children ________ loudly in the room.", choices: ["have been talking", "had been talking", "talk", "talked"], correct: "had been talking" },
                 { id: 35, sentence: "Lately, she ________ her car to save money on gasoline.", choices: ["has been sharing", "had been sharing", "shares", "shared"], correct: "has been sharing" },
                 { id: 36, sentence: "They ________ for the test all night before they finally fell asleep.", choices: ["have been studying", "had been studying", "study", "studied"], correct: "have been studying" },
                 { id: 37, sentence: "I ________ these old photos recently to make a family album.", choices: ["have been collecting", "had been collecting", "collect", "collected"], correct: "have been collecting" },
-                { id: 38, sentence: "The kitchen smelled delicious because my father ________ a fruit cake.", choices: ["has been baking", "had been baking", "bakes", "baked"], correct: "had been baking" },
+                { id: 38, sentence: "The kitchen smelled delicious because my father ________ a fruit cake.", choices: ["has been baking", "had been baking", "bakes", "baked"], correct: "have been baking" },
                 { id: 39, sentence: "Recently, our school ________ solar panels to generate clean energy.", choices: ["has been installing", "had been installing", "installs", "installed"], correct: "has been installing" },
                 { id: 40, sentence: "They ________ the contract for weeks before they finally signed it.", choices: ["have been debating", "had been debating", "debate", "debated"], correct: "have been debating" },
                 { id: 41, sentence: "I ________ a lot of water today because of the summer heat.", choices: ["have been drinking", "had been drinking", "drink", "drank"], correct: "have been drinking" },
@@ -794,7 +710,7 @@
                 { id: 29, sentence: "Extreme weather events like super hurricanes are linked to ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
                 { id: 30, sentence: "Seawalls are constructed to defend communities against ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
                 { id: 31, sentence: "Deforestation reduces the planet's ability to absorb ________.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
-                { id: 32, sentence: "Sleeping difficulties in major cities are often linked to ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
+                { id: 32, text_to_replace: "Sleeping difficulties in major cities are often linked to ________.", sentence: "Sleeping difficulties in major cities are often linked to ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
                 { id: 33, sentence: "A pipeline rupture led to catastrophic ________ in the river estuary.", choices: ["oil spills", "overfishing", "toxic waste", "waste disposal"], correct: "oil spills" },
                 { id: 34, sentence: "Commercial ships are being regulated to avoid ocean ________.", choices: ["overfishing", "toxic waste", "waste disposal", "acid rain"], correct: "overfishing" },
                 { id: 35, sentence: "Proper storage of ________ prevents dangerous chemical runoffs.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" },
@@ -1207,7 +1123,7 @@
             hideFeedback();
         }
 
-        // Optimized question loader that scales spacing depending on ecrã constraint
+        // Optimized question loader that supports momentum scrolling inside portable mobile viewports (Chrome S23, iOS, etc.)
         function loadQuestion() {
             hideFeedback();
             state.canAnswer = true;
@@ -1225,13 +1141,13 @@
 
             if (state.activeActivity === 'sorter') {
                 const html = `
-                    <div class="flex-1 flex flex-col justify-between">
-                        <div class="bg-white border-2 border-[#121110] rounded-xl p-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] my-auto flex flex-col items-center justify-center min-h-[90px] sm:min-h-[120px] shrink-0">
+                    <div class="w-full flex flex-col justify-start gap-4">
+                        <div class="bg-white border-2 border-[#121110] rounded-xl p-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex flex-col items-center justify-center min-h-[85px] sm:min-h-[110px] shrink-0">
                             <span class="text-[9px] text-[#0052cc] font-extrabold uppercase tracking-widest block mb-1">Classify this adjective:</span>
-                            <h4 class="text-2xl sm:text-3xl font-black text-[#121110] tracking-wide title-font text-center uppercase">${question.adjective}</h4>
+                            <h4 class="text-xl sm:text-2xl font-black text-[#121110] tracking-wide title-font text-center uppercase">${question.adjective}</h4>
                         </div>
 
-                        <div class="space-y-2 sm:space-y-3 mt-3 sm:mt-4 shrink-0">
+                        <div class="space-y-2 sm:space-y-3 shrink-0">
                             <button onclick="submitAnswer('Career')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
                                 <span>________ + CAREER</span>
                                 <i class="fa-solid fa-chevron-right text-[9px] text-[#0052cc] group-hover:translate-x-0.5 transition"></i>
@@ -1250,15 +1166,15 @@
                 contentBox.innerHTML = html;
             } else {
                 const randomizedChoices = shuffleArray(question.choices);
-                const termText = question.emoji ? `<div class="text-3xl mb-2">${question.emoji}</div>` : '';
+                const termText = question.emoji ? `<div class="text-2xl mb-1.5">${question.emoji}</div>` : '';
                 const html = `
-                    <div class="flex-1 flex flex-col justify-between">
-                        <div class="bg-white border-2 border-[#121110] rounded-xl p-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] my-auto text-center flex flex-col items-center justify-center min-h-[90px] sm:min-h-[120px] shrink-0">
+                    <div class="w-full flex flex-col justify-start gap-4">
+                        <div class="bg-white border-2 border-[#121110] rounded-xl p-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex flex-col items-center justify-center min-h-[90px] sm:min-h-[110px] shrink-0">
                             ${termText}
                             <p class="text-xs sm:text-sm text-[#121110] leading-relaxed font-bold">"${question.sentence || question.question}"</p>
                         </div>
 
-                        <div class="space-y-2 sm:space-y-3 mt-3 sm:mt-4 shrink-0">
+                        <div class="space-y-2 sm:space-y-3 shrink-0">
                             ${randomizedChoices.map(choice => `
                                 <button onclick="submitAnswer('${choice.replace(/'/g, "\\'")}')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-black text-[#121110] text-left flex justify-between items-center transition">
                                     <span class="capitalize pointer-events-none">${choice}</span>
