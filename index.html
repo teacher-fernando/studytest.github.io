@@ -345,7 +345,7 @@
                     <div id="feedback-icon-container" class="w-9 h-9 rounded-full border-2 border-[#121110] flex items-center justify-center text-lg shrink-0">
                         <!-- Icon programmed -->
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <h4 id="feedback-title" class="font-black text-sm sm:text-base text-[#121110] title-font">Correct Answer!</h4>
                     </div>
                 </div>
@@ -587,7 +587,7 @@
                 { id: 12, sentence: "By the end of this month, she ________ at this design studio for five years.", choices: ["will be working", "will have worked", "works", "worked"], correct: "will have worked" },
                 { id: 13, sentence: "Don't visit us at noon tomorrow. We ________ our kitchen cabinets.", choices: ["will be painting", "will have painted", "paint", "painted"], correct: "will be painting" },
                 { id: 14, sentence: "I am sure they ________ their decision before the board meeting begins.", choices: ["will be making", "will have making", "make", "made"], correct: "will have made" },
-                { id: 15, sentence: "This evening, the band ________ their new songs live in the park.", choices: ["will be performing", "will have performed", "perform", "performed"], correct: "will be performing" },
+                { id: 15, sentence: "This evening, the band ________ their new songs live in the park.", choices: ["will be performing", "will have performing", "perform", "performed"], correct: "will be performing" },
                 { id: 16, sentence: "By the time you wake up tomorrow, my flight ________ in New York.", choices: ["will be landing", "will have landed", "lands", "landed"], correct: "will have landed" },
                 { id: 17, sentence: "At 3 PM tomorrow, my father ________ our old family car.", choices: ["will be repairing", "will have repaired", "repairs", "repaired"], correct: "will be repairing" },
                 { id: 18, sentence: "Scientists estimate that by 2040, solar power ________ the main energy source.", choices: ["will be becoming", "will have become", "becomes", "became"], correct: "will have become" },
@@ -614,8 +614,8 @@
                 { id: 39, sentence: "At 8 AM next Monday, they ________ to their new office.", choices: ["will be commuting", "will have commuted", "commute", "commuted"], correct: "will be commuting" },
                 { id: 40, sentence: "I hope the postman ________ my package by tomorrow morning.", choices: ["will be delivering", "will have delivered", "delivers", "delivered"], correct: "will have delivered" },
                 { id: 41, sentence: "This evening, our family ________ to a classical music concert.", choices: ["will be listening", "will have listened", "listen", "listened"], correct: "will be listening" },
-                { id: 42, text_to_replace: "By 2035, the city ________ three new public libraries.", sentence: "By 2035, the city ________ three new public libraries.", choices: ["will be building", "will have built", "build", "built"], correct: "will have built" },
-                { id: 43, text_to_replace: "At noon tomorrow, the workers ________ the old highway.", sentence: "At noon tomorrow, the workers ________ the old highway.", choices: ["will be paving", "will have paved", "pave", "paved"], correct: "will be paving" },
+                { id: 42, sentence: "By 2035, the city ________ three new public libraries.", choices: ["will be building", "will have built", "build", "built"], correct: "will have built" },
+                { id: 43, sentence: "At noon tomorrow, the workers ________ the old highway.", choices: ["will be paving", "will have paved", "pave", "paved"], correct: "will be paving" },
                 { id: 44, sentence: "By tomorrow night, I ________ all my clothes for the trip.", choices: ["will be packing", "will have packed", "pack", "packed"], correct: "will have packed" },
                 { id: 45, sentence: "Next winter, they ________ their skiing skills in the Alps.", choices: ["will be practicing", "will have practiced", "practice", "practiced"], correct: "will be practicing" },
                 { id: 46, sentence: "By the time the class ends, the teacher ________ all our questions.", choices: ["will be answering", "will have answered", "answer", "answered"], correct: "will have answered" },
@@ -716,7 +716,7 @@
                 { id: 35, sentence: "Proper storage of ________ prevents dangerous chemical runoffs.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" },
                 { id: 36, sentence: "Our current consumption habits are producing a major ________ crisis.", choices: ["waste disposal", "acid rain", "climate change", "coastal erosion"], correct: "waste disposal" },
                 { id: 37, sentence: "High acidity in lakes, caused by ________, kills local fish species.", choices: ["acid rain", "climate change", "coastal erosion", "greenhouse gases"], correct: "acid rain" },
-                { id: 38, sentence: "The warming of global oceans is a effect of ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
+                { id: 38, sentence: "The warming of global oceans is an effect of ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
                 { id: 39, sentence: "Sandy beaches are gradually shrinking due to continuous ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
                 { id: 40, sentence: "Carbon dioxide is the most common human-made ________.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
                 { id: 41, sentence: "Hearing damage in industrial workers is often caused by ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
@@ -913,9 +913,9 @@
                         osc.type = 'sine';
                         osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.1);
                         gain.gain.setValueAtTime(0, audioCtx.currentTime + idx * 0.1);
-                        gain.gain.linearRampToValueAtTime(0.03, audioCtx.currentTime + idx * 0.1 + 0.05);
-                        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + idx * 0.1 + 0.6);
-                        osc.start(audioCtx.currentTime + idx * 0.1);
+                        gain.gain.linearRampToValueAtTime(0.03, idx * 0.1 + 0.05);
+                        gain.gain.exponentialRampToValueAtTime(0.001, idx * 0.1 + 0.6);
+                        osc.start(idx * 0.1);
                         osc.stop(audioCtx.currentTime + idx * 0.1 + 0.6);
                     });
                 } catch(e) {
@@ -928,9 +928,10 @@
             soundMuted = !soundMuted;
             const icon = document.getElementById('soundIcon');
             if (soundMuted) {
-                icon.className = "fa-solid fa-volume-xmark text-xs sm:text-sm";
+                icon.className = 'fa-solid fa-volume-xmark text-[11px] sm:text-xs';
             } else {
-                icon.className = "fa-solid fa-volume-high text-xs sm:text-sm";
+                icon.className = 'fa-solid fa-volume-high text-[11px] sm:text-xs';
+                initAudio();
             }
         }
 
@@ -978,6 +979,7 @@
         function closePreloadModal() {
             Sound.playTap();
             document.getElementById('modal-preload').classList.add('hidden');
+            document.getElementById('screen-home').classList.remove('hidden');
         }
 
         function openCollocationGuide() {
@@ -1199,7 +1201,6 @@
 
                         <div class="space-y-2 sm:space-y-3 shrink-0">
                             ${randomizedChoices.map(choice => {
-                                // Escaping double quotes safely for data attribute compliance
                                 const safeChoice = choice.replace(/"/g, '&quot;');
                                 return `
                                     <button onclick="submitAnswer(this)" data-choice="${safeChoice}" class="choice-btn btn-tactile w-full py-2 sm:py-2.5 px-3 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-black text-[#121110] text-left flex justify-between items-center transition">
@@ -1219,7 +1220,6 @@
             try {
                 if (!state.canAnswer) return;
                 
-                // Fetching choice directly from data attribute instead of fragile innerText
                 const ans = btn.getAttribute('data-choice');
                 if (!ans) return;
 
