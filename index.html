@@ -1,1 +1,1995 @@
-Hello
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>INTER 2 - Teacher Fernando</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121110;
+        }
+        .title-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        /* Custom scrollbar matching the clean theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1ede4;
+            border-left: 2px solid #121110;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0052cc;
+            border: 2px solid #121110;
+            border-radius: 4px;
+        }
+        /* Smooth shake for mistakes */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
+        }
+        .animate-shake {
+            animation: shake 0.2s ease-in-out 2;
+        }
+        /* Card Flip animation for visual memory game */
+        .perspective {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        .flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+            border: 2px solid #121110;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        /* Interactive Tactile Button transitions */
+        .btn-tactile {
+            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-tactile:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px 0px #121110 !important;
+        }
+
+        /* DYNAMIC VIEWPORT HEIGHT ADAPTATIONS - ELIMINATING VERTICAL SCROLLS */
+        @media (max-width: 640px) {
+            body {
+                overflow: hidden !important; /* Lock background scroll completely on mobile */
+            }
+        }
+
+        @media (max-height: 840px) {
+            .btn-tactile {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+            #screen-home {
+                padding: 1rem !important;
+            }
+            #screen-home h1 {
+                font-size: 1.25rem !important;
+                line-height: 1.5rem !important;
+            }
+            #screen-home h2 {
+                margin-bottom: 0.25rem !important;
+            }
+            #screen-home .grid {
+                gap: 0.5rem !important;
+            }
+            #screen-home button {
+                min-height: 85px !important;
+                padding: 0.5rem 0.75rem !important;
+            }
+            #screen-home button.col-span-2 {
+                min-height: 60px !important;
+            }
+            #screen-extras {
+                padding: 1rem !important;
+            }
+            #screen-extras h2 {
+                font-size: 1.25rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+            #screen-extras .space-y-4 {
+                gap: 0.5rem !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            #screen-extras .space-y-4 > div {
+                padding: 0.75rem !important;
+                margin-bottom: 0px !important;
+            }
+            .choice-btn {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                border-radius: 0.75rem !important;
+            }
+            #arena-career-climber, #arena-tense-rush, #arena-flash-match {
+                padding: 0.75rem !important;
+            }
+            #match-cards-grid div {
+                height: 70px !important;
+            }
+            #climber-word {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        @media (max-height: 720px) {
+            .btn-tactile {
+                padding-top: 0.4rem !important;
+                padding-bottom: 0.4rem !important;
+            }
+            #screen-home {
+                padding: 0.75rem !important;
+            }
+            #screen-home .mb-5 {
+                margin-bottom: 0.5rem !important;
+            }
+            #screen-home .mb-4 {
+                margin-bottom: 0.25rem !important;
+            }
+            #screen-home button {
+                min-height: 70px !important;
+                padding: 0.4rem 0.6rem !important;
+            }
+            #screen-home button.col-span-2 {
+                min-height: 54px !important;
+            }
+            #screen-home .space-y-5 {
+                gap: 0.4rem !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            #screen-home .space-y-5 > div {
+                margin-bottom: 0px !important;
+            }
+            #screen-home h2 {
+                font-size: 10px !important;
+                margin-bottom: 0.15rem !important;
+            }
+            #screen-extras {
+                padding: 0.75rem !important;
+            }
+            #screen-extras p {
+                margin-bottom: 0.5rem !important;
+            }
+            #match-cards-grid div {
+                height: 55px !important;
+            }
+            #match-cards-grid .flip-card-back {
+                font-size: 8px !important;
+                padding: 0.25rem !important;
+            }
+            #climber-word {
+                font-size: 1.25rem !important;
+            }
+            #feedback-sheet {
+                padding: 0.75rem !important;
+            }
+            #feedback-explanation {
+                padding: 0.5rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-0 sm:p-4 overflow-y-auto sm:overflow-hidden select-none">
+
+    <div class="w-full max-w-[420px] h-[100dvh] sm:h-[860px] sm:max-h-[95vh] sm:my-auto sm:rounded-[32px] bg-[#faf9f6] text-[#121110] shadow-2xl flex flex-col relative border-0 sm:border-[10px] border-[#121110] overflow-hidden shrink-0">
+        
+        <!-- App Status Bar / Header -->
+        <div class="bg-[#121110] px-6 pt-4 pb-3.5 flex justify-between items-center text-xs text-[#faf9f6] border-b-2 border-[#121110] shrink-0">
+            <span class="font-extrabold tracking-wider title-font flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#ffb900]"></span>
+                INTER 2 - Teacher Fernando
+            </span>
+            <div class="flex items-center gap-4">
+                <button id="soundToggleBtn" onclick="toggleMute()" class="hover:text-[#ffb900] transition duration-200">
+                    <i id="soundIcon" class="fa-solid fa-volume-high text-sm"></i>
+                </button>
+                <span class="text-[10px] font-bold tracking-widest bg-[#0052cc] text-white px-2 py-0.5 rounded border border-white/20">BIMESTER 2</span>
+            </div>
+        </div>
+
+        <!-- Tab Switcher (Dynamically hidden during active exercises) -->
+        <div id="app-tab-switcher" class="bg-[#f0ede4] border-b-2 border-[#121110] grid grid-cols-2 text-center text-xs font-bold shrink-0">
+            <button id="tab-study-btn" onclick="switchTab('study')" class="py-4 border-r-2 border-[#121110] bg-white text-[#121110] flex items-center justify-center gap-2 transition-all">
+                <i class="fa-solid fa-graduation-cap text-[#0052cc]"></i> Study Hub
+            </button>
+            <button id="tab-extras-btn" onclick="switchTab('extras')" class="py-4 text-[#121110] hover:bg-white/50 flex items-center justify-center gap-2 transition-all">
+                <i class="fa-solid fa-dice text-[#ffb900]"></i> Extras & Games
+            </button>
+        </div>
+
+        <!-- SCREEN 1: STUDY HUB MENU (Clean Grid Dashboard Layout) -->
+        <div id="screen-home" class="flex-1 flex flex-col p-5 overflow-y-auto bg-[#faf9f6]">
+            
+            <div class="text-center my-1.5 shrink-0">
+                <span class="bg-[#ffb900]/15 text-[#b38000] text-[9px] font-extrabold px-3 py-1 rounded-full border-2 border-[#ffb900]/40 uppercase tracking-widest title-font">
+                    <i class="fa-solid fa-star mr-1"></i> Interactive Syllabus
+                </span>
+            </div>
+            
+            <div class="text-center mb-4 shrink-0">
+                <h1 class="text-2xl font-black tracking-tight title-font text-[#121110]">
+                    Activity Hub
+                </h1>
+                <p class="text-[11px] text-[#55504a] mt-1 font-medium">Select a direct practice module to complete 10 random questions.</p>
+            </div>
+
+            <!-- Dashboard Progress Bar Card -->
+            <div class="bg-white rounded-2xl p-3.5 mb-5 border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] shrink-0">
+                <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-[10px] font-bold text-[#121110] uppercase tracking-wider">Overall Completion</span>
+                    <span id="overallProgressText" class="text-xs font-black text-[#0052cc]">0%</span>
+                </div>
+                <div class="w-full bg-[#f0ede4] rounded-full h-3 overflow-hidden p-[1.5px] border-2 border-[#121110]">
+                    <div id="overallProgressBar" class="bg-[#0052cc] h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Grid-Based Navigation Modules Menu -->
+            <div class="flex-1 space-y-5">
+                
+                <!-- Unit 3: Healthy Planet Container -->
+                <div>
+                    <h2 class="text-[11px] font-black text-[#121110] uppercase tracking-widest mb-2.5 flex items-center gap-2 px-1">
+                        <span class="w-2.5 h-4 bg-[#0052cc] border border-[#121110] rounded-sm"></span>
+                        Unit 3: Healthy Planet
+                    </h2>
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Module: Environmental Problems -->
+                        <button onclick="openPreloadModal('environment')" class="btn-tactile text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[110px]">
+                            <div class="flex justify-between items-start w-full">
+                                <div class="w-8 h-8 rounded-xl bg-[#ffb900]/20 text-[#121110] border border-[#121110] flex items-center justify-center text-sm font-bold">
+                                    <i class="fa-solid fa-seedling text-[#0052cc]"></i>
+                                </div>
+                                <span id="badge-environment" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black">0%</span>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Environmental Problems</h3>
+                            </div>
+                        </button>
+
+                        <!-- Module: Nature Idioms -->
+                        <button onclick="openPreloadModal('idioms')" class="btn-tactile text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[110px]">
+                            <div class="flex justify-between items-start w-full">
+                                <div class="w-8 h-8 rounded-xl bg-[#ffb900]/20 text-[#121110] border border-[#121110] flex items-center justify-center text-sm font-bold">
+                                    <i class="fa-solid fa-cloud-sun text-[#ffb900]"></i>
+                                </div>
+                                <span id="badge-idioms" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black">0%</span>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Nature Idioms</h3>
+                            </div>
+                        </button>
+
+                        <!-- Module: Future Progressive vs Future Perfect -->
+                        <button onclick="openPreloadModal('grammarFuture')" class="btn-tactile col-span-2 text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex items-center gap-4 group min-h-[74px]">
+                            <div class="w-9 h-9 rounded-xl bg-[#0052cc]/10 text-[#0052cc] border border-[#121110] flex items-center justify-center text-base font-bold shrink-0">
+                                <i class="fa-solid fa-angles-right"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Future Progressive vs Future Perfect</h3>
+                                    <span id="badge-grammarFuture" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black shrink-0 ml-2">0%</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Unit 4: Career Paths Container -->
+                <div>
+                    <h2 class="text-[11px] font-black text-[#121110] uppercase tracking-widest mb-2.5 flex items-center gap-2 px-1">
+                        <span class="w-2.5 h-4 bg-[#ffb900] border border-[#121110] rounded-sm"></span>
+                        Unit 4: Career Paths
+                    </h2>
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Module: Career Vocabulary -->
+                        <button onclick="openPreloadModal('careers')" class="btn-tactile text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[110px]">
+                            <div class="flex justify-between items-start w-full">
+                                <div class="w-8 h-8 rounded-xl bg-[#0052cc]/10 text-[#0052cc] border border-[#121110] flex items-center justify-center text-sm font-bold">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                </div>
+                                <span id="badge-careers" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black">0%</span>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Career Vocabulary</h3>
+                            </div>
+                        </button>
+
+                        <!-- Module: Work, Job or Career Combinations -->
+                        <button onclick="openPreloadModal('sorter')" class="btn-tactile text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[110px]">
+                            <div class="flex justify-between items-start w-full">
+                                <div class="w-8 h-8 rounded-xl bg-[#ffb900]/20 text-[#121110] border border-[#121110] flex items-center justify-center text-sm font-bold">
+                                    <i class="fa-solid fa-layer-group text-[#0052cc]"></i>
+                                </div>
+                                <span id="badge-sorter" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black">0%</span>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Work, Job or Career Combinations</h3>
+                            </div>
+                        </button>
+
+                        <!-- Module: Past Perfect Progressive vs Present Perfect Progressive -->
+                        <button onclick="openPreloadModal('grammarPerfect')" class="btn-tactile col-span-2 text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex items-center gap-4 group min-h-[74px]">
+                            <div class="w-9 h-9 rounded-xl bg-[#ffb900]/20 text-[#ffb900] border border-[#121110] flex items-center justify-center text-base font-bold shrink-0">
+                                <i class="fa-solid fa-clock-rotate-left text-[#121110]"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Past Perfect Progressive vs Present Perfect Progressive</h3>
+                                    <span id="badge-grammarPerfect" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black shrink-0 ml-2">0%</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Buttons -->
+            <div class="mt-6 flex gap-3 shrink-0">
+                <button onclick="openCollocationGuide()" class="btn-tactile flex-1 py-3 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-center text-xs text-white font-extrabold flex items-center justify-center gap-2 transition duration-200">
+                    <i class="fa-solid fa-circle-info"></i> Collocation Guide
+                </button>
+                <button id="reset-progress-btn" onclick="triggerResetProgress()" class="btn-tactile px-3.5 bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[#121110] hover:text-[#ff0000] transition duration-200 text-xs flex items-center justify-center">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: EXTRAS & MINI GAMES -->
+        <div id="screen-extras" class="hidden flex-1 flex flex-col p-5 overflow-y-auto bg-[#faf9f6]">
+            <div class="text-center mb-5 shrink-0">
+                <h2 class="text-2xl font-black title-font text-[#121110] tracking-tight">
+                    Study Arcade
+                </h2>
+                <p class="text-[11px] text-[#55504a] mt-1 font-medium">Practice with fast-paced educational mini-games to boost recall speed!</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Mini Game 1: Tense Rush -->
+                <div class="bg-white border-2 border-[#121110] shadow-[4px_4px_0px_0px_rgba(18,17,16,1)] rounded-2xl p-5 relative overflow-hidden group">
+                    <span class="bg-[#0052cc]/10 text-[#0052cc] text-[9px] font-black tracking-widest px-2.5 py-1 rounded border border-[#0052cc] uppercase title-font">
+                        Grammar Speedrun
+                    </span>
+                    <h3 class="text-base font-black text-[#121110] mt-3 mb-1">Tense Rush</h3>
+                    <p class="text-[11px] text-[#55504a] mb-4">You have 30 seconds to match as many random tense conjugations as possible.</p>
+                    <button onclick="startTenseRush()" class="btn-tactile w-full py-2.5 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition">
+                        Play Speedrun
+                    </button>
+                </div>
+
+                <!-- Mini Game 2: Flash Match -->
+                <div class="bg-white border-2 border-[#121110] shadow-[4px_4px_0px_0px_rgba(18,17,16,1)] rounded-2xl p-5 relative overflow-hidden group">
+                    <span class="bg-[#ffb900]/20 text-[#121110] text-[9px] font-black tracking-widest px-2.5 py-1 rounded border border-[#121110] uppercase title-font">
+                        Memory Flip
+                    </span>
+                    <h3 class="text-base font-black text-[#121110] mt-3 mb-1">Idiom Flip Match</h3>
+                    <p class="text-[11px] text-[#55504a] mb-4">Flip minimalist cards to pair nature idioms with their corresponding dictionary definitions.</p>
+                    <button onclick="startFlashMatch()" class="btn-tactile w-full py-2.5 bg-[#ffb900] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase tracking-wider rounded-xl transition">
+                        Launch Flip Match
+                    </button>
+                </div>
+
+                <!-- Mini Game 3: Career Climber -->
+                <div class="bg-white border-2 border-[#121110] shadow-[4px_4px_0px_0px_rgba(18,17,16,1)] rounded-2xl p-5 relative overflow-hidden group">
+                    <span class="bg-[#ffb900]/20 text-[#121110] text-[9px] font-black tracking-widest px-2.5 py-1 rounded border border-[#121110] uppercase title-font">
+                        Career Path
+                    </span>
+                    <h3 class="text-base font-black text-[#121110] mt-3 mb-1">Career Climber</h3>
+                    <p class="text-[11px] text-[#55504a] mb-4">Complete collocation equations correctly to climb up from Intern to Chief Executive Officer!</p>
+                    <button onclick="startCareerClimber()" class="btn-tactile w-full py-2.5 bg-[#ffb900] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase tracking-wider rounded-xl transition">
+                        Start Climbing
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXTRA GAME ARENA: TENSE RUSH -->
+        <div id="arena-tense-rush" class="hidden absolute inset-0 bg-[#faf9f6] z-40 flex flex-col p-5">
+            <div class="flex justify-between items-center mb-4 shrink-0">
+                <span class="bg-[#0052cc] text-white text-[9px] font-black tracking-widest px-2.5 py-1 rounded border border-[#121110] uppercase">Speedrun Mode</span>
+                <button onclick="quitExtras()" class="btn-tactile text-xs text-[#121110] font-bold py-1.5 px-3 bg-[#f0ede4] border-2 border-[#121110] rounded-lg">Quit</button>
+            </div>
+            <!-- Header stats -->
+            <div class="grid grid-cols-3 gap-2 text-center mb-5 shrink-0">
+                <div class="bg-white p-2 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                    <span class="text-[9px] text-[#55504a] uppercase block font-bold">Timer</span>
+                    <span id="rush-timer" class="text-sm font-black text-[#0052cc]">30s</span>
+                </div>
+                <div class="bg-white p-2 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                    <span class="text-[9px] text-[#55504a] uppercase block font-bold">Score</span>
+                    <span id="rush-score" class="text-sm font-black text-[#121110]">0</span>
+                </div>
+                <div class="bg-white p-2 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                    <span class="text-[9px] text-[#55504a] uppercase block font-bold">Streak</span>
+                    <span id="rush-combo" class="text-sm font-black text-[#ffb900]">0x</span>
+                </div>
+            </div>
+            <!-- Arena card display -->
+            <div class="flex-1 bg-white border-2 border-[#121110] rounded-2xl p-5 flex flex-col justify-between overflow-y-auto mb-6 shadow-[3px_3px_0px_0px_rgba(18,17,16,1)]">
+                <div class="my-auto text-center">
+                    <p id="rush-question-text" class="text-sm font-black text-[#121110] leading-relaxed">Preparing game...</p>
+                </div>
+                <div id="rush-choices-container" class="space-y-2 mt-4 shrink-0">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- EXTRA GAME ARENA: FLASH MATCH (MEMORY MATCH) -->
+        <div id="arena-flash-match" class="hidden absolute inset-0 bg-[#faf9f6] z-40 flex flex-col p-5 overflow-hidden">
+            <div class="flex justify-between items-center mb-4 shrink-0">
+                <span class="bg-[#ffb900] text-[#121110] text-[9px] font-black tracking-widest px-2.5 py-1 rounded border border-[#121110] uppercase">Idiom Memory Match</span>
+                <button onclick="quitExtras()" class="btn-tactile text-xs text-[#121110] font-bold py-1.5 px-3 bg-[#f0ede4] border-2 border-[#121110] rounded-lg">Quit</button>
+            </div>
+            <!-- Header stats -->
+            <div class="grid grid-cols-2 gap-3 text-center mb-5 shrink-0">
+                <div class="bg-white p-2.5 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                    <span class="text-[9px] text-[#55504a] uppercase block font-bold">Total Moves</span>
+                    <span id="match-moves-count" class="text-sm font-black text-[#0052cc]">0</span>
+                </div>
+                <div class="bg-white p-2.5 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                    <span class="text-[9px] text-[#55504a] uppercase block font-bold">Matched Pairs</span>
+                    <span id="match-pairs-count" class="text-sm font-black text-[#ffb900]">0/4</span>
+                </div>
+            </div>
+            <!-- Grid Container for memory items -->
+            <div id="match-cards-grid" class="flex-1 grid grid-cols-2 gap-2.5 overflow-y-auto mb-2">
+                <!-- Loaded dynamically -->
+            </div>
+        </div>
+
+        <!-- EXTRA GAME ARENA: CAREER CLIMBER -->
+        <div id="arena-career-climber" class="hidden absolute inset-0 bg-[#faf9f6] z-40 flex flex-col p-5">
+            <div class="flex justify-between items-center mb-4 shrink-0">
+                <span class="bg-[#ffb900] text-[#121110] text-[9px] font-black tracking-widest px-2.5 py-1 rounded border border-[#121110] uppercase">Hierarchy Climber</span>
+                <button onclick="quitExtras()" class="btn-tactile text-xs text-[#121110] font-bold py-1.5 px-3 bg-[#f0ede4] border-2 border-[#121110] rounded-lg">Quit</button>
+            </div>
+            <!-- Header stats -->
+            <div class="grid grid-cols-2 gap-3 text-center mb-4 shrink-0">
+                <div class="bg-white p-2 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                    <span class="text-[9px] text-[#55504a] uppercase block font-bold">Streak</span>
+                    <span id="climber-streak" class="text-sm font-black text-[#0052cc]">0</span>
+                </div>
+                <div class="bg-white p-2 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                    <span class="text-[9px] text-[#55504a] uppercase block font-bold">Current Rank</span>
+                    <span id="climber-rank" class="text-sm font-black text-[#ffb900] font-mono">INTERN</span>
+                </div>
+            </div>
+            <!-- Visual career step ladder representation -->
+            <div class="grid grid-cols-4 gap-1.5 mb-4 shrink-0 text-[9px] font-bold">
+                <div id="climber-v-ceo" class="w-full text-center py-1.5 border border-[#121110] bg-[#f0ede4] text-[#121110] rounded">CEO</div>
+                <div id="climber-v-manager" class="w-full text-center py-1.5 border border-[#121110] bg-[#f0ede4] text-[#121110] rounded">MANAGER</div>
+                <div id="climber-v-associate" class="w-full text-center py-1.5 border border-[#121110] bg-[#f0ede4] text-[#121110] rounded">ASSOCIATE</div>
+                <div id="climber-v-intern" class="w-full text-center py-1.5 border border-[#121110] bg-[#f0ede4] text-[#121110] rounded">INTERN</div>
+            </div>
+            <!-- Active step match card -->
+            <div class="flex-1 bg-white border-2 border-[#121110] rounded-2xl p-5 flex flex-col justify-between overflow-y-auto mb-6 shadow-[3px_3px_0px_0px_rgba(18,17,16,1)]">
+                <div class="my-auto text-center">
+                    <span class="text-[10px] text-[#0052cc] uppercase tracking-widest font-black block mb-1">Pair this Adjective correctly:</span>
+                    <h4 id="climber-word" class="text-3xl font-black text-[#121110] tracking-wide title-font font-mono">Academic</h4>
+                </div>
+                <div class="space-y-2 mt-4 shrink-0">
+                    <button onclick="submitClimberAnswer('Career')" class="btn-tactile w-full py-3 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold rounded-xl transition">
+                        + CAREER
+                    </button>
+                    <button onclick="submitClimberAnswer('Work')" class="btn-tactile w-full py-3 bg-[#ffb900] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold rounded-xl transition">
+                        + WORK
+                    </button>
+                    <button onclick="submitClimberAnswer('Job')" class="btn-tactile w-full py-3 bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold rounded-xl transition">
+                        + JOB
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTEGRATED PRELOAD / PRE-ACTIVITY MODAL (Ivory Aesthetic) -->
+        <div id="modal-preload" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-45 flex flex-col justify-center items-center p-6 text-center">
+            <div id="preload-icon" class="w-16 h-16 rounded-2xl bg-[#ffb900]/20 text-[#121110] border-2 border-[#121110] flex items-center justify-center text-3xl mb-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] shrink-0">
+                <i class="fa-solid fa-book"></i>
+            </div>
+            
+            <h2 id="preload-module-title" class="text-2xl font-black text-[#121110] title-font mb-1 shrink-0">Module Name</h2>
+            <p id="preload-module-desc" class="text-[11px] text-[#55504a] max-w-xs mb-5 shrink-0">Learn more about this segment through interactive practice sessions.</p>
+            
+            <!-- Dynamic Mode / Action Selection Panel -->
+            <div class="w-full max-w-xs space-y-3 mb-6 shrink-0" id="mode-selection-panel">
+                <span id="mode-panel-title" class="text-[#55504a] text-[10px] font-bold uppercase tracking-wider block mb-1">Select Practice Mode:</span>
+                
+                <div id="dynamic-preload-choices" class="space-y-2.5">
+                    <!-- Dynamic button injection depending on module type -->
+                </div>
+            </div>
+
+            <!-- Preload Info Helper (Dynamically shows context summaries) -->
+            <div id="preload-hints" class="bg-white border-2 border-[#121110] p-4 rounded-xl text-[11px] text-[#55504a] text-left max-w-xs w-full mb-6 overflow-y-auto shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                <!-- Content injected dynamically -->
+            </div>
+
+            <!-- Start/Cancel triggers -->
+            <div class="w-full max-w-xs shrink-0 flex gap-3">
+                <button onclick="closePreloadModal()" class="btn-tactile flex-1 py-3 bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase rounded-xl transition">
+                    Back
+                </button>
+            </div>
+        </div>
+
+        <!-- CAREER / JOB / WORK EXPLANATION SHEET (MODAL) -->
+        <div id="modal-guide" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-50 flex flex-col p-6 overflow-y-auto">
+            <div class="flex justify-between items-center mb-6 shrink-0">
+                <h3 class="text-xl font-black text-[#121110] title-font flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#0052cc]"></span>
+                    Collocation Guide
+                </h3>
+                <button onclick="closeCollocationGuide()" class="btn-tactile text-[#121110] bg-[#f0ede4] border-2 border-[#121110] p-2 rounded-xl text-sm transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4 text-xs leading-relaxed text-[#55504a] font-medium font-sans">
+                <!-- Careers -->
+                <div class="bg-white border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-6 h-6 rounded border border-[#121110] bg-[#0052cc] text-white flex items-center justify-center font-bold">C</span>
+                        <h4 class="font-extrabold text-[#121110] text-sm">CAREER</h4>
+                    </div>
+                    <p class="mb-2 text-[#55504a]">The professional pathway or total journey of work done over a lifetime. Focused on credentials and promotions.</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">academic career</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">distinguished career</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">professional career</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">promising career</span>
+                    </div>
+                </div>
+
+                <!-- Work -->
+                <div class="bg-white border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-6 h-6 rounded border border-[#121110] bg-[#ffb900] text-[#121110] flex items-center justify-center font-bold">W</span>
+                        <h4 class="font-extrabold text-[#121110] text-sm">WORK</h4>
+                    </div>
+                    <p class="mb-2 text-[#55504a]">The overall effort, physical or intellectual activity. Can be paid, voluntary, or simple homework.</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">extensive work</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">physical work</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">rewarding work</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">unpaid work</span>
+                    </div>
+                </div>
+
+                <!-- Job -->
+                <div class="bg-white border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-6 h-6 rounded border border-[#121110] bg-white text-[#121110] flex items-center justify-center font-bold">J</span>
+                        <h4 class="font-extrabold text-[#121110] text-sm">JOB</h4>
+                    </div>
+                    <p class="mb-2 text-[#55504a]">A specific professional position or role held inside an organization, done strictly in exchange for money.</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">decent job</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">dead-end job</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">ideal job</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">steady job</span>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeCollocationGuide()" class="btn-tactile mt-6 w-full py-3.5 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white font-bold text-xs uppercase rounded-xl transition shrink-0">
+                Understood!
+            </button>
+        </div>
+
+        <!-- GENERAL SCREEN CONTAINER FOR ACTIVE TASKS -->
+        <div id="screen-activity" class="hidden flex-1 flex flex-col overflow-hidden relative bg-[#faf9f6]">
+            
+            <!-- Dynamic Activity Header -->
+            <div class="bg-white px-5 py-4 border-b-2 border-[#121110] flex items-center justify-between shrink-0">
+                <button onclick="returnToHome()" class="btn-tactile text-[#121110] flex items-center gap-1.5 text-xs font-bold py-1.5 px-3 bg-[#f0ede4] border-2 border-[#121110] rounded-lg transition shrink-0">
+                    <i class="fa-solid fa-arrow-left"></i> Home
+                </button>
+                <div class="text-center flex-1 mx-2 min-w-0">
+                    <span id="activity-title" class="text-[10px] font-black tracking-wider text-[#121110] uppercase font-mono block truncate">Module</span>
+                </div>
+                <!-- Mini Progress Tracker -->
+                <div class="text-right text-xs font-bold text-[#0052cc] shrink-0 min-w-[55px] whitespace-nowrap">
+                    <span id="header-progress">0/10</span>
+                </div>
+            </div>
+
+            <div class="w-full bg-[#f0ede4] h-2 shrink-0 border-b-2 border-[#121110]">
+                <div id="activeProgressBar" class="bg-[#0052cc] h-full w-0 transition-all duration-300"></div>
+            </div>
+
+            <!-- Inner Display Box for Content -->
+            <div id="activity-content" class="flex-1 overflow-y-auto p-5 flex flex-col justify-between">
+                <!-- Content gets dynamically inserted here -->
+            </div>
+
+            <!-- Feedback Overlay (Enhanced contrast layout to match image reference guidelines) -->
+            <div id="feedback-sheet" class="absolute bottom-0 left-0 right-0 transform translate-y-full bg-white border-t-4 border-[#121110] p-6 transition-transform duration-300 z-50 flex flex-col shadow-[0_-8px_30px_rgba(18,17,16,0.3)] shrink-0">
+                <div class="flex items-center gap-4 mb-4">
+                    <div id="feedback-icon-container" class="w-12 h-12 rounded-full border-2 border-[#121110] flex items-center justify-center text-2xl shrink-0">
+                        <!-- Icon injected here -->
+                    </div>
+                    <div>
+                        <h4 id="feedback-title" class="font-black text-lg text-[#121110] title-font">Correct Answer!</h4>
+                    </div>
+                </div>
+                <div id="feedback-explanation" class="text-xs text-[#55504a] bg-[#f0ede4] p-4 rounded-xl border-2 border-[#121110] mb-5 leading-relaxed font-bold">
+                    <!-- Correct explanation details go here -->
+                </div>
+                <button id="feedback-action-btn" class="btn-tactile w-full py-4 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-extrabold uppercase tracking-widest rounded-xl transition shrink-0">
+                    Next Question
+                </button>
+            </div>
+        </div>
+
+        <!-- SUCCESS MODAL SCREEN (Finished Practice Rounds) -->
+        <div id="completion-screen" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-50 flex flex-col justify-center items-center p-8 text-center">
+            <div class="w-24 h-24 bg-[#ffb900]/20 border-4 border-[#121110] rounded-full flex items-center justify-center text-[#121110] text-4xl shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] mb-6 shrink-0">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            
+            <span class="bg-[#0052cc]/10 text-[#0052cc] text-xs font-black px-3.5 py-1.5 rounded border-2 border-[#0052cc] tracking-widest uppercase mb-3 shrink-0 title-font">
+                Practice Complete!
+            </span>
+            
+            <h2 id="complete-module-name" class="text-xl font-black mb-1 text-[#121110] shrink-0 max-w-xs leading-snug">
+                Nature Idioms
+            </h2>
+            
+            <p class="text-[11px] text-[#55504a] max-w-xs mb-8 shrink-0 font-medium">
+                You have successfully completed this practice round. Replay again to get completely fresh questions!
+            </p>
+
+            <!-- Interactive Scoreboard Card -->
+            <div class="bg-white rounded-2xl p-6 border-2 border-[#121110] shadow-[4px_4px_0px_0px_rgba(18,17,16,1)] w-full max-w-xs mb-8 shrink-0">
+                <div class="grid grid-cols-2 gap-4 divide-x-2 divide-[#121110]">
+                    <div>
+                        <span class="text-[#55504a] text-[10px] font-bold uppercase tracking-widest">Final Score</span>
+                        <div class="text-xl font-black text-[#0052cc] mt-1" id="complete-score">10/10</div>
+                    </div>
+                    <div>
+                        <span class="text-[#55504a] text-[10px] font-bold uppercase tracking-widest">Accuracy</span>
+                        <div class="text-xl font-black text-[#121110] mt-1" id="complete-accuracy">100%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Actions -->
+            <div class="w-full max-w-xs space-y-3 shrink-0">
+                <button onclick="returnToHome()" class="btn-tactile w-full py-3.5 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition">
+                    Keep Learning
+                </button>
+                <button id="complete-retry-btn" class="btn-tactile w-full py-3.5 bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase tracking-wider rounded-xl transition">
+                    Practice Again
+                </button>
+            </div>
+        </div>
+
+        <!-- CUSTOM GLOBAL DIALOG: ALERT (Minimalist Dialog) -->
+        <div id="custom-alert-overlay" class="hidden absolute inset-0 bg-[#121110]/80 z-55 flex flex-col justify-center items-center p-6 text-center">
+            <div class="bg-[#faf9f6] border-4 border-[#121110] rounded-2xl p-6 w-full max-w-xs shadow-[6px_6px_0px_0px_rgba(18,17,16,1)]">
+                <div class="w-12 h-12 rounded-full bg-[#0052cc]/10 border-2 border-[#121110] text-[#0052cc] flex items-center justify-center text-xl mx-auto mb-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <h3 id="custom-alert-title" class="font-black text-[#121110] text-lg mb-2">Title</h3>
+                <p id="custom-alert-text" class="text-xs text-[#55504a] font-semibold leading-relaxed mb-6">Explanation detail contents.</p>
+                <button onclick="dismissCustomAlert()" class="btn-tactile w-full py-2.5 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold uppercase rounded-xl transition">
+                    Okay
+                </button>
+            </div>
+        </div>
+
+        <!-- CUSTOM GLOBAL DIALOG: CONFIRM -->
+        <div id="custom-confirm-overlay" class="hidden absolute inset-0 bg-[#121110]/80 z-55 flex flex-col justify-center items-center p-6 text-center">
+            <div class="bg-[#faf9f6] border-4 border-[#121110] rounded-2xl p-6 w-full max-w-xs shadow-[6px_6px_0px_0px_rgba(18,17,16,1)]">
+                <div class="w-12 h-12 rounded-full bg-[#ffb900]/20 border-2 border-[#121110] text-[#121110] flex items-center justify-center text-xl mx-auto mb-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+                    <i class="fa-solid fa-triangle-exclamation text-[#ffb900]"></i>
+                </div>
+                <h3 class="font-black text-[#121110] text-base mb-2">Are you sure?</h3>
+                <p id="custom-confirm-text" class="text-xs text-[#55504a] font-semibold leading-relaxed mb-6">Action confirmation detail.</p>
+                <div class="flex gap-3">
+                    <button onclick="dismissCustomConfirm(false)" class="btn-tactile flex-1 py-2.5 bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase rounded-xl transition">
+                        Cancel
+                    </button>
+                    <button onclick="dismissCustomConfirm(true)" class="btn-tactile flex-1 py-2.5 bg-[#ffb900] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase rounded-xl transition">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Centralized Shuffling Utility Function - Ensure EXACTLY one sorting algorithm across the whole system
+        function shuffleArray(arr) {
+            const newArr = [...arr];
+            for (let i = newArr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+            }
+            return newArr;
+        }
+
+        function quitExtras() {
+            Sound.playTap();
+            
+            // Stop any active speedrun timers safely
+            if (state.tenseRush.timerId) {
+                clearInterval(state.tenseRush.timerId);
+                state.tenseRush.timerId = null;
+            }
+            state.tenseRush.isActive = false;
+
+            // Hide all mini-game arenas
+            document.getElementById('arena-tense-rush').classList.add('hidden');
+            document.getElementById('arena-flash-match').classList.add('hidden');
+            document.getElementById('arena-career-climber').classList.add('hidden');
+
+            // Restore primary navigation & tabs
+            document.getElementById('screen-extras').classList.remove('hidden');
+            document.getElementById('app-tab-switcher').classList.remove('hidden');
+        }
+
+        const EXPLICIT_DATA = {
+            // Nature Idioms (Curated Contexts B1/B1+ Level) - 50 Sentence Context Questions
+            idioms: [
+                { id: 1, sentence: "Even when the whole class is stressed about final exams, Sarah is always smiling and joking; she is truly a ________.", choices: ["neck of the woods", "ray of sunshine", "drop in the ocean", "tip of the iceberg"], correct: "ray of sunshine" },
+                { id: 2, sentence: "I was surprised to see you at the local skate park yesterday! I didn't know you lived in this ________.", choices: ["under the weather", "neck of the woods", "down to earth", "in deep water"], correct: "neck of the woods" },
+                { id: 3, sentence: "I woke up with a bad headache and a sore throat. I'm feeling a bit ________ today.", choices: ["down to earth", "under the weather", "in deep water", "ray of sunshine"], correct: "under the weather" },
+                { id: 4, sentence: "I tried to help the environment by not using one plastic straw, but compared to all the plastic in the sea, it is just ________.", choices: ["ray of sunshine", "drop in the ocean", "tip of the iceberg", "down to earth"], correct: "drop in the ocean" },
+                { id: 5, sentence: "Even though she is very famous and has many fans, she is practical, humble, and friendly. She is incredibly ________.", choices: ["under the weather", "in deep water", "down to earth", "tip of the iceberg"], correct: "down to earth" },
+                { id: 6, sentence: "I forgot to study for the test and I lost my teacher's book. If I don't find a solution fast, I'm going to be ________.", choices: ["under the weather", "in deep water", "neck of the woods", "ray of sunshine"], correct: "in deep water" },
+                { id: 7, sentence: "The broken window is just the starting point of our problems; the whole house needs repairs! That is only ________.", choices: ["drop in the ocean", "neck of the woods", "tip of the iceberg", "under the weather"], correct: "tip of the iceberg" },
+                { id: 8, sentence: "Whenever we visit my grandmother, she brings us homemade cookies; she is a real ________ in our lives.", choices: ["ray of sunshine", "neck of the woods", "drop in the ocean", "down to earth"], correct: "ray of sunshine" },
+                { id: 9, sentence: "Our team raised ten dollars for the global charity, but that is just a ________ compared to the millions needed.", choices: ["tip of the iceberg", "drop in the ocean", "neck of the woods", "ray of sunshine"], correct: "drop in the ocean" },
+                { id: 10, sentence: "The company lost a few files, but they soon realized that small issue was just the ________ of a massive server failure.", choices: ["tip of the iceberg", "in deep water", "under the weather", "drop in the ocean"], correct: "tip of the iceberg" },
+                { id: 11, sentence: "Paul decided to start a company, but without any money or plan, he realized he was ________.", choices: ["in deep water", "down to earth", "ray of sunshine", "neck of the woods"], correct: "in deep water" },
+                { id: 12, sentence: "We haven't seen you around here lately! Are you still living in this ________?", choices: ["under the weather", "neck of the woods", "drop in the ocean", "down to earth"], correct: "neck of the woods" },
+                { id: 13, sentence: "Because of the sudden flu outbreak, half of our school classes are feeling ________ today.", choices: ["down to earth", "under the weather", "ray of sunshine", "in deep water"], correct: "under the weather" },
+                { id: 14, sentence: "Our new science teacher is incredibly ________; she explains difficult space rules in a simple way.", choices: ["down to earth", "ray of sunshine", "under the weather", "tip of the iceberg"], correct: "down to earth" },
+                { id: 15, sentence: "Writing one email to the director won't change the decision; it feels like a ________.", choices: ["drop in the ocean", "neck of the woods", "tip of the iceberg", "ray of sunshine"], correct: "drop in the ocean" },
+                { id: 16, sentence: "The dirty beach we saw today is unfortunately only the ________ of the world's plastic pollution problem.", choices: ["tip of the iceberg", "drop in the ocean", "under the weather", "down to earth"], correct: "tip of the iceberg" },
+                { id: 17, sentence: "If you don't submit your career application before the deadline, you will find yourself ________ with the team.", choices: ["in deep water", "ray of sunshine", "neck of the woods", "under the weather"], correct: "in deep water" },
+                { id: 18, sentence: "My cousin loves helping people and never brags about his wealth. He's very ________.", choices: ["down to earth", "under the weather", "drop in the ocean", "neck of the woods"], correct: "down to earth" },
+                { id: 19, sentence: "She always brings a positive attitude to our workspace. She is a total ________.", choices: ["ray of sunshine", "tip of the iceberg", "drop in the ocean", "in deep water"], correct: "ray of sunshine" },
+                { id: 20, sentence: "Do you know any good Italian restaurants in this ________?", choices: ["neck of the woods", "under the weather", "down to earth", "drop in the ocean"], correct: "neck of the woods" },
+                { id: 21, sentence: "I am feeling too ________ to join the mountain hiking trip this afternoon.", choices: ["under the weather", "down to earth", "in deep water", "ray of sunshine"], correct: "under the weather" },
+                { id: 22, sentence: "We saved fifty plastic cups, but against the millions thrown away daily, it's just a ________.", choices: ["drop in the ocean", "tip of the iceberg", "neck of the woods", "under the weather"], correct: "drop in the ocean" },
+                { id: 23, sentence: "Discovering that the system had malware was just the ________ of their safety issues.", choices: ["tip of the iceberg", "in deep water", "ray of sunshine", "down to earth"], correct: "tip of the iceberg" },
+                { id: 24, sentence: "After arguing with the supervisor, Mark knew he was ________ regarding his job security.", choices: ["in deep water", "under the weather", "neck of the woods", "drop in the ocean"], correct: "in deep water" },
+                { id: 25, sentence: "Let's meet up for coffee if you are ever in our ________ again.", choices: ["neck of the woods", "down to earth", "ray of sunshine", "under the weather"], correct: "neck of the woods" },
+                { id: 26, sentence: "I love talking to him because he is so sensible, practical, and ________.", choices: ["down to earth", "in deep water", "ray of sunshine", "tip of the iceberg"], correct: "down to earth" },
+                { id: 27, sentence: "The little puppy is so happy and friendly; he is a ________ to everyone who visits.", choices: ["ray of sunshine", "drop in the ocean", "under the weather", "neck of the woods"], correct: "ray of sunshine" },
+                { id: 28, sentence: "My brother missed his classes because he was feeling a bit ________.", choices: ["under the weather", "in deep water", "down to earth", "tip of the iceberg"], correct: "under the weather" },
+                { id: 29, sentence: "A simple donation of one book is a ________ compared to what the library needs.", choices: ["drop in the ocean", "neck of the woods", "tip of the iceberg", "ray of sunshine"], correct: "drop in the ocean" },
+                { id: 30, sentence: "Finding a few leaks in the boat was just the ________; the hull was completely ruined.", choices: ["tip of the iceberg", "in deep water", "under the weather", "down to earth"], correct: "tip of the iceberg" },
+                { id: 31, sentence: "You will be ________ if the police discover you have been driving without a license.", choices: ["in deep water", "neck of the woods", "ray of sunshine", "down to earth"], correct: "in deep water" },
+                { id: 32, sentence: "Are there any nice parks or green areas in your ________?", choices: ["neck of the woods", "under the weather", "drop in the ocean", "down to earth"], correct: "neck of the woods" },
+                { id: 33, sentence: "The doctor advised me to rest because I have been feeling ________ lately.", choices: ["under the weather", "down to earth", "in deep water", "ray of sunshine"], correct: "under the weather" },
+                { id: 34, sentence: "Despite his incredible success as an artist, he remains remarkably ________.", choices: ["down to earth", "ray of sunshine", "tip of the iceberg", "drop in the ocean"], correct: "down to earth" },
+                { id: 35, sentence: "Her bright smile and warm greeting are a true ________ on cloudy mornings.", choices: ["ray of sunshine", "neck of the woods", "drop in the ocean", "in deep water"], correct: "ray of sunshine" },
+                { id: 36, sentence: "That small forest fire we put out is unfortunately only the ________ of the dry season threats.", choices: ["tip of the iceberg", "drop in the ocean", "under the weather", "down to earth"], correct: "tip of the iceberg" },
+                { id: 37, sentence: "The driver found himself ________ after hitting the parked delivery truck.", choices: ["in deep water", "ray of sunshine", "neck of the woods", "under the weather"], correct: "in deep water" },
+                { id: 38, sentence: "We only have a few farms in this ________, so fresh milk is hard to find.", choices: ["neck of the woods", "down to earth", "drop in the ocean", "under the weather"], correct: "neck of the woods" },
+                { id: 39, sentence: "She is a practical and ________ leader who always listens to logical suggestions.", choices: ["down to earth", "in deep water", "ray of sunshine", "tip of the iceberg"], correct: "down to earth" },
+                { id: 40, sentence: "I couldn't complete the work assignment because I was feeling ________.", choices: ["under the weather", "down to earth", "in deep water", "ray of sunshine"], correct: "under the weather" },
+                { id: 41, sentence: "Recycling one plastic bottle is helpful, but it is just a ________ against global waste.", choices: ["drop in the ocean", "tip of the iceberg", "neck of the woods", "ray of sunshine"], correct: "drop in the ocean" },
+                { id: 42, sentence: "The initial error message was just the ________ of a total database collapse.", choices: ["tip of the iceberg", "in deep water", "under the weather", "down to earth"], correct: "tip of the iceberg" },
+                { id: 43, sentence: "Without proper insurance, you will be ________ if your shop gets damaged.", choices: ["in deep water", "neck of the woods", "ray of sunshine", "down to earth"], correct: "in deep water" },
+                { id: 44, sentence: "Do you happen to have a map of this particular ________?", choices: ["neck of the woods", "under the weather", "drop in the ocean", "down to earth"], correct: "neck of the woods" },
+                { id: 45, sentence: "I bought a hot soup because I felt a bit ________ after walking in the rain.", choices: ["under the weather", "down to earth", "in deep water", "ray of sunshine"], correct: "under the weather" },
+                { id: 46, sentence: "She has always been very ________, preferring simple clothes and basic food.", choices: ["down to earth", "ray of sunshine", "tip of the iceberg", "drop in the ocean"], correct: "down to earth" },
+                { id: 47, sentence: "Our dog brings so much happiness to our family; he is our ________.", choices: ["ray of sunshine", "drop in the ocean", "under the weather", "neck of the woods"], correct: "ray of sunshine" },
+                { id: 48, sentence: "The ten trees we planted are a ________ compared to the massive forest loss.", choices: ["drop in the ocean", "tip of the iceberg", "neck of the woods", "under the weather"], correct: "drop in the ocean" },
+                { id: 49, sentence: "A small complaint from one customer was just the ________ of their service system failure.", choices: ["tip of the iceberg", "under the weather", "down to earth", "in deep water"], correct: "tip of the iceberg" },
+                { id: 50, sentence: "He got himself ________ by failing to submit his tax forms on time.", choices: ["in deep water", "neck of the woods", "ray of sunshine", "down to earth"], correct: "in deep water" }
+            ],
+
+            // Adjective sorting game definitions (Career, Work, Job pair mappings)
+            sorter: [
+                { id: 1, adjective: "academic", correct: "Career" },
+                { id: 2, adjective: "physical", correct: "Work" },
+                { id: 3, adjective: "steady", correct: "Job" },
+                { id: 4, adjective: "professional", correct: "Career" },
+                { id: 5, adjective: "extensive", correct: "Work" },
+                { id: 6, adjective: "dead-end", correct: "Job" },
+                { id: 7, adjective: "distinguished", correct: "Career" },
+                { id: 8, adjective: "unpaid", correct: "Work" },
+                { id: 9, adjective: "promising", correct: "Career" },
+                { id: 10, adjective: "rewarding", correct: "Work" },
+                { id: 11, adjective: "decent", correct: "Job" },
+                { id: 12, adjective: "ideal", correct: "Job" }
+            ],
+
+            // Career Vocabulary B1+ Level questions - 50 Sentence Context Questions
+            careers: [
+                { id: 1, sentence: "After three rounds of interviews, Mitch was thrilled to finally ________ as a software developer.", choices: ["accept a position", "work overtime", "learn a trade", "earn a degree"], correct: "accept a position" },
+                { id: 2, sentence: "Most banks have a very ________ where employees must wear formal suits and ties every day.", choices: ["strict dress code", "service industry", "minimum qualifications", "public sector"], correct: "strict dress code" },
+                { id: 3, sentence: "She decided to ________ in biology because she wants to work in a science lab in the future.", choices: ["earn a degree", "learn a trade", "send a resume", "work overtime"], correct: "earn a degree" },
+                { id: 4, sentence: "The project is due tomorrow morning, so we will need to ________ tonight to finish it.", choices: ["work overtime", "unpaid internship", "accept a position", "learn a trade"], correct: "work overtime" },
+                { id: 5, sentence: "He did not want to attend university, so he decided to ________ and become a skilled carpenter.", choices: ["learn a trade", "earn a degree", "accept a position", "send a resume"], correct: "learn a trade" },
+                { id: 6, sentence: "If you want to apply for this job, you must ________ to the human resources department.", choices: ["send a resume", "accept a position", "work overtime", "earn a degree"], correct: "send a resume" },
+                { id: 7, sentence: "Working at a restaurant or a hotel means you are part of the busy ________.", choices: ["service industry", "public sector", "unpaid internship", "full-time occupation"], correct: "service industry" },
+                { id: 8, sentence: "Police officers and firefighters are employed in the ________.", choices: ["public sector", "service industry", "unpaid internship", "successful entrepreneur"], correct: "public sector" },
+                { id: 9, sentence: "Although it was an ________, she gained valuable experience that helped her find a paid job later.", choices: ["unpaid internship", "full-time occupation", "strict dress code", "average salary"], correct: "unpaid internship" },
+                { id: 10, sentence: "He became a ________ after his tech startup company became famous worldwide.", choices: ["successful entrepreneur", "unpaid internship", "minimum qualifications", "public sector"], correct: "successful entrepreneur" },
+                { id: 11, sentence: "A ________ usually requires working around 40 hours per week and offers stable benefits.", choices: ["full-time occupation", "unpaid internship", "strict dress code", "minimum qualifications"], correct: "full-time occupation" },
+                { id: 12, sentence: "The job listing says that a university diploma is part of the ________.", choices: ["minimum qualifications", "average salary", "net income", "public sector"], correct: "minimum qualifications" },
+                { id: 13, sentence: "Your ________ is what you actually keep after all government taxes are deducted.", choices: ["net income", "average salary", "public sector", "minimum qualifications"], correct: "net income" },
+                { id: 14, sentence: "The ________ for an entry-level designer in this city is around $40,000 per year.", choices: ["average salary", "net income", "public sector", "minimum qualifications"], correct: "average salary" },
+                { id: 15, sentence: "When they offered her the project manager role, she immediately decided to ________.", choices: ["accept a position", "learn a trade", "work overtime", "send a resume"], correct: "accept a position" },
+                { id: 16, sentence: "Because our office has a ________, we cannot wear casual t-shirts or trainers.", choices: ["strict dress code", "service industry", "public sector", "unpaid internship"], correct: "strict dress code" },
+                { id: 17, sentence: "It takes four years of hard study and exams to ________ in computer engineering.", choices: ["earn a degree", "learn a trade", "send a resume", "work overtime"], correct: "earn a degree" },
+                { id: 18, sentence: "We had to ________ last night because the company servers went offline unexpectedly.", choices: ["work overtime", "accept a position", "learn a trade", "send a resume"], correct: "work overtime" },
+                { id: 19, sentence: "If you like practical work, you could ________ like plumbing or electrical installation.", choices: ["learn a trade", "earn a degree", "accept a position", "send a resume"], correct: "learn a trade" },
+                { id: 20, sentence: "To apply for the marketing position, you must first ________ with your cover letter.", choices: ["send a resume", "accept a position", "work overtime", "earn a degree"], correct: "send a resume" },
+                { id: 21, sentence: "Businesses like hair salons and travel agencies belong to the ________.", choices: ["service industry", "public sector", "unpaid internship", "full-time occupation"], correct: "service industry" },
+                { id: 22, sentence: "Public school teachers are paid by the government because they work in the ________.", choices: ["public sector", "service industry", "unpaid internship", "successful entrepreneur"], correct: "public sector" },
+                { id: 23, sentence: "I worked a three-month ________ at the design studio to build up my portfolio.", choices: ["unpaid internship", "full-time occupation", "strict dress code", "average salary"], correct: "unpaid internship" },
+                { id: 24, sentence: "She wants to be a ________ and launch her own brand of organic cosmetics.", choices: ["successful entrepreneur", "unpaid internship", "minimum qualifications", "public sector"], correct: "successful entrepreneur" },
+                { id: 25, sentence: "Managing this store is a ________ that leaves me very little free time on weekdays.", choices: ["full-time occupation", "unpaid internship", "strict dress code", "minimum qualifications"], correct: "full-time occupation" },
+                { id: 26, sentence: "Three years of experience in sales is among the ________ for this job role.", choices: ["minimum qualifications", "average salary", "net income", "public sector"], correct: "minimum qualifications" },
+                { id: 27, sentence: "My gross pay is high, but my ________ is much lower because of high local taxes.", choices: ["net income", "average salary", "public sector", "minimum qualifications"], correct: "net income" },
+                { id: 28, sentence: "We need to calculate the ________ of a high school teacher in this state.", choices: ["average salary", "net income", "public sector", "minimum qualifications"], correct: "average salary" },
+                { id: 29, sentence: "After reviewing the contract details, the applicant decided to ________.", choices: ["accept a position", "learn a trade", "work overtime", "send a resume"], correct: "accept a position" },
+                { id: 30, sentence: "The security guards at the museum must follow a ________.", choices: ["strict dress code", "service industry", "public sector", "unpaid internship"], correct: "strict dress code" },
+                { id: 31, sentence: "My sister is studying night classes to ________ in business administration.", choices: ["earn a degree", "learn a trade", "send a resume", "work overtime"], correct: "earn a degree" },
+                { id: 32, sentence: "Our manager asked us if we could ________ to complete the budget report.", choices: ["work overtime", "accept a position", "learn a trade", "send a resume"], correct: "work overtime" },
+                { id: 33, sentence: "My father went to a technical school to ________ in automotive repair.", choices: ["learn a trade", "earn a degree", "accept a position", "send a resume"], correct: "learn a trade" },
+                { id: 34, sentence: "You should always proofread your documents before you ________ to a company.", choices: ["send a resume", "accept a position", "work overtime", "earn a degree"], correct: "send a resume" },
+                { id: 35, sentence: "Hotels and tourism agencies are major components of the local ________.", choices: ["service industry", "public sector", "unpaid internship", "full-time occupation"], correct: "service industry" },
+                { id: 36, sentence: "Many medical workers are employed by the government within the ________.", choices: ["public sector", "service industry", "unpaid internship", "successful entrepreneur"], correct: "public sector" },
+                { id: 37, sentence: "I accepted an ________ at the radio station to learn audio editing.", choices: ["unpaid internship", "full-time occupation", "strict dress code", "average salary"], correct: "unpaid internship" },
+                { id: 38, sentence: "He managed to become a ________ by inventing a new type of water filter.", choices: ["successful entrepreneur", "unpaid internship", "minimum qualifications", "public sector"], correct: "successful entrepreneur" },
+                { id: 39, sentence: "Working as a bank teller is a stable ________ with good career options.", choices: ["full-time occupation", "unpaid internship", "strict dress code", "minimum qualifications"], correct: "full-time occupation" },
+                { id: 40, sentence: "A valid driver's license is part of the ________ for the delivery driver position.", choices: ["minimum qualifications", "average salary", "net income", "public sector"], correct: "minimum qualifications" },
+                { id: 41, sentence: "My monthly ________ allows me to pay rent and save some money.", choices: ["net income", "average salary", "public sector", "minimum qualifications"], correct: "net income" },
+                { id: 42, sentence: "The ________ for developers has risen because of high demand for software.", choices: ["average salary", "net income", "public sector", "minimum qualifications"], correct: "average salary" },
+                { id: 43, sentence: "I received the official offer email and I am going to ________ tomorrow.", choices: ["accept a position", "learn a trade", "work overtime", "send a resume"], correct: "accept a position" },
+                { id: 44, sentence: "The bank employees are complaining about the ________ during hot summer days.", choices: ["strict dress code", "service industry", "public sector", "unpaid internship"], correct: "strict dress code" },
+                { id: 45, sentence: "I am going to graduate next month and finally ________ in literature.", choices: ["earn a degree", "learn a trade", "send a resume", "work overtime"], correct: "earn a degree" },
+                { id: 46, sentence: "They offered to double our pay if we agreed to ________ this weekend.", choices: ["work overtime", "accept a position", "learn a trade", "send a resume"], correct: "work overtime" },
+                { id: 47, sentence: "Instead of choosing high school, he decided to ________ in carpentry.", choices: ["learn a trade", "earn a degree", "accept a position", "send a resume"], correct: "learn a trade" },
+                { id: 48, sentence: "Make sure you include your contact details when you ________.", choices: ["send a resume", "accept a position", "work overtime", "earn a degree"], correct: "send a resume" },
+                { id: 49, sentence: "The hospitality business is a very fast-growing part of the ________.", choices: ["service industry", "public sector", "unpaid internship", "full-time occupation"], correct: "service industry" },
+                { id: 50, sentence: "Our national postal services are operated entirely within the ________.", choices: ["public sector", "service industry", "unpaid internship", "successful entrepreneur"], correct: "public sector" }
+            ],
+
+            // Future progressive vs Future Perfect - 50 Questions
+            grammarFuture: [
+                { id: 1, sentence: "At this time next week, we ________ on a beach in Florida.", choices: ["will be relaxing", "will have relaxed", "are relaxing", "relax"], correct: "will be relaxing" },
+                { id: 2, sentence: "By 2030, scientists believe they ________ a clean alternative to gasoline.", choices: ["will be developing", "will have developed", "have developed", "are developing"], correct: "will have developed" },
+                { id: 3, sentence: "This afternoon, my brother ________ at the local animal shelter.", choices: ["will be volunteering", "will have volunteering", "volunteers", "volunteered"], correct: "will be volunteering" },
+                { id: 4, sentence: "I won't have finished my homework by 4 PM, but I ________ the essay before dinner.", choices: ["will be writing", "will have written", "have written", "will have been writing"], correct: "will have written" },
+                { id: 5, sentence: "Please don't call them at 8 PM. They ________ a documentary on global warming.", choices: ["will have watched", "will be watching", "are watching", "watch"], correct: "will be watching" },
+                { id: 6, sentence: "Unfortunately, many rare animals ________ extinct by the end of this century.", choices: ["will be becoming", "will have become", "become", "are becoming"], correct: "will have become" },
+                { id: 7, sentence: "If we don't change, in ten years factories ________ double the amount of carbon emissions.", choices: ["will be producing", "will have produced", "produce", "are producing"], correct: "will be producing" },
+                { id: 8, sentence: "By the time the eco-conference finishes, the leaders ________ the clean air agreement.", choices: ["will have signed", "will be signing", "have signed", "will sign"], correct: "will have signed" },
+                { id: 9, sentence: "Tomorrow morning, the city council ________ new plastic recycling projects.", choices: ["will have discussed", "will be discussing", "discusses", "is discussing"], correct: "will be discussing" },
+                { id: 10, sentence: "Do you think we ________ the damage of climate change by 2050?", choices: ["will be fixing", "will have fixed", "fixes", "is fixing"], correct: "will have fixed" },
+                { id: 11, sentence: "Next Monday at 10 AM, I ________ my final exam at the university.", choices: ["will be taking", "will have taken", "take", "have taken"], correct: "will be taking" },
+                { id: 12, sentence: "By the end of this month, she ________ at this design studio for five years.", choices: ["will be working", "will have worked", "works", "worked"], correct: "will have worked" },
+                { id: 13, sentence: "Don't visit us at noon tomorrow. We ________ our kitchen cabinets.", choices: ["will be painting", "will have painted", "paint", "painted"], correct: "will be painting" },
+                { id: 14, sentence: "I am sure they ________ their decision before the board meeting begins.", choices: ["will be making", "will have made", "make", "made"], correct: "will have made" },
+                { id: 15, sentence: "This evening, the band ________ their new songs live in the park.", choices: ["will be performing", "will have performed", "perform", "performed"], correct: "will be performing" },
+                { id: 16, sentence: "By the time you wake up tomorrow, my flight ________ in New York.", choices: ["will be landing", "will have landed", "lands", "landed"], correct: "will have landed" },
+                { id: 17, sentence: "At 3 PM tomorrow, my father ________ our old family car.", choices: ["will be repairing", "will have repaired", "repairs", "repaired"], correct: "will be repairing" },
+                { id: 18, sentence: "Scientists estimate that by 2040, solar power ________ the main energy source.", choices: ["will be becoming", "will have become", "becomes", "became"], correct: "will have become" },
+                { id: 19, sentence: "Tonight at 9 PM, we ________ the championship football match.", choices: ["will be watching", "will have watched", "watch", "watched"], correct: "will be watching" },
+                { id: 20, sentence: "By next Saturday, I ________ reading this entire history book.", choices: ["will be finishing", "will have finished", "finish", "finished"], correct: "will have finished" },
+                { id: 21, sentence: "At this exact time tomorrow morning, she ________ to Paris.", choices: ["will be travelling", "will have travelled", "travels", "travelled"], correct: "will be travelling" },
+                { id: 22, sentence: "By next week, the municipal team ________ all the old street lamps.", choices: ["will be replacing", "will have replaced", "replace", "replaced"], correct: "will have replaced" },
+                { id: 23, sentence: "Please do not make a noise at 2 PM. The baby ________.", choices: ["will be sleeping", "will have slept", "sleeps", "slept"], correct: "will be sleeping" },
+                { id: 24, sentence: "By tomorrow afternoon, the heavy storm ________ completely.", choices: ["will be stopping", "will have stopped", "stops", "stopped"], correct: "will have stopped" },
+                { id: 25, sentence: "Next Sunday, they ________ their wedding anniversary with a big party.", choices: ["will be celebrating", "will have celebrated", "celebrate", "celebrated"], correct: "will be celebrating" },
+                { id: 26, sentence: "By the end of the year, our school ________ ten new computers.", choices: ["will be purchasing", "will have purchased", "purchase", "purchased"], correct: "will have purchased" },
+                { id: 27, sentence: "Tomorrow night, I ________ for my physics exam all evening.", choices: ["will be studying", "will have studied", "study", "studied"], correct: "will be studying" },
+                { id: 28, sentence: "I hope that by next year, the developers ________ the new mobile app.", choices: ["will be releasing", "will have released", "release", "released"], correct: "will have released" },
+                { id: 29, sentence: "This time next month, we ________ across South America.", choices: ["will be backpacking", "will have backpacked", "backpack", "backpacked"], correct: "will be backpacking" },
+                { id: 30, sentence: "By midnight, the tired actors ________ their final performance.", choices: ["will be completing", "will have completed", "complete", "completed"], correct: "will have completed" },
+                { id: 31, sentence: "At 11 AM tomorrow, the engineers ________ the bridge safety.", choices: ["will be inspecting", "will have inspected", "inspect", "inspected"], correct: "will be inspecting" },
+                { id: 32, sentence: "By dinner time, my sister ________ a delicious chocolate cake.", choices: ["will be baking", "will have baked", "bakes", "baked"], correct: "will have baked" },
+                { id: 33, sentence: "Tonight, my cousins ________ our house for the summer holidays.", choices: ["will be visiting", "will have visited", "visit", "visited"], correct: "will be visiting" },
+                { id: 34, sentence: "By the end of next week, we ________ our geography project.", choices: ["will be submitting", "will have submitted", "submit", "submitted"], correct: "will have submitted" },
+                { id: 35, sentence: "At this time tomorrow, the farmers ________ the fresh wheat.", choices: ["will be harvesting", "will have harvested", "harvest", "harvested"], correct: "will be harvesting" },
+                { id: 36, sentence: "By the time the train arrives, we ________ our tickets already.", choices: ["will be buying", "will have bought", "buy", "bought"], correct: "will have bought" },
+                { id: 37, sentence: "Tomorrow afternoon, the kids ________ in the local pool.", choices: ["will be swimming", "will have swum", "swim", "swam"], correct: "will be swimming" },
+                { id: 38, sentence: "By next month, the government ________ the new environmental law.", choices: ["will be passing", "will have passed", "pass", "passed"], correct: "will have passed" },
+                { id: 39, sentence: "At 8 AM next Monday, they ________ to their new office.", choices: ["will be commuting", "will have commuted", "commute", "commuted"], correct: "will be commuting" },
+                { id: 40, sentence: "I hope the postman ________ my package by tomorrow morning.", choices: ["will be delivering", "will have delivered", "delivers", "delivered"], correct: "will have delivered" },
+                { id: 41, sentence: "This evening, our family ________ to a classical music concert.", choices: ["will be listening", "will have listened", "listen", "listened"], correct: "will be listening" },
+                { id: 42, sentence: "By 2035, the city ________ three new public libraries.", choices: ["will be building", "will have built", "build", "built"], correct: "will have built" },
+                { id: 43, sentence: "At noon tomorrow, the workers ________ the old highway.", choices: ["will be paving", "will have paved", "pave", "paved"], correct: "will be paving" },
+                { id: 44, sentence: "By tomorrow night, I ________ all my clothes for the trip.", choices: ["will be packing", "will have packed", "pack", "packed"], correct: "will have packed" },
+                { id: 45, sentence: "Next winter, they ________ their skiing skills in the Alps.", choices: ["will be practicing", "will have practiced", "practice", "practiced"], correct: "will be practicing" },
+                { id: 46, sentence: "By the time the class ends, the teacher ________ all our questions.", choices: ["will be answering", "will have answered", "answer", "answered"], correct: "will have answered" },
+                { id: 47, sentence: "Tonight, we ________ about global warming in our biology seminar.", choices: ["will be presenting", "will have presented", "present", "presented"], correct: "will be presenting" },
+                { id: 48, sentence: "By tomorrow afternoon, the ice ________ completely.", choices: ["will be melting", "will have melted", "melt", "melted"], correct: "will have melted" },
+                { id: 49, sentence: "At 4 PM today, our neighbors ________ a new wooden fence.", choices: ["will be building", "will have built", "build", "built"], correct: "will be building" },
+                { id: 50, sentence: "By next Friday, the director ________ all the candidates.", choices: ["will be interviewing", "will have interviewed", "interview", "interviewed"], correct: "will have interviewed" }
+            ],
+
+            // Past Perfect Progressive vs Present Perfect Progressive - 50 Questions
+            grammarPerfect: [
+                { id: 1, sentence: "I'm so tired! I ________ on my computer since this morning.", choices: ["had been working", "have been working", "am working", "worked"], correct: "have been working" },
+                { id: 2, sentence: "The team members were exhausted because they ________ phone calls all afternoon before they left.", choices: ["have been answering", "had been answering", "were answering", "had answered"], correct: "had been answering" },
+                { id: 3, sentence: "My best friend ________ English at this school for two years now.", choices: ["has been learning", "had been learning", "is learning", "learns"], correct: "has been learning" },
+                { id: 4, sentence: "Before I moved here, I ________ environmental science for a full year.", choices: ["have been studying", "had been studying", "am studying", "will be studying"], correct: "had been studying" },
+                { id: 5, sentence: "They are staying with us while their flat is painted. They ________ here since Monday.", choices: ["have been staying", "had been staying", "are staying", "stayed"], correct: "have been staying" },
+                { id: 6, sentence: "They ________ on renting out the flat, but luckily they changed their minds.", choices: ["have been planning", "had been planning", "were planning", "planned"], correct: "had been planning" },
+                { id: 7, sentence: "Recently, Jack ________ at the community recycling center on weekends.", choices: ["has been helping", "had been helping", "is helping", "helped"], correct: "has been helping" },
+                { id: 8, sentence: "The musicians ________ long when the power suddenly cut off.", choices: ["haven't been playing", "hadn't been playing", "wasn't playing", "didn't play"], correct: "hadn't been playing" },
+                { id: 9, sentence: "I ________ the garage, which is why my hands are dirty.", choices: ["have been painting", "had been painting", "am painting", "painted"], correct: "have been painting" },
+                { id: 10, sentence: "She ________ to change jobs for many years before she finally did it.", choices: ["has been looking", "had been looking", "was looking", "looked"], correct: "had been looking" },
+                { id: 11, sentence: "My eyes are sore because I ________ computer games for four hours.", choices: ["have been playing", "had been playing", "play", "played"], correct: "have been playing" },
+                { id: 12, sentence: "He was very sweaty because he ________ around the lake for over an hour.", choices: ["has been running", "had been running", "runs", "ran"], correct: "had been running" },
+                { id: 13, sentence: "We ________ for the bus since 3 o'clock and it still hasn't arrived.", choices: ["have been waiting", "had been waiting", "wait", "waited"], correct: "have been waiting" },
+                { id: 14, sentence: "Before her phone rang, she ________ in her room quietly.", choices: ["has been reading", "had been reading", "is reading", "reads"], correct: "had been reading" },
+                { id: 15, sentence: "Lately, my sister ________ a lot of stress because of her university exams.", choices: ["has been experiencing", "had been experiencing", "experiences", "experienced"], correct: "has been experiencing" },
+                { id: 16, sentence: "They ________ for their keys for an hour before they found them under the sofa.", choices: ["have been searching", "had been searching", "search", "searched"], correct: "had been searching" },
+                { id: 17, sentence: "My mother is out of breath because she ________ the entire house.", choices: ["has been cleaning", "had been cleaning", "cleans", "cleaned"], correct: "has been cleaning" },
+                { id: 18, sentence: "Before the company went bankrupt, the managers ________ high salaries.", choices: ["have been receiving", "had been receiving", "receive", "received"], correct: "had been receiving" },
+                { id: 19, sentence: "I ________ this book since last week, but I am only on page fifty.", choices: ["have been reading", "had been reading", "read", "am reading"], correct: "have been reading" },
+                { id: 20, sentence: "The garden was wet because it ________ heavily during the night.", choices: ["has been raining", "had been raining", "rains", "rained"], correct: "had been raining" },
+                { id: 21, sentence: "She ________ French vocabulary lately to prepare for her Paris holiday.", choices: ["has been practicing", "had been practicing", "practices", "practiced"], correct: "has been practicing" },
+                { id: 22, sentence: "Before he retired, my grandfather ________ at the bank for forty years.", choices: ["has been working", "had been working", "works", "worked"], correct: "had been working" },
+                { id: 23, sentence: "We ________ on this science project today, and we need a break.", choices: ["have been working", "had been working", "work", "worked"], correct: "have been working" },
+                { id: 24, sentence: "The ground was white because it ________ for several hours before sunrise.", choices: ["has been snowing", "had been snowing", "snows", "snowed"], correct: "had been snowing" },
+                { id: 25, sentence: "Recently, they ________ to organic food to protect their health.", choices: ["have been switching", "had been switching", "switch", "switched"], correct: "have been switching" },
+                { id: 26, sentence: "The hikers ________ for hours before they realized they were lost.", choices: ["have been walking", "had been walking", "walk", "walked"], correct: "had been walking" },
+                { id: 27, sentence: "I ________ on this chair all day and now my back hurts.", choices: ["have been sitting", "had been sitting", "sit", "sat"], correct: "have been sitting" },
+                { id: 28, sentence: "The child's hands were red because he ________ with clay before dinner.", choices: ["has been playing", "had been playing", "plays", "played"], correct: "had been playing" },
+                { id: 29, sentence: "Lately, we ________ our plastic bags to protect the environment.", choices: ["have been reusing", "had been reusing", "reuse", "reused"], correct: "have been reusing" },
+                { id: 30, sentence: "They ________ the ancient temple for hours before they found the main door.", choices: ["have been exploring", "had been exploring", "explore", "explored"], correct: "had been exploring" },
+                { id: 31, sentence: "He ________ guitar lessons since January and can play three songs.", choices: ["has been taking", "had been taking", "takes", "took"], correct: "has been taking" },
+                { id: 32, sentence: "The street was blocked because the workers ________ the pipeline all morning.", choices: ["have been repairing", "had been repairing", "repair", "repaired"], correct: "had been repairing" },
+                { id: 33, sentence: "I ________ to music on my phone since I boarded the train.", choices: ["have been listening", "had been listening", "listen", "listened"], correct: "have been listening" },
+                { id: 34, sentence: "Before the teacher entered, the children ________ loudly in the room.", choices: ["have been talking", "had been talking", "talk", "talked"], correct: "had been talking" },
+                { id: 35, sentence: "Lately, she ________ her car to save money on gasoline.", choices: ["has been sharing", "had been sharing", "shares", "shared"], correct: "has been sharing" },
+                { id: 36, sentence: "They ________ for the test all night before they finally fell asleep.", choices: ["have been studying", "had been studying", "study", "studied"], correct: "had been studying" },
+                { id: 37, sentence: "I ________ these old photos recently to make a family album.", choices: ["have been collecting", "had been collecting", "collect", "collected"], correct: "have been collecting" },
+                { id: 38, sentence: "The kitchen smelled delicious because my father ________ a fruit cake.", choices: ["has been baking", "had been baking", "bakes", "baked"], correct: "had been baking" },
+                { id: 39, sentence: "Recently, our school ________ solar panels to generate clean energy.", choices: ["has been installing", "had been installing", "installs", "installed"], correct: "has been installing" },
+                { id: 40, sentence: "They ________ the contract for weeks before they finally signed it.", choices: ["have been debating", "had been debating", "debate", "debated"], correct: "had been debating" },
+                { id: 41, sentence: "I ________ a lot of water today because of the summer heat.", choices: ["have been drinking", "had been drinking", "drink", "drank"], correct: "have been drinking" },
+                { id: 42, sentence: "Her eyes were red because she ________ onions for the stew.", choices: ["has been chopping", "had been chopping", "chops", "chopped"], correct: "had been chopping" },
+                { id: 43, sentence: "Lately, my brother ________ to the local gym on weekdays.", choices: ["has been going", "had been going", "goes", "went"], correct: "has been going" },
+                { id: 44, sentence: "They ________ the historic castle for three years before the project stopped.", choices: ["have been restoring", "had been restoring", "restore", "restored"], correct: "had been restoring" },
+                { id: 45, sentence: "I ________ for my missing wallet since I woke up this morning.", choices: ["have been looking", "had been looking", "look", "looked"], correct: "have been looking" },
+                { id: 46, sentence: "The machine was hot because it ________ at full capacity all night.", choices: ["has been running", "had been running", "runs", "ran"], correct: "had been running" },
+                { id: 47, sentence: "She ________ yoga lessons lately and feels much more relaxed.", choices: ["has been taking", "had been taking", "takes", "took"], correct: "has been taking" },
+                { id: 48, sentence: "We ________ on the grass for hours before the guards asked us to leave.", choices: ["have been lying", "had been lying", "lie", "lay"], correct: "had been lying" },
+                { id: 49, sentence: "I ________ classical music recently because it helps me concentrate.", choices: ["have been playing", "had been playing", "play", "played"], correct: "have been playing" },
+                { id: 50, sentence: "They ________ on the porch for hours before the storm started.", choices: ["have been sitting", "had been sitting", "sit", "sat"], correct: "have been sitting" }
+            ],
+
+            // Environmental Problems Vocabulary - 50 Sentence Context Questions
+            environment: [
+                { id: 1, sentence: "The stone statues in the ancient city are dissolving because of ________.", choices: ["acid rain", "climate change", "coastal erosion", "greenhouse gases"], correct: "acid rain" },
+                { id: 2, sentence: "Polar bears are struggling to survive as ________ melts Arctic ice.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
+                { id: 3, sentence: "Wave action is eating away the shoreline, which is a clear sign of ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
+                { id: 4, sentence: "Factories emit ________ like carbon dioxide, trapping heat in our atmosphere.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
+                { id: 5, sentence: "The loud engines from the nearby airport are causing severe ________ for residents.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
+                { id: 6, sentence: "A tanker leaked miles of crude oil, causing devastating ________ along the coast.", choices: ["oil spills", "overfishing", "toxic waste", "waste disposal"], correct: "oil spills" },
+                { id: 7, sentence: "Modern commercial fleets catch too many cod, leading to extreme ________.", choices: ["overfishing", "toxic waste", "waste disposal", "acid rain"], correct: "overfishing" },
+                { id: 8, sentence: "Chemical plants must find a safe way to store ________ to avoid poisoning soil.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" },
+                { id: 9, sentence: "The city needs to improve its ________ programs to reduce landfill rubbish.", choices: ["waste disposal", "acid rain", "climate change", "coastal erosion"], correct: "waste disposal" },
+                { id: 10, sentence: "Many historic monuments in Europe are getting damaged by corrosive ________.", choices: ["acid rain", "climate change", "coastal erosion", "greenhouse gases"], correct: "acid rain" },
+                { id: 11, sentence: "Severe droughts and rising sea levels are clear indicators of ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
+                { id: 12, sentence: "Houses built on beachfront cliffs are endangered due to rapid ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
+                { id: 13, sentence: "The burning of fossil fuels releases dangerous ________ into our air.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
+                { id: 14, sentence: "Honking cars and construction drills are major sources of ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
+                { id: 15, sentence: "Volunteer teams are working hard to clean up marine life affected by ________.", choices: ["oil spills", "overfishing", "toxic waste", "waste disposal"], correct: "oil spills" },
+                { id: 16, sentence: "Marine biodiversity is declining rapidly because of industrial ________.", choices: ["overfishing", "toxic waste", "waste disposal", "acid rain"], correct: "overfishing" },
+                { id: 17, sentence: "Dumping industrial chemical byproducts leads to severe ________.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" },
+                { id: 18, sentence: "A sustainable city must invest in modern and safe ________ structures.", choices: ["waste disposal", "acid rain", "climate change", "coastal erosion"], correct: "waste disposal" },
+                { id: 19, sentence: "When coal power plants pollute the atmosphere, the result is ________.", choices: ["acid rain", "climate change", "coastal erosion", "greenhouse gases"], correct: "acid rain" },
+                { id: 20, sentence: "We must reduce carbon emissions to slow down the process of ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
+                { id: 21, sentence: "Sand dunes are disappearing along the waterfront because of ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
+                { id: 22, sentence: "Methane released from farming activities is a powerful ________.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
+                { id: 23, sentence: "Birds in urban areas have modified their songs because of high ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
+                { id: 24, sentence: "The shipping accident resulted in heavy ________ that covered the beach.", choices: ["oil spills", "overfishing", "toxic waste", "waste disposal"], correct: "oil spills" },
+                { id: 25, sentence: "Governments are setting fishing limits to prevent permanent ________.", choices: ["overfishing", "toxic waste", "waste disposal", "acid rain"], correct: "overfishing" },
+                { id: 26, sentence: "The soil near the abandoned factory was contaminated with ________.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" },
+                { id: 27, sentence: "Throwing electronic devices in normal bins complicates safe ________.", choices: ["waste disposal", "acid rain", "climate change", "coastal erosion"], correct: "waste disposal" },
+                { id: 28, sentence: "Sulfur dioxide emissions are the primary cause of corrosive ________.", choices: ["acid rain", "climate change", "coastal erosion", "greenhouse gases"], correct: "acid rain" },
+                { id: 29, sentence: "Extreme weather events like super hurricanes are linked to ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
+                { id: 30, sentence: "Seawalls are constructed to defend communities against ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
+                { id: 31, sentence: "Deforestation reduces the planet's ability to absorb ________.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
+                { id: 32, sentence: "Sleeping difficulties in major cities are often linked to ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
+                { id: 33, sentence: "A pipeline rupture led to catastrophic ________ in the river estuary.", choices: ["oil spills", "overfishing", "toxic waste", "waste disposal"], correct: "oil spills" },
+                { id: 34, sentence: "Commercial ships are being regulated to avoid ocean ________.", choices: ["overfishing", "toxic waste", "waste disposal", "acid rain"], correct: "overfishing" },
+                { id: 35, sentence: "Proper storage of ________ prevents dangerous chemical runoffs.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" },
+                { id: 36, sentence: "Our current consumption habits are producing a major ________ crisis.", choices: ["waste disposal", "acid rain", "climate change", "coastal erosion"], correct: "waste disposal" },
+                { id: 37, sentence: "High acidity in lakes, caused by ________, kills local fish species.", choices: ["acid rain", "climate change", "coastal erosion", "greenhouse gases"], correct: "acid rain" },
+                { id: 38, sentence: "The warming of global oceans is a clear effect of ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
+                { id: 39, sentence: "Sandy beaches are gradually shrinking due to continuous ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
+                { id: 40, sentence: "Carbon dioxide is the most common human-made ________.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
+                { id: 41, sentence: "Hearing damage in industrial workers is often caused by ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
+                { id: 42, sentence: "An oil platform explosion was the cause of massive ________.", choices: ["oil spills", "overfishing", "toxic waste", "waste disposal"], correct: "oil spills" },
+                { id: 43, sentence: "Many coral reefs are dying because of rising temperatures and ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
+                { id: 44, sentence: "The chemical laboratory was fined for throwing ________ in normal bins.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" },
+                { id: 45, sentence: "Landfills are becoming full due to inefficient ________ habits.", choices: ["waste disposal", "acid rain", "climate change", "coastal erosion"], correct: "waste disposal" },
+                { id: 46, sentence: "Corrosive rain, or ________, damages tree leaves and soil health.", choices: ["acid rain", "climate change", "coastal erosion", "greenhouse gases"], correct: "acid rain" },
+                { id: 47, sentence: "Global efforts to plant forests help fight ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
+                { id: 48, sentence: "Coastal roads are collapsing into the ocean because of ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
+                { id: 49, sentence: "The atmosphere acts like a blanket because of ________.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
+                { id: 50, sentence: "Dumping battery fluids creates dangerous ________ in the ground.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" }
+            ],
+
+            environment_definitions: [
+                { sentence: "Rain that contains dangerous chemicals because of gas pollution in the air", correct: "acid rain", choices: ["acid rain", "greenhouse gases", "toxic waste", "oil spills"] },
+                { sentence: "The gradual wearing away of beaches and land by ocean waves", correct: "coastal erosion", choices: ["coastal erosion", "climate change", "noise pollution", "overfishing"] },
+                { sentence: "Gases in the atmosphere that trap heat and cause global warming", correct: "greenhouse gases", choices: ["greenhouse gases", "toxic waste", "acid rain", "oil spills"] },
+                { sentence: "Accidents where a lot of petroleum spills into the sea from large ships", correct: "oil spills", choices: ["oil spills", "acid rain", "toxic waste", "overfishing"] },
+                { sentence: "Catching too many fish so that there are not enough left in the sea", correct: "overfishing", choices: ["overfishing", "coastal erosion", "noise pollution", "waste disposal"] },
+                { sentence: "Dangerous chemical waste from factories that harms nature and humans", correct: "toxic waste", choices: ["toxic waste", "acid rain", "greenhouse gases", "climate change"] }
+            ],
+            idioms_definitions: [
+                { sentence: "A very small amount that will not have much effect", correct: "a drop in the ocean", choices: ["a drop in the ocean", "neck of the woods", "the tip of the iceberg", "under the weather"] },
+                { sentence: "A small visible part of a much larger, hidden problem", correct: "the tip of the iceberg", choices: ["the tip of the iceberg", "a drop in the ocean", "neck of the woods", "under the weather"] },
+                { sentence: "Practical, sensible, and friendly", correct: "down to earth", choices: ["down to earth", "ray of sunshine", "neck of the woods", "in deep water"] }
+            ],
+            careers_definitions: [
+                { sentence: "To officially say 'Yes' after a company offers you a job role", correct: "accept a position", choices: ["accept a position", "learn a trade", "earn a degree", "send a resume"] },
+                { sentence: "The certificate you receive after finishing your university studies", correct: "earn a degree", choices: ["earn a degree", "learn a trade", "send a resume", "accept a position"] },
+                { sentence: "The average amount of money workers earn in a specific job market", correct: "average salary", choices: ["average salary", "net income", "public sector", "minimum qualifications"] },
+                { sentence: "To learn how to do a practical job with your hands, like carpentry", correct: "learn a trade", choices: ["learn a trade", "earn a degree", "accept a position", "send a resume"] },
+                { sentence: "Businesses that provide services or experiences instead of products", correct: "service industry", choices: ["service industry", "public sector", "unpaid internship", "full-time occupation"] },
+                { sentence: "The amount of money you take home after taxes are deducted", correct: "net income", choices: ["net income", "average salary", "public sector", "minimum qualifications"] }
+            ]
+        };
+
+        const MODULE_INFO = {
+            environment: {
+                title: "Environmental Problems",
+                desc: "Unit 3 Vocabulary. Practice matching terms like acid rain, climate change, and greenhouse gases with their descriptions.",
+                icon: "fa-seedling",
+                hints: "<strong>Key items:</strong> Acid rain, greenhouse gases, coastal erosion, overfishing, toxic waste."
+            },
+            idioms: {
+                title: "Nature Idioms",
+                desc: "Unit 3 Idioms. Master situational idioms like 'under the weather' or 'ray of sunshine'.",
+                icon: "fa-cloud-sun",
+                hints: "<strong>Key phrases:</strong> A drop in the ocean, in deep water, the tip of the iceberg, down to earth."
+            },
+            careers: {
+                title: "Career Vocabulary",
+                desc: "Unit 4 Terms. Learn professional expressions like 'accept a position', 'net income', and 'strict dress code'.",
+                icon: "fa-briefcase",
+                hints: "<strong>Key terms:</strong> Learn a trade, unpaid internship, successful entrepreneur, earn a degree."
+            },
+            sorter: {
+                title: "Work, Job or Career Combinations",
+                desc: "Unit 4 Collocations. Sort adjectives like academic, physical, or dead-end with Career, Work, or Job.",
+                icon: "fa-layer-group",
+                hints: "<strong>Pairings:</strong> academic career, distinguished career, physical work, unpaid work, dead-end job, steady job."
+            },
+            grammarFuture: {
+                title: "Future Progressive vs Future Perfect",
+                desc: "Unit 3 Grammar. Choose between ongoing future actions (will be doing) and finished future benchmarks (will have done).",
+                icon: "fa-angles-right",
+                hints: "<strong>Tip:</strong> Use <em>Future Progressive</em> for ongoing progress, and <em>Future Perfect</em> for completions before a deadline."
+            },
+            grammarPerfect: {
+                title: "Past Perfect Progressive vs Present Perfect Progressive",
+                desc: "Unit 4 Grammar. Practice present-focused (have been doing) vs. past-focused (had been doing) progressive tenses.",
+                icon: "fa-clock-rotate-left",
+                hints: "<strong>Tip:</strong> <em>Present Perfect Progressive</em> connects directly to the present. <em>Past Perfect Progressive</em> occurred before another past event."
+            }
+        };
+
+        const state = {
+            activeActivity: null,
+            activeMode: 'definition', // 'definition' or 'sentence'
+            currentQuestionPool: [],
+            currentIndex: 0,
+            score: 0,
+            totalQuestions: 10,
+            canAnswer: true,
+            selectedAnswer: null,
+            tenseRush: {
+                timeLeft: 30,
+                score: 0,
+                combo: 0,
+                isActive: false,
+                timerId: null,
+                currentQuestion: null
+            },
+            flipMatch: {
+                moves: 0,
+                pairsFound: 0,
+                selectedCards: [],
+                deck: []
+            },
+            climber: {
+                score: 0,
+                streak: 0,
+                rankIndex: 0
+            }
+        };
+
+        let audioCtx = null;
+        let soundMuted = false;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        const Sound = {
+            playTap() {
+                if (soundMuted) return;
+                initAudio();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.type = 'sine';
+                // Extremely minimalist, tactile "pop" sound (iOS style click)
+                osc.frequency.setValueAtTime(600, audioCtx.currentTime); 
+                osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.05);
+
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.05);
+            },
+            playCorrect() {
+                if (soundMuted) return;
+                initAudio();
+                // A mature, beautiful two-tone minimalist chord (E5 to B5) with soft swell
+                const playNote = (freq, delay, duration) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + delay);
+                    gain.gain.setValueAtTime(0, audioCtx.currentTime + delay);
+                    gain.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + delay + 0.02);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration);
+                    osc.start(audioCtx.currentTime + delay);
+                    osc.stop(audioCtx.currentTime + delay + duration);
+                };
+                playNote(659.25, 0, 0.3); // E5
+                playNote(987.77, 0.08, 0.4); // B5
+            },
+            playIncorrect() {
+                if (soundMuted) return;
+                initAudio();
+                // Low, deep dampening tactile thud (no harsh buzzy sounds)
+                const playNote = (freq, delay, duration) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + delay);
+                    gain.gain.setValueAtTime(0.06, audioCtx.currentTime + delay);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration);
+                    osc.start(audioCtx.currentTime + delay);
+                    osc.stop(audioCtx.currentTime + delay + duration);
+                };
+                playNote(110, 0, 0.15);
+                playNote(85, 0.08, 0.2);
+            },
+            playFanfare() {
+                if (soundMuted) return;
+                initAudio();
+                // Elegant pure-sine Major 9th chord swell (C-E-G-B-D)
+                const notes = [261.63, 329.63, 392.00, 493.88, 587.33]; // C4, E4, G4, B4, D5
+                notes.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.1);
+                    gain.gain.setValueAtTime(0, audioCtx.currentTime + idx * 0.1);
+                    gain.gain.linearRampToValueAtTime(0.03, audioCtx.currentTime + idx * 0.1 + 0.05);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + idx * 0.1 + 0.6);
+                    osc.start(audioCtx.currentTime + idx * 0.1);
+                    osc.stop(audioCtx.currentTime + idx * 0.1 + 0.6);
+                });
+            }
+        };
+
+        function toggleMute() {
+            soundMuted = !soundMuted;
+            const icon = document.getElementById('soundIcon');
+            if (soundMuted) {
+                icon.className = "fa-solid fa-volume-xmark text-sm";
+            } else {
+                icon.className = "fa-solid fa-volume-high text-sm";
+            }
+        }
+
+        function switchTab(tab) {
+            Sound.playTap();
+            const studyBtn = document.getElementById('tab-study-btn');
+            const extrasBtn = document.getElementById('tab-extras-btn');
+            const studyScreen = document.getElementById('screen-home');
+            const extrasScreen = document.getElementById('screen-extras');
+
+            if (tab === 'study') {
+                studyBtn.className = "py-4 border-r-2 border-[#121110] bg-white text-[#121110] flex items-center justify-center gap-2 transition-all";
+                extrasBtn.className = "py-4 text-[#121110] hover:bg-white/50 flex items-center justify-center gap-2 transition-all";
+                studyScreen.classList.remove('hidden');
+                extrasScreen.classList.add('hidden');
+            } else {
+                extrasBtn.className = "py-4 bg-white text-[#121110] flex items-center justify-center gap-2 transition-all";
+                studyBtn.className = "py-4 border-r-2 border-[#121110] text-[#121110] hover:bg-white/50 flex items-center justify-center gap-2 transition-all";
+                extrasScreen.classList.remove('hidden');
+                studyScreen.classList.add('hidden');
+            }
+        }
+
+        function openPreloadModal(activityKey) {
+            Sound.playTap();
+            state.activeActivity = activityKey;
+            
+            const info = MODULE_INFO[activityKey];
+            if (!info) return;
+
+            document.getElementById('preload-module-title').innerText = info.title;
+            document.getElementById('preload-module-desc').innerText = info.desc;
+            document.getElementById('preload-hints').innerHTML = info.hints;
+            
+            const iconContainer = document.getElementById('preload-icon');
+            iconContainer.innerHTML = `<i class="fa-solid ${info.icon}"></i>`;
+
+            const choicesContainer = document.getElementById('dynamic-preload-choices');
+            choicesContainer.innerHTML = '';
+
+            const isVocab = ['environment', 'idioms', 'careers'].includes(activityKey);
+
+            if (isVocab) {
+                document.getElementById('mode-panel-title').innerText = "Select Practice Mode:";
+                choicesContainer.innerHTML = `
+                    <button onclick="launchPracticeWithMode('definition')" class="btn-tactile w-full py-3 bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold rounded-xl transition">
+                        Definition Match
+                    </button>
+                    <button onclick="launchPracticeWithMode('sentence')" class="btn-tactile w-full py-3 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold rounded-xl transition">
+                        Sentence Context
+                    </button>
+                `;
+            } else {
+                // Direct launch for combinations & grammar topics (no choices required)
+                document.getElementById('mode-panel-title').innerText = "Ready to start?";
+                choicesContainer.innerHTML = `
+                    <button onclick="launchDirectPractice()" class="btn-tactile w-full py-3.5 bg-[#0052cc] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold uppercase rounded-xl transition shadow-lg">
+                        Start Activity (10 Qs)
+                    </button>
+                `;
+            }
+
+            document.getElementById('modal-preload').classList.remove('hidden');
+        }
+
+        function closePreloadModal() {
+            Sound.playTap();
+            document.getElementById('modal-preload').classList.add('hidden');
+        }
+
+        function openCollocationGuide() {
+            Sound.playTap();
+            document.getElementById('modal-guide').classList.remove('hidden');
+        }
+
+        function closeCollocationGuide() {
+            Sound.playTap();
+            document.getElementById('modal-guide').classList.add('hidden');
+        }
+
+        function updateOverallProgress() {
+            const keys = ['idioms', 'sorter', 'careers', 'grammarFuture', 'grammarPerfect', 'environment'];
+            let sum = 0;
+            keys.forEach(k => {
+                const val = localStorage.getItem(`progress_${k}`) || 0;
+                sum += parseInt(val);
+                const badge = document.getElementById(`badge-${k}`);
+                if (badge) badge.innerText = `${val}%`;
+            });
+            const average = Math.round(sum / keys.length);
+            document.getElementById('overallProgressText').innerText = `${average}%`;
+            document.getElementById('overallProgressBar').style.width = `${average}%`;
+        }
+
+        function triggerResetProgress() {
+            showCustomConfirm("This will fully reset all records on your device.", (confirmed) => {
+                if (confirmed) {
+                    const keys = ['idioms', 'sorter', 'careers', 'grammarFuture', 'grammarPerfect', 'environment'];
+                    keys.forEach(k => localStorage.removeItem(`progress_${k}`));
+                    updateOverallProgress();
+                    showCustomAlert("Success", "Your progress logs have been completely cleared.");
+                }
+            });
+        }
+
+        function launchPracticeWithMode(mode) {
+            state.activeMode = mode;
+            launchModulePractice();
+        }
+
+        function launchDirectPractice() {
+            state.activeMode = null; // direct style
+            launchModulePractice();
+        }
+
+        function launchModulePractice() {
+            Sound.playTap();
+            document.getElementById('modal-preload').classList.add('hidden');
+            
+            let basePool = [];
+            if (state.activeMode === 'definition') {
+                // Pick corresponding definitions array
+                basePool = EXPLICIT_DATA[`${state.activeActivity}_definitions`] || [];
+            } else {
+                basePool = EXPLICIT_DATA[state.activeActivity] || [];
+            }
+
+            // Centralized "Sorteio" - Shuffle first, then pick 10 questions with a limit of max 2 per correct answer for vocabulary
+            const shuffledPool = shuffleArray(basePool);
+            const selectedPool = [];
+            const tally = {};
+
+            for (let i = 0; i < shuffledPool.length; i++) {
+                if (selectedPool.length >= 10) break;
+                const q = shuffledPool[i];
+                const answerKey = q.correct.toLowerCase().trim();
+                const currentCount = tally[answerKey] || 0;
+                
+                // Only apply the max 2 correct answer limit to vocabulary topics
+                const isVocabulary = ['environment', 'idioms', 'careers', 'sorter'].includes(state.activeActivity);
+                
+                if (!isVocabulary || currentCount < 2) {
+                    selectedPool.push(q);
+                    tally[answerKey] = currentCount + 1;
+                }
+            }
+
+            // Fallback: If we couldn't get 10 questions under the strict constraint, fill with remaining
+            if (selectedPool.length < 10) {
+                for (let i = 0; i < shuffledPool.length; i++) {
+                    if (selectedPool.length >= 10) break;
+                    const q = shuffledPool[i];
+                    if (!selectedPool.includes(q)) {
+                        selectedPool.push(q);
+                    }
+                }
+            }
+
+            state.currentQuestionPool = selectedPool;
+            state.currentIndex = 0;
+            state.score = 0;
+            state.totalQuestions = 10; // strictly 10 questions per gameplay match
+            state.canAnswer = true;
+            state.selectedAnswer = null;
+
+            // Hide main navigation switcher to prevent divided grid overlapping screens
+            document.getElementById('screen-home').classList.add('hidden');
+            document.getElementById('screen-activity').classList.remove('hidden');
+            document.getElementById('app-tab-switcher').classList.add('hidden');
+
+            const titleElem = document.getElementById('activity-title');
+            const titleMap = {
+                idioms: "Nature Idioms",
+                sorter: "Combinations",
+                careers: "Career Vocabulary",
+                grammarFuture: "Future Progressive vs Future Perfect",
+                grammarPerfect: "Past Perfect Prog vs Present Perfect Prog",
+                environment: "Environmental Problems"
+            };
+
+            let suffix = "";
+            if (state.activeMode === 'definition') suffix = " [DESCRIPTION]";
+            if (state.activeMode === 'sentence') suffix = " [SENTENCES]";
+
+            titleElem.innerText = `${titleMap[state.activeActivity]}${suffix}`;
+
+            loadQuestion();
+        }
+
+        function returnToHome() {
+            Sound.playTap();
+            document.getElementById('screen-activity').classList.add('hidden');
+            document.getElementById('completion-screen').classList.add('hidden');
+            document.getElementById('screen-home').classList.remove('hidden');
+            document.getElementById('app-tab-switcher').classList.remove('hidden');
+            hideFeedback();
+        }
+
+        function loadQuestion() {
+            hideFeedback();
+            state.canAnswer = true;
+            state.selectedAnswer = null;
+
+            const currentNum = state.currentIndex + 1;
+            document.getElementById('header-progress').innerText = `${currentNum}/${state.totalQuestions}`;
+            document.getElementById('activeProgressBar').style.width = `${(currentNum / state.totalQuestions) * 100}%`;
+
+            const question = state.currentQuestionPool[state.currentIndex];
+            const contentBox = document.getElementById('activity-content');
+            contentBox.innerHTML = "";
+
+            if (state.activeActivity === 'sorter') {
+                const html = `
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div class="bg-white border-2 border-[#121110] rounded-2xl p-5 shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] my-auto flex flex-col items-center justify-center min-h-[140px] shrink-0">
+                            <span class="text-[10px] text-[#0052cc] font-extrabold uppercase tracking-widest block mb-2">Classify this adjective:</span>
+                            <h4 class="text-3xl font-black text-[#121110] tracking-wide title-font text-center">${question.adjective}</h4>
+                        </div>
+
+                        <div class="space-y-3 mt-4 shrink-0">
+                            <button onclick="submitAnswer('Career')" class="choice-btn btn-tactile w-full py-3.5 px-4 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl text-xs font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
+                                <span>________ + CAREER</span>
+                                <i class="fa-solid fa-chevron-right text-[10px] text-[#0052cc] group-hover:translate-x-1 transition"></i>
+                            </button>
+                            <button onclick="submitAnswer('Work')" class="choice-btn btn-tactile w-full py-3.5 px-4 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl text-xs font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
+                                <span>________ + WORK</span>
+                                <i class="fa-solid fa-chevron-right text-[10px] text-[#0052cc] group-hover:translate-x-1 transition"></i>
+                            </button>
+                            <button onclick="submitAnswer('Job')" class="choice-btn btn-tactile w-full py-3.5 px-4 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl text-xs font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
+                                <span>________ + JOB</span>
+                                <i class="fa-solid fa-chevron-right text-[10px] text-[#0052cc] group-hover:translate-x-1 transition"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                contentBox.innerHTML = html;
+            } else {
+                // Centralized Sorteio - Shuffle alternative positions on render
+                const randomizedChoices = shuffleArray(question.choices);
+
+                const termText = question.emoji ? `<div class="text-4xl mb-3">${question.emoji}</div>` : '';
+                const html = `
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div class="bg-white border-2 border-[#121110] rounded-2xl p-5 shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] my-auto text-center flex flex-col items-center justify-center min-h-[140px] shrink-0">
+                            ${termText}
+                            <p class="text-xs text-[#121110] leading-relaxed font-bold">"${question.sentence || question.question}"</p>
+                        </div>
+
+                        <div class="space-y-3 mt-4 shrink-0">
+                            ${randomizedChoices.map(choice => `
+                                <button onclick="submitAnswer('${choice.replace(/'/g, "\\'")}')" class="choice-btn btn-tactile w-full py-3.5 px-4 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl text-xs font-black text-[#121110] text-left flex justify-between items-center transition">
+                                    <span class="capitalize">${choice}</span>
+                                    <div class="w-4 h-4 rounded-full border-2 border-[#121110] flex items-center justify-center shrink-0"></div>
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                contentBox.innerHTML = html;
+            }
+        }
+
+        function submitAnswer(ans) {
+            if (!state.canAnswer) return;
+            state.canAnswer = false;
+            state.selectedAnswer = ans;
+
+            const question = state.currentQuestionPool[state.currentIndex];
+            let isCorrect = false;
+
+            if (state.activeActivity === 'sorter') {
+                isCorrect = (ans.toLowerCase() === question.correct.toLowerCase());
+            } else {
+                isCorrect = (ans.toLowerCase() === question.correct.toLowerCase());
+            }
+
+            const choices = document.querySelectorAll('.choice-btn');
+            choices.forEach(btn => {
+                const btnSpan = btn.querySelector('span');
+                if (btnSpan) {
+                    const btnVal = btnSpan.innerText.toLowerCase();
+                    const cleanAns = ans.toLowerCase();
+                    const cleanCorrect = question.correct.toLowerCase();
+
+                    // Adjust matching specifically for sorter combinations to handle placeholders accurately
+                    if (state.activeActivity === 'sorter') {
+                        const wordWithPlaceholder = `________ + ${question.correct.toUpperCase()}`;
+                        const currentButtonText = btnSpan.innerText;
+                        
+                        if (currentButtonText === wordWithPlaceholder) {
+                            btn.classList.add('border-[#0052cc]', 'bg-[#0052cc]/10');
+                        } else if (currentButtonText === `________ + ${ans.toUpperCase()}`) {
+                            btn.classList.add('border-[#ff0000]', 'bg-[#ff0000]/10', 'animate-shake');
+                        }
+                    } else {
+                        if (btnVal === cleanCorrect) {
+                            btn.classList.add('border-[#0052cc]', 'bg-[#0052cc]/10');
+                            const bubble = btn.querySelector('.w-4');
+                            if (bubble) {
+                                bubble.className = "w-4 h-4 rounded-full bg-[#0052cc] flex items-center justify-center text-[10px] text-white font-black font-mono border border-[#121110]";
+                                bubble.innerHTML = "✓";
+                            }
+                        } else if (btnVal === cleanAns) {
+                            btn.classList.add('border-[#ff0000]', 'bg-[#ff0000]/10', 'animate-shake');
+                            const bubble = btn.querySelector('.w-4');
+                            if (bubble) {
+                                bubble.className = "w-4 h-4 rounded-full bg-[#ff0000] flex items-center justify-center text-[10px] text-white font-black font-mono border border-[#121110]";
+                                bubble.innerHTML = "✗";
+                            }
+                        }
+                    }
+                }
+            });
+
+            if (isCorrect) {
+                state.score++;
+                Sound.playCorrect();
+                showFeedback(true, question.meaning || question.explanation || "Excellent! You paired it correctly.");
+            } else {
+                Sound.playIncorrect();
+                // Format only the correct target word/phrase in BOLD and CAPS LOCK for maximum visual clarity
+                const correctWordUpper = question.correct.toUpperCase();
+                const feedbackMsg = `Incorrect. The correct answer is: <strong class="font-black text-[#121110] tracking-wider uppercase">${correctWordUpper}</strong>`;
+                showFeedback(false, feedbackMsg);
+            }
+        }
+
+        function showFeedback(correct, text) {
+            const sheet = document.getElementById('feedback-sheet');
+            const iconBox = document.getElementById('feedback-icon-container');
+            const title = document.getElementById('feedback-title');
+            const desc = document.getElementById('feedback-explanation');
+            const btn = document.getElementById('feedback-action-btn');
+
+            // Slide feedback sheet into viewport by safely swapping classes
+            sheet.classList.remove('translate-y-full');
+            sheet.classList.add('translate-y-0');
+
+            if (correct) {
+                sheet.style.borderTopColor = "#0052cc";
+                iconBox.className = "w-12 h-12 rounded-full bg-[#0052cc]/10 text-[#0052cc] border-2 border-[#121110] flex items-center justify-center text-2xl shrink-0";
+                iconBox.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+                title.innerText = "Excellent Work!";
+                title.className = "font-black text-lg text-[#0052cc] title-font";
+            } else {
+                sheet.style.borderTopColor = "#ff0000";
+                iconBox.className = "w-12 h-12 rounded-full bg-[#ff0000]/10 text-[#ff0000] border-2 border-[#121110] flex items-center justify-center text-2xl shrink-0";
+                iconBox.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+                title.innerText = "Let's Review!";
+                title.className = "font-black text-lg text-[#ff0000] title-font";
+            }
+
+            desc.innerHTML = text;
+            
+            if (state.currentIndex >= state.totalQuestions - 1) {
+                btn.innerText = "View Results";
+                btn.onclick = finishModule;
+            } else {
+                btn.innerText = "Next Question";
+                btn.onclick = nextQuestion;
+            }
+        }
+
+        function hideFeedback() {
+            const sheet = document.getElementById('feedback-sheet');
+            sheet.classList.remove('translate-y-0');
+            sheet.classList.add('translate-y-full');
+        }
+
+        function nextQuestion() {
+            Sound.playTap();
+            state.currentIndex++;
+            loadQuestion();
+        }
+
+        function finishModule() {
+            Sound.playFanfare();
+            document.getElementById('screen-activity').classList.add('hidden');
+            
+            const completionPercent = Math.round((state.score / state.totalQuestions) * 100);
+            localStorage.setItem(`progress_${state.activeActivity}`, completionPercent);
+            updateOverallProgress();
+
+            const completeScreen = document.getElementById('completion-screen');
+            completeScreen.classList.remove('hidden');
+
+            document.getElementById('complete-module-name').innerText = MODULE_INFO[state.activeActivity].title;
+            document.getElementById('complete-score').innerText = `${state.score}/${state.totalQuestions}`;
+            document.getElementById('complete-accuracy').innerText = `${completionPercent}%`;
+
+            const retryBtn = document.getElementById('complete-retry-btn');
+            retryBtn.onclick = () => {
+                completeScreen.classList.add('hidden');
+                openPreloadModal(state.activeActivity);
+            };
+        }
+
+        function startTenseRush() {
+            Sound.playTap();
+            const arena = document.getElementById('arena-tense-rush');
+            arena.classList.remove('hidden');
+            document.getElementById('app-tab-switcher').classList.add('hidden');
+
+            state.tenseRush.timeLeft = 30;
+            state.tenseRush.score = 0;
+            state.tenseRush.combo = 0;
+            state.tenseRush.isActive = true;
+
+            document.getElementById('rush-timer').innerText = "30s";
+            document.getElementById('rush-score').innerText = "0";
+            document.getElementById('rush-combo').innerText = "0x";
+
+            loadNextRushQuestion();
+
+            if (state.tenseRush.timerId) clearInterval(state.tenseRush.timerId);
+            state.tenseRush.timerId = setInterval(() => {
+                state.tenseRush.timeLeft--;
+                document.getElementById('rush-timer').innerText = `${state.tenseRush.timeLeft}s`;
+
+                if (state.tenseRush.timeLeft <= 0) {
+                    endTenseRush();
+                }
+            }, 1000);
+        }
+
+        function loadNextRushQuestion() {
+            const pool = [...EXPLICIT_DATA.grammarFuture, ...EXPLICIT_DATA.grammarPerfect];
+            const chosen = pool[Math.floor(Math.random() * pool.length)];
+            state.tenseRush.currentQuestion = chosen;
+
+            document.getElementById('rush-question-text').innerHTML = chosen.sentence || chosen.question;
+
+            const container = document.getElementById('rush-choices-container');
+            container.innerHTML = "";
+
+            chosen.choices.forEach(c => {
+                const btn = document.createElement('button');
+                btn.className = "btn-tactile w-full py-3 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-xs font-bold rounded-2xl transition text-center";
+                btn.innerText = c;
+                btn.onclick = () => submitRushAnswer(c);
+                container.appendChild(btn);
+            });
+        }
+
+        function submitRushAnswer(ans) {
+            if (!state.tenseRush.isActive) return;
+            const correct = state.tenseRush.currentQuestion.correct;
+            
+            if (ans.toLowerCase() === correct.toLowerCase()) {
+                state.tenseRush.combo++;
+                state.tenseRush.score += (10 * state.tenseRush.combo);
+                Sound.playCorrect();
+            } else {
+                state.tenseRush.combo = 0;
+                Sound.playIncorrect();
+            }
+
+            document.getElementById('rush-score').innerText = state.tenseRush.score;
+            document.getElementById('rush-combo').innerText = `${state.tenseRush.combo}x`;
+
+            loadNextRushQuestion();
+        }
+
+        function endTenseRush() {
+            state.tenseRush.isActive = false;
+            clearInterval(state.tenseRush.timerId);
+            Sound.playFanfare();
+            showCustomAlert("Game Complete!", `Tense Rush complete! Your speedrun score: ${state.tenseRush.score}`);
+            quitExtras();
+        }
+
+        function startFlashMatch() {
+            Sound.playTap();
+            const arena = document.getElementById('arena-flash-match');
+            arena.classList.remove('hidden');
+            document.getElementById('app-tab-switcher').classList.add('hidden');
+
+            state.flipMatch.moves = 0;
+            state.flipMatch.pairsFound = 0;
+            state.flipMatch.selectedCards = [];
+
+            document.getElementById('match-moves-count').innerText = "0";
+            document.getElementById('match-pairs-count').innerText = "0/4";
+
+            // Rich variations database for nature idioms to ensure high replayability and zero duplicate conflicts
+            const IDIOMS_MASTER = [
+                {
+                    term: "a ray of sunshine",
+                    variations: [
+                        "someone who is happy and makes other people feel happy",
+                        "always cheerful and bringing positive energy to everyone",
+                        "a person who brings happiness and smiles into a stressful room",
+                        "someone whose cheerful presence brightens up a difficult day"
+                    ]
+                },
+                {
+                    term: "neck of the woods",
+                    variations: [
+                        "a particular part of a town, country, or neighborhood",
+                        "the local area or neighborhood where someone lives",
+                        "a specific region or nearby vicinity where you are located",
+                        "the general geographic area where you reside or visit"
+                    ]
+                },
+                {
+                    term: "under the weather",
+                    variations: [
+                        "feeling slightly sick, tired, or not very well",
+                        "unwell or dealing with a mild illness like a cold",
+                        "not in good health or feeling out of sorts today",
+                        "dealing with a headache or minor physical indisposition"
+                    ]
+                },
+                {
+                    term: "a drop in the ocean",
+                    variations: [
+                        "a tiny amount that has almost no effect on a huge situation",
+                        "a very small quantity compared to the vast amount needed",
+                        "an insignificant contribution to an incredibly large problem",
+                        "a small effort that makes nearly no difference to a massive issue"
+                    ]
+                },
+                {
+                    term: "down to earth",
+                    variations: [
+                        "practical, sensible, realistic, and friendly",
+                        "humble and easy to talk to despite being highly successful",
+                        "not arrogant, very realistic, and sensible in behavior",
+                        "having a direct, realistic, and approachable personality"
+                    ]
+                },
+                {
+                    term: "in deep water",
+                    variations: [
+                        "in a very difficult, serious, or troublesome situation",
+                        "facing major trouble or serious consequences",
+                        "struggling with a highly complicated or risky problem",
+                        "experiencing severe difficulties that are hard to resolve"
+                    ]
+                },
+                {
+                    term: "the tip of the iceberg",
+                    variations: [
+                        "a small visible part of a much larger, hidden problem",
+                        "only the first tiny sign of a far more massive complication",
+                        "a minor apparent trouble that suggests much bigger issues below",
+                        "the small visible part of a deep, complicated challenge"
+                    ]
+                }
+            ];
+
+            // Centralized "Sorteio" - Shuffle and select 4 distinct idioms
+            const selectedIdioms = shuffleArray(IDIOMS_MASTER).slice(0, 4);
+            const cards = [];
+
+            selectedIdioms.forEach((item, index) => {
+                // Select a completely random explanation variation for this idiom
+                const randomVar = item.variations[Math.floor(Math.random() * item.variations.length)];
+
+                // Term card
+                cards.push({
+                    id: index + 1,
+                    matchId: index + 1,
+                    type: "term",
+                    text: item.term
+                });
+
+                // Meaning/Variation card
+                cards.push({
+                    id: index + 101,
+                    matchId: index + 1,
+                    type: "meaning",
+                    text: randomVar
+                });
+            });
+
+            // Centralized "Sorteio" - Shuffle cards thoroughly
+            state.flipMatch.deck = shuffleArray(cards);
+
+            const grid = document.getElementById('match-cards-grid');
+            grid.innerHTML = "";
+
+            state.flipMatch.deck.forEach((cardData, idx) => {
+                const cardOuter = document.createElement('div');
+                cardOuter.className = "perspective h-[90px] relative cursor-pointer select-none";
+                cardOuter.onclick = () => handleCardFlip(idx, cardOuter);
+
+                cardOuter.innerHTML = `
+                    <div class="flip-card-inner absolute inset-0 w-full h-full duration-500 rounded-2xl shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] transform pointer-events-none">
+                        <div class="flip-card-front absolute inset-0 w-full h-full bg-white border-2 border-[#121110] text-[#121110] flex items-center justify-center text-xl font-bold rounded-2xl">
+                            ❓
+                        </div>
+                        <div class="flip-card-back absolute inset-0 w-full h-full bg-[#f0ede4] border-2 border-[#121110] text-[#121110] flex items-center justify-center text-[9px] p-2 rounded-2xl font-black leading-tight text-center">
+                            ${cardData.text}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(cardOuter);
+            });
+        }
+
+        function handleCardFlip(idx, cardOuter) {
+            if (state.flipMatch.selectedCards.length >= 2) return;
+            if (cardOuter.classList.contains('flipped') || cardOuter.classList.contains('matched')) return;
+
+            Sound.playTap();
+            cardOuter.classList.add('flipped');
+            state.flipMatch.selectedCards.push({ idx, card: cardOuter });
+
+            if (state.flipMatch.selectedCards.length === 2) {
+                state.flipMatch.moves++;
+                document.getElementById('match-moves-count').innerText = state.flipMatch.moves;
+
+                setTimeout(checkMemoryMatch, 1000);
+            }
+        }
+
+        function checkMemoryMatch() {
+            const [first, second] = state.flipMatch.selectedCards;
+            const dataFirst = state.flipMatch.deck[first.idx];
+            const dataSecond = state.flipMatch.deck[second.idx];
+
+            if (dataFirst.matchId === dataSecond.matchId && dataFirst.type !== dataSecond.type) {
+                first.card.classList.add('matched');
+                second.card.classList.add('matched');
+                
+                first.card.querySelector('.flip-card-back').className += " border-[#0052cc] bg-[#0052cc]/10 text-[#0052cc]";
+                second.card.querySelector('.flip-card-back').className += " border-[#0052cc] bg-[#0052cc]/10 text-[#0052cc]";
+
+                state.flipMatch.pairsFound++;
+                document.getElementById('match-pairs-count').innerText = `${state.flipMatch.pairsFound}/4`;
+                Sound.playCorrect();
+
+                if (state.flipMatch.pairsFound === 4) {
+                    setTimeout(() => {
+                        Sound.playFanfare();
+                        showCustomAlert("Congratulations!", `Memory Flip complete in only ${state.flipMatch.moves} moves!`);
+                        quitExtras();
+                    }, 500);
+                }
+            } else {
+                first.card.classList.remove('flipped');
+                second.card.classList.remove('flipped');
+                Sound.playIncorrect();
+            }
+
+            state.flipMatch.selectedCards = [];
+        }
+
+        function startCareerClimber() {
+            Sound.playTap();
+            const arena = document.getElementById('arena-career-climber');
+            arena.classList.remove('hidden');
+            document.getElementById('app-tab-switcher').classList.add('hidden');
+
+            state.climber.streak = 0;
+            state.climber.rankIndex = 0;
+
+            updateClimberVisuals();
+            loadNextClimberWord();
+        }
+
+        function loadNextClimberWord() {
+            const items = EXPLICIT_DATA.sorter;
+            const chosen = items[Math.floor(Math.random() * items.length)];
+            state.climber.currentWord = chosen;
+
+            document.getElementById('climber-word').innerText = chosen.adjective;
+        }
+
+        function submitClimberAnswer(answer) {
+            const target = state.climber.currentWord.correct;
+            
+            if (answer.toLowerCase() === target.toLowerCase()) {
+                state.climber.streak++;
+                Sound.playCorrect();
+                
+                if (state.climber.streak >= 8) {
+                    state.climber.rankIndex = 3; // CEO
+                } else if (state.climber.streak >= 5) {
+                    state.climber.rankIndex = 2; // Manager
+                } else if (state.climber.streak >= 2) {
+                    state.climber.rankIndex = 1; // Associate
+                }
+            } else {
+                state.climber.streak = 0;
+                state.climber.rankIndex = 0; // Back to Intern
+                Sound.playIncorrect();
+            }
+
+            updateClimberVisuals();
+
+            if (state.climber.streak >= 10) {
+                Sound.playFanfare();
+                showCustomAlert("CEO Status!", "You paired collocations flawlessly and achieved Chief Executive Officer status!");
+                quitExtras();
+            } else {
+                loadNextClimberWord();
+            }
+        }
+
+        function updateClimberVisuals() {
+            document.getElementById('climber-streak').innerText = state.climber.streak;
+
+            const ranks = ["Intern", "Associate", "Manager", "CEO"];
+            const colors = ["text-[#121110]", "text-[#0052cc]", "text-[#ffb900]", "text-[#0052cc]"];
+            
+            const rankElem = document.getElementById('climber-rank');
+            rankElem.innerText = ranks[state.climber.rankIndex];
+            rankElem.className = `font-black uppercase font-mono ${colors[state.climber.rankIndex]}`;
+
+            const levelIds = ["climber-v-intern", "climber-v-associate", "climber-v-manager", "climber-v-ceo"];
+            levelIds.forEach((id, idx) => {
+                const el = document.getElementById(id);
+                if (idx === state.climber.rankIndex) {
+                    el.className = "w-full text-center py-1.5 bg-[#ffb900]/20 text-[#121110] border-2 border-[#121110] font-black rounded";
+                } else {
+                    el.className = "w-full text-center py-1.5 bg-[#f0ede4] text-[#a09e97] border border-[#121110] rounded";
+                }
+            });
+        }
+
+        let currentAlertCallback = null;
+        function showCustomAlert(title, text, callback = null) {
+            document.getElementById('custom-alert-title').innerText = title;
+            document.getElementById('custom-alert-text').innerText = text;
+            document.getElementById('custom-alert-overlay').classList.remove('hidden');
+            currentAlertCallback = callback;
+        }
+
+        function dismissCustomAlert() {
+            Sound.playTap();
+            document.getElementById('custom-alert-overlay').classList.add('hidden');
+            if (currentAlertCallback) {
+                currentAlertCallback();
+                currentAlertCallback = null;
+            }
+        }
+
+        let currentConfirmCallback = null;
+        function showCustomConfirm(text, callback) {
+            document.getElementById('custom-confirm-text').innerText = text;
+            document.getElementById('custom-confirm-overlay').classList.remove('hidden');
+            currentConfirmCallback = callback;
+        }
+
+        function dismissCustomConfirm(isConfirmed) {
+            Sound.playTap();
+            document.getElementById('custom-confirm-overlay').classList.add('hidden');
+            if (currentConfirmCallback) {
+                currentConfirmCallback(isConfirmed);
+                currentConfirmCallback = null;
+            }
+        }
+
+        // Window Startup triggers
+        window.onload = function() {
+            updateOverallProgress();
+        };
+    </script>
+</body>
+</html>
