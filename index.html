@@ -2,14 +2,14 @@
 <html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>INTER 2 - Teacher Fernando</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2 family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -21,104 +21,70 @@
         .title-font {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        /* Barra de rolagem personalizada e limpa */
+        /* Custom scrollbar style */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
             background: #f1ede4;
-            border-left: 2px solid #121110;
+            border-left: 1px solid #121110;
         }
         ::-webkit-scrollbar-thumb {
             background: #0052cc;
-            border: 2px solid #121110;
-            border-radius: 4px;
+            border: 1px solid #121110;
+            border-radius: 3px;
         }
-        /* Efeito de abanar suave para respostas erradas */
+        /* Shake effect for wrong answers */
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-6px); }
-            75% { transform: translateX(6px); }
+            25% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
         }
         .animate-shake {
-            animation: shake 0.2s ease-in-out 2;
+            animation: shake 0.15s ease-in-out 2;
         }
-        /* Transições táteis para botões estilo neo-brutalista */
+        /* Tactile push transitions */
         .btn-tactile {
-            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.15);
         }
         .btn-tactile:active {
-            transform: translate(2px, 2px);
+            transform: translate(1px, 1px);
             box-shadow: 1px 1px 0px 0px #121110 !important;
         }
 
-        /* Adaptações para evitar barras de rolagem verticais em ecrãs pequenos */
+        /* SCREEN OPTIMIZATIONS FOR ALL PORTABLE VIEWPORTS (S23, iPhone, etc.) */
         @media (max-width: 640px) {
             body {
-                overflow: hidden !important;
+                /* Allow natural swipe/scroll globally if content exceeds, but maintain clean aesthetic */
+                overflow-y: auto !important;
             }
         }
 
-        @media (max-height: 840px) {
-            .btn-tactile {
-                padding-top: 0.5rem !important;
-                padding-bottom: 0.5rem !important;
-            }
-            #screen-home {
-                padding: 1rem !important;
-            }
-            #screen-home h1 {
-                font-size: 1.25rem !important;
-                line-height: 1.5rem !important;
-            }
-            #screen-home h2 {
-                margin-bottom: 0.25rem !important;
-            }
-            #screen-home .grid {
-                gap: 0.5rem !important;
-            }
-            #screen-home button {
-                min-height: 85px !important;
-                padding: 0.5rem 0.75rem !important;
-            }
-            #screen-home button.col-span-2 {
-                min-height: 60px !important;
-            }
-            #screen-home .space-y-5 {
-                gap: 0.5rem !important;
-                display: flex !important;
-                flex-direction: column !important;
-            }
-            #screen-home .space-y-5 > div {
-                margin-bottom: 0px !important;
-            }
-            .choice-btn {
-                padding-top: 0.5rem !important;
-                padding-bottom: 0.5rem !important;
-                border-radius: 0.75rem !important;
-            }
-        }
-
-        @media (max-height: 720px) {
+        /* Height-based media query adjustments to shrink vertical headers and spacing */
+        @media (max-height: 850px) {
             .btn-tactile {
                 padding-top: 0.4rem !important;
                 padding-bottom: 0.4rem !important;
             }
             #screen-home {
-                padding: 0.75rem !important;
+                padding: 1rem !important;
             }
-            #screen-home .mb-5 {
-                margin-bottom: 0.5rem !important;
+            #screen-home h1 {
+                font-size: 1.15rem !important;
+                line-height: 1.35rem !important;
             }
-            #screen-home .mb-4 {
-                margin-bottom: 0.25rem !important;
+            #screen-home h2 {
+                margin-bottom: 0.2rem !important;
+            }
+            #screen-home .grid {
+                gap: 0.4rem !important;
             }
             #screen-home button {
-                min-height: 70px !important;
+                min-height: 75px !important;
                 padding: 0.4rem 0.6rem !important;
             }
             #screen-home button.col-span-2 {
-                min-height: 54px !important;
+                min-height: 52px !important;
             }
             #screen-home .space-y-5 {
                 gap: 0.4rem !important;
@@ -128,159 +94,195 @@
             #screen-home .space-y-5 > div {
                 margin-bottom: 0px !important;
             }
-            #screen-home h2 {
-                font-size: 10px !important;
-                margin-bottom: 0.15rem !important;
+            .choice-btn {
+                padding-top: 0.6rem !important;
+                padding-bottom: 0.6rem !important;
+                border-radius: 0.6rem !important;
             }
-            #feedback-sheet {
+        }
+
+        @media (max-height: 740px) {
+            .btn-tactile {
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+            }
+            #screen-home {
                 padding: 0.75rem !important;
             }
+            #screen-home .mb-5 {
+                margin-bottom: 0.4rem !important;
+            }
+            #screen-home .mb-4 {
+                margin-bottom: 0.2rem !important;
+            }
+            #screen-home button {
+                min-height: 65px !important;
+                padding: 0.35rem 0.5rem !important;
+            }
+            #screen-home button.col-span-2 {
+                min-height: 48px !important;
+            }
+            #screen-home .space-y-5 {
+                gap: 0.35rem !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            #screen-home .space-y-5 > div {
+                margin-bottom: 0px !important;
+            }
+            #screen-home h2 {
+                font-size: 9px !important;
+                margin-bottom: 0.1rem !important;
+            }
+            #feedback-sheet {
+                padding: 0.65rem !important;
+            }
             #feedback-explanation {
-                padding: 0.5rem !important;
-                margin-bottom: 0.75rem !important;
+                padding: 0.4rem !important;
+                margin-bottom: 0.6rem !important;
             }
         }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-0 sm:p-4 overflow-y-auto sm:overflow-hidden select-none">
+<body class="flex items-center justify-center min-h-screen p-0 sm:p-4 overflow-y-auto select-none">
 
-    <!-- Contentor principal imitando ecrã vertical de telemóvel -->
-    <div class="w-full max-w-[420px] h-[100dvh] sm:h-[860px] sm:max-h-[95vh] sm:my-auto sm:rounded-[32px] bg-[#faf9f6] text-[#121110] shadow-2xl flex flex-col relative border-0 sm:border-[10px] border-[#121110] overflow-hidden shrink-0">
+    <!-- Main layout container simulating a tall vertical mobile layout but supporting flexible dvh heights -->
+    <div class="w-full max-w-[420px] h-[100dvh] sm:h-[840px] sm:max-h-[95vh] sm:my-auto sm:rounded-[28px] bg-[#faf9f6] text-[#121110] shadow-2xl flex flex-col relative border-0 sm:border-[8px] border-[#121110] overflow-y-auto sm:overflow-hidden shrink-0">
         
-        <!-- Barra de Estado / Cabeçalho Superior -->
-        <div class="bg-[#121110] px-6 pt-4 pb-3.5 flex justify-between items-center text-xs text-[#faf9f6] border-b-2 border-[#121110] shrink-0">
-            <span class="font-extrabold tracking-wider title-font flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#ffb900]"></span>
+        <!-- Header - Highly optimized to be extremely short on mobile to save vertical viewport space -->
+        <div class="bg-[#121110] px-4 sm:px-6 py-2 sm:py-3.5 flex justify-between items-center text-[11px] sm:text-xs text-[#faf9f6] border-b-2 border-[#121110] shrink-0">
+            <span class="font-extrabold tracking-wider title-font flex items-center gap-1.5 sm:gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#ffb900]"></span>
                 INTER 2 - Teacher Fernando
             </span>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3 sm:gap-4">
                 <button id="soundToggleBtn" onclick="toggleMute()" class="hover:text-[#ffb900] transition duration-200">
-                    <i id="soundIcon" class="fa-solid fa-volume-high text-sm"></i>
+                    <i id="soundIcon" class="fa-solid fa-volume-high text-xs sm:text-sm"></i>
                 </button>
-                <span class="text-[10px] font-bold tracking-widest bg-[#0052cc] text-white px-2 py-0.5 rounded border border-white/20">BIMESTER 2</span>
+                <span class="text-[8px] sm:text-[10px] font-black tracking-widest bg-[#0052cc] text-white px-1.5 py-0.5 rounded border border-white/10 uppercase">BIMESTER 2</span>
             </div>
         </div>
 
-        <!-- ECRÃ 1: MENU DO STUDY HUB -->
-        <div id="screen-home" class="flex-1 flex flex-col p-5 overflow-y-auto bg-[#faf9f6]">
+        <!-- SCREEN 1: STUDY HUB MENU -->
+        <div id="screen-home" class="flex-1 flex flex-col p-4 sm:p-5 overflow-y-auto bg-[#faf9f6]">
             
-            <div class="text-center my-1.5 shrink-0">
-                <span class="bg-[#ffb900]/15 text-[#b38000] text-[9px] font-extrabold px-3 py-1 rounded-full border-2 border-[#ffb900]/40 uppercase tracking-widest title-font">
+            <div class="text-center my-1 shrink-0">
+                <span class="bg-[#ffb900]/15 text-[#b38000] text-[8px] sm:text-[9px] font-extrabold px-2.5 py-0.5 rounded-full border-2 border-[#ffb900]/40 uppercase tracking-widest title-font">
                     <i class="fa-solid fa-star mr-1"></i> Interactive Syllabus
                 </span>
             </div>
             
-            <div class="text-center mb-4 shrink-0">
-                <h1 class="text-2xl font-black tracking-tight title-font text-[#121110]">
+            <div class="text-center mb-3 shrink-0">
+                <h1 class="text-xl sm:text-2xl font-black tracking-tight title-font text-[#121110]">
                     Activity Hub
                 </h1>
-                <p class="text-[11px] text-[#55504a] mt-1 font-medium">Select a direct practice module to complete random questions.</p>
+                <p class="text-[10px] sm:text-[11px] text-[#55504a] mt-0.5 font-medium">Select a practice module to complete random questions.</p>
             </div>
 
-            <!-- Painel de Progresso Geral do Utilizador -->
-            <div class="bg-white rounded-2xl p-3.5 mb-5 border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] shrink-0">
-                <div class="flex justify-between items-center mb-1.5">
-                    <span class="text-[10px] font-bold text-[#121110] uppercase tracking-wider">Overall Completion</span>
+            <!-- Global User Progress Indicator -->
+            <div class="bg-white rounded-xl p-3 mb-4 sm:mb-5 border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] shrink-0">
+                <div class="flex justify-between items-center mb-1">
+                    <span class="text-[9px] font-bold text-[#121110] uppercase tracking-wider">Overall Completion</span>
                     <span id="overallProgressText" class="text-xs font-black text-[#0052cc]">0%</span>
                 </div>
-                <div class="w-full bg-[#f0ede4] rounded-full h-3 overflow-hidden p-[1.5px] border-2 border-[#121110]">
+                <div class="w-full bg-[#f0ede4] rounded-full h-2.5 overflow-hidden p-[1px] border-2 border-[#121110]">
                     <div id="overallProgressBar" class="bg-[#0052cc] h-full rounded-full transition-all duration-500" style="width: 0%"></div>
                 </div>
             </div>
 
-            <!-- Grelha de Atividades de Conteúdo -->
-            <div class="flex-1 space-y-5">
+            <!-- Grid of Modules -->
+            <div class="flex-1 space-y-4">
                 
-                <!-- Secção da Unidade 3: Healthy Planet -->
+                <!-- Unit 3 Segment -->
                 <div>
-                    <h2 class="text-[11px] font-black text-[#121110] uppercase tracking-widest mb-2.5 flex items-center gap-2 px-1">
-                        <span class="w-2.5 h-4 bg-[#0052cc] border border-[#121110] rounded-sm"></span>
+                    <h2 class="text-[10px] font-black text-[#121110] uppercase tracking-widest mb-1.5 sm:mb-2 flex items-center gap-1.5 px-1">
+                        <span class="w-2 h-3 bg-[#0052cc] border border-[#121110] rounded-sm"></span>
                         Unit 3: Healthy Planet
                     </h2>
-                    <div class="grid grid-cols-2 gap-3">
-                        <!-- Botão do Módulo: Environmental Problems -->
-                        <button onclick="openPreloadModal('environment')" class="btn-tactile text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[110px]">
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <!-- Module: Environmental Problems -->
+                        <button onclick="openPreloadModal('environment')" class="btn-tactile text-left bg-white p-3 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[90px] sm:min-h-[110px]">
                             <div class="flex justify-between items-start w-full">
-                                <div class="w-8 h-8 rounded-xl bg-[#ffb900]/20 text-[#121110] border border-[#121110] flex items-center justify-center text-sm font-bold">
+                                <div class="w-7 h-7 rounded-lg bg-[#ffb900]/20 text-[#121110] border border-[#121110] flex items-center justify-center text-xs font-bold">
                                     <i class="fa-solid fa-seedling text-[#0052cc]"></i>
                                 </div>
-                                <span id="badge-environment" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black">0%</span>
+                                <span id="badge-environment" class="text-[8px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1 py-0.2 rounded font-black">0%</span>
                             </div>
-                            <div class="mt-3">
-                                <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Environmental Problems</h3>
+                            <div class="mt-2">
+                                <h3 class="font-extrabold text-[10px] sm:text-[11px] leading-tight text-[#121110] group-hover:text-[#0052cc] transition">Environmental Problems</h3>
                             </div>
                         </button>
 
-                        <!-- Botão do Módulo: Nature Idioms -->
-                        <button onclick="openPreloadModal('idioms')" class="btn-tactile text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[110px]">
+                        <!-- Module: Nature Idioms -->
+                        <button onclick="openPreloadModal('idioms')" class="btn-tactile text-left bg-white p-3 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[90px] sm:min-h-[110px]">
                             <div class="flex justify-between items-start w-full">
-                                <div class="w-8 h-8 rounded-xl bg-[#ffb900]/20 text-[#121110] border border-[#121110] flex items-center justify-center text-sm font-bold">
+                                <div class="w-7 h-7 rounded-lg bg-[#ffb900]/20 text-[#121110] border border-[#121110] flex items-center justify-center text-xs font-bold">
                                     <i class="fa-solid fa-cloud-sun text-[#ffb900]"></i>
                                 </div>
-                                <span id="badge-idioms" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black">0%</span>
+                                <span id="badge-idioms" class="text-[8px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1 py-0.2 rounded font-black">0%</span>
                             </div>
-                            <div class="mt-3">
-                                <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Nature Idioms</h3>
+                            <div class="mt-2">
+                                <h3 class="font-extrabold text-[10px] sm:text-[11px] leading-tight text-[#121110] group-hover:text-[#0052cc] transition">Nature Idioms</h3>
                             </div>
                         </button>
 
-                        <!-- Botão do Módulo: Future Progressive vs Future Perfect -->
-                        <button onclick="openPreloadModal('grammarFuture')" class="btn-tactile col-span-2 text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex items-center gap-4 group min-h-[74px]">
-                            <div class="w-9 h-9 rounded-xl bg-[#0052cc]/10 text-[#0052cc] border-[#121110] flex items-center justify-center text-base font-bold shrink-0">
+                        <!-- Module: Future Progressive vs Future Perfect -->
+                        <button onclick="openPreloadModal('grammarFuture')" class="btn-tactile col-span-2 text-left bg-white p-3 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex items-center gap-3 group min-h-[60px] sm:min-h-[74px]">
+                            <div class="w-8 h-8 rounded-lg bg-[#0052cc]/10 text-[#0052cc] border border-[#121110] flex items-center justify-center text-sm font-bold shrink-0">
                                 <i class="fa-solid fa-angles-right"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <div class="flex justify-between items-center">
-                                    <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Future Progressive vs Future Perfect</h3>
-                                    <span id="badge-grammarFuture" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black shrink-0 ml-2">0%</span>
+                                <div class="flex justify-between items-center pr-1">
+                                    <h3 class="font-extrabold text-[10px] sm:text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition truncate">Future Progressive vs Perfect</h3>
+                                    <span id="badge-grammarFuture" class="text-[8px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1 py-0.2 rounded font-black shrink-0 ml-1">0%</span>
                                 </div>
                             </div>
                         </button>
                     </div>
                 </div>
 
-                <!-- Secção da Unidade 4: Career Paths -->
+                <!-- Unit 4 Segment -->
                 <div>
-                    <h2 class="text-[11px] font-black text-[#121110] uppercase tracking-widest mb-2.5 flex items-center gap-2 px-1">
-                        <span class="w-2.5 h-4 bg-[#ffb900] border border-[#121110] rounded-sm"></span>
+                    <h2 class="text-[10px] font-black text-[#121110] uppercase tracking-widest mb-1.5 sm:mb-2 flex items-center gap-1.5 px-1">
+                        <span class="w-2 h-3 bg-[#ffb900] border border-[#121110] rounded-sm"></span>
                         Unit 4: Career Paths
                     </h2>
-                    <div class="grid grid-cols-2 gap-3">
-                        <!-- Botão do Módulo: Career Vocabulary -->
-                        <button onclick="openPreloadModal('careers')" class="btn-tactile text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[110px]">
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <!-- Module: Career Vocabulary -->
+                        <button onclick="openPreloadModal('careers')" class="btn-tactile text-left bg-white p-3 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[90px] sm:min-h-[110px]">
                             <div class="flex justify-between items-start w-full">
-                                <div class="w-8 h-8 rounded-xl bg-[#0052cc]/10 text-[#0052cc] border border-[#121110] flex items-center justify-center text-sm font-bold">
+                                <div class="w-7 h-7 rounded-lg bg-[#0052cc]/10 text-[#0052cc] border border-[#121110] flex items-center justify-center text-xs font-bold">
                                     <i class="fa-solid fa-briefcase"></i>
                                 </div>
-                                <span id="badge-careers" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black">0%</span>
+                                <span id="badge-careers" class="text-[8px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1 py-0.2 rounded font-black">0%</span>
                             </div>
-                            <div class="mt-3">
-                                <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Career Vocabulary</h3>
+                            <div class="mt-2">
+                                <h3 class="font-extrabold text-[10px] sm:text-[11px] leading-tight text-[#121110] group-hover:text-[#0052cc] transition">Career Vocabulary</h3>
                             </div>
                         </button>
 
-                        <!-- Botão do Módulo: Work, Job or Career Combinations -->
-                        <button onclick="openPreloadModal('sorter')" class="btn-tactile text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[110px]">
+                        <!-- Module: Work, Job or Career Combinations -->
+                        <button onclick="openPreloadModal('sorter')" class="btn-tactile text-left bg-white p-3 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex flex-col justify-between group min-h-[90px] sm:min-h-[110px]">
                             <div class="flex justify-between items-start w-full">
-                                <div class="w-8 h-8 rounded-xl bg-[#ffb900]/20 text-[#121110] border border-[#121110] flex items-center justify-center text-sm font-bold">
+                                <div class="w-7 h-7 rounded-lg bg-[#ffb900]/20 text-[#121110] border border-[#121110] flex items-center justify-center text-xs font-bold">
                                     <i class="fa-solid fa-layer-group text-[#0052cc]"></i>
                                 </div>
-                                <span id="badge-sorter" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black">0%</span>
+                                <span id="badge-sorter" class="text-[8px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black">0%</span>
                             </div>
-                            <div class="mt-3">
-                                <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Work, Job or Career Combinations</h3>
+                            <div class="mt-2">
+                                <h3 class="font-extrabold text-[10px] sm:text-[11px] leading-tight text-[#121110] group-hover:text-[#0052cc] transition">Combinations Sorter</h3>
                             </div>
                         </button>
 
-                        <!-- Botão do Módulo: Past Perfect Progressive vs Present Perfect Progressive -->
-                        <button onclick="openPreloadModal('grammarPerfect')" class="btn-tactile col-span-2 text-left bg-white p-3.5 rounded-2xl border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] flex items-center gap-4 group min-h-[74px]">
-                            <div class="w-9 h-9 rounded-xl bg-[#ffb900]/20 text-[#ffb900] border border-[#121110] flex items-center justify-center text-base font-bold shrink-0">
+                        <!-- Module: Past Perfect Progressive vs Present Perfect Progressive -->
+                        <button onclick="openPreloadModal('grammarPerfect')" class="btn-tactile col-span-2 text-left bg-white p-3 rounded-xl border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex items-center gap-3 group min-h-[60px] sm:min-h-[74px]">
+                            <div class="w-8 h-8 rounded-lg bg-[#ffb900]/20 text-[#ffb900] border border-[#121110] flex items-center justify-center text-sm font-bold shrink-0">
                                 <i class="fa-solid fa-clock-rotate-left text-[#121110]"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <div class="flex justify-between items-center">
-                                    <h3 class="font-extrabold text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition">Past Perfect Progressive vs Present Perfect Progressive</h3>
-                                    <span id="badge-grammarPerfect" class="text-[9px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1.5 py-0.5 rounded font-black shrink-0 ml-2">0%</span>
+                                <div class="flex justify-between items-center pr-1">
+                                    <h3 class="font-extrabold text-[10px] sm:text-[11px] leading-snug text-[#121110] group-hover:text-[#0052cc] transition truncate">Past vs Present Perfect Prog.</h3>
+                                    <span id="badge-grammarPerfect" class="text-[8px] bg-[#f0ede4] text-[#121110] border border-[#121110] px-1 py-0.2 rounded font-black shrink-0 ml-1 font-mono">0%</span>
                                 </div>
                             </div>
                         </button>
@@ -289,228 +291,227 @@
 
             </div>
 
-            <!-- Rodapé e Botões de Utilidade -->
-            <div class="mt-6 flex gap-3 shrink-0">
-                <button onclick="openCollocationGuide()" class="btn-tactile flex-1 py-3 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-center text-xs text-white font-extrabold flex items-center justify-center gap-2 transition duration-200">
+            <!-- Utility Action Bar -->
+            <div class="mt-4 flex gap-2.5 shrink-0">
+                <button onclick="openCollocationGuide()" class="btn-tactile flex-1 py-2.5 bg-[#0052cc] border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] rounded-lg text-center text-[11px] text-white font-extrabold flex items-center justify-center gap-1.5 transition duration-200">
                     <i class="fa-solid fa-circle-info"></i> Collocation Guide
                 </button>
-                <button id="reset-progress-btn" onclick="triggerResetProgress()" class="btn-tactile px-3.5 bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[#121110] hover:text-[#ff0000] transition duration-200 text-xs flex items-center justify-center">
+                <button id="reset-progress-btn" onclick="triggerResetProgress()" class="btn-tactile px-3 bg-white border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] rounded-lg text-[#121110] hover:text-[#ff0000] transition duration-200 text-[11px] flex items-center justify-center">
                     <i class="fa-solid fa-trash"></i>
                 </button>
             </div>
         </div>
 
-        <!-- MODAL INTEGRADO DE PREPARAÇÃO (Ivory Theme) -->
-        <div id="modal-preload" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-45 flex flex-col justify-center items-center p-6 text-center">
-            <div id="preload-icon" class="w-16 h-16 rounded-2xl bg-[#ffb900]/20 text-[#121110] border-2 border-[#121110] flex items-center justify-center text-3xl mb-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] shrink-0">
+        <!-- MODAL: MODULE START OPTIONS OVERLAY -->
+        <div id="modal-preload" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-40 flex flex-col justify-center items-center p-5 text-center">
+            <div id="preload-icon" class="w-12 h-12 rounded-xl bg-[#ffb900]/20 text-[#121110] border-2 border-[#121110] flex items-center justify-center text-xl mb-3 shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] shrink-0">
                 <i class="fa-solid fa-book"></i>
             </div>
             
-            <h2 id="preload-module-title" class="text-2xl font-black text-[#121110] title-font mb-1 shrink-0">Module Name</h2>
-            <p id="preload-module-desc" class="text-[11px] text-[#55504a] max-w-xs mb-5 shrink-0">Learn more about this segment through interactive practice sessions.</p>
+            <h2 id="preload-module-title" class="text-xl font-black text-[#121110] title-font mb-0.5 shrink-0">Module Name</h2>
+            <p id="preload-module-desc" class="text-[10px] sm:text-[11px] text-[#55504a] max-w-xs mb-4 shrink-0">Select your preferred training mode to begin.</p>
             
-            <!-- Painel de Seleção de Modo -->
-            <div class="w-full max-w-xs space-y-3 mb-6 shrink-0" id="mode-selection-panel">
-                <span id="mode-panel-title" class="text-[#55504a] text-[10px] font-bold uppercase tracking-wider block mb-1">Select Practice Mode:</span>
+            <!-- Selection Panel -->
+            <div class="w-full max-w-xs space-y-2 mb-4 shrink-0" id="mode-selection-panel">
+                <span id="mode-panel-title" class="text-[#55504a] text-[9px] font-bold uppercase tracking-wider block mb-0.5">Select Practice Mode:</span>
                 
-                <div id="dynamic-preload-choices" class="space-y-2.5">
-                    <!-- Botões gerados dinamicamente via JS -->
+                <div id="dynamic-preload-choices" class="space-y-2">
+                    <!-- Loaded programmatically -->
                 </div>
             </div>
 
-            <!-- Resumo Informativo Rápido -->
-            <div id="preload-hints" class="bg-white border-2 border-[#121110] p-4 rounded-xl text-[11px] text-[#55504a] text-left max-w-xs w-full mb-6 overflow-y-auto shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
-                <!-- Conteúdo gerado dinamicamente via JS -->
+            <!-- Pre-Flight Tips -->
+            <div id="preload-hints" class="bg-white border-2 border-[#121110] p-3 rounded-lg text-[10px] text-[#55504a] text-left max-w-xs w-full mb-4 overflow-y-auto max-h-[140px] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)]">
+                <!-- Loaded programmatically -->
             </div>
 
-            <!-- Triggers de Início ou Cancelamento -->
-            <div class="w-full max-w-xs shrink-0 flex gap-3">
-                <button onclick="closePreloadModal()" class="btn-tactile flex-1 py-3 bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase rounded-xl transition">
+            <div class="w-full max-w-xs shrink-0 flex gap-2.5">
+                <button onclick="closePreloadModal()" class="btn-tactile flex-1 py-2 bg-[#f0ede4] border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-[10px] font-bold uppercase rounded-lg transition">
                     Back
                 </button>
             </div>
         </div>
 
-        <!-- MODAL DO GUIA INTERATIVO DE COLOCAÇÕES (CAREER, JOB, WORK) -->
-        <div id="modal-guide" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-50 flex flex-col p-6 overflow-y-auto">
-            <div class="flex justify-between items-center mb-6 shrink-0">
-                <h3 class="text-xl font-black text-[#121110] title-font flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-[#0052cc]"></span>
+        <!-- MODAL: COLLOCATION GUIDE SYSTEM -->
+        <div id="modal-guide" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-50 flex flex-col p-5 overflow-y-auto">
+            <div class="flex justify-between items-center mb-4 shrink-0">
+                <h3 class="text-lg font-black text-[#121110] title-font flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#0052cc]"></span>
                     Collocation Guide
                 </h3>
-                <button onclick="closeCollocationGuide()" class="btn-tactile text-[#121110] bg-[#f0ede4] border-2 border-[#121110] p-2 rounded-xl text-sm transition">
+                <button onclick="closeCollocationGuide()" class="btn-tactile text-[#121110] bg-[#f0ede4] border-2 border-[#121110] p-1.5 rounded-lg text-xs transition">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <div class="space-y-4 text-xs leading-relaxed text-[#55504a] font-medium font-sans">
-                <!-- Careers -->
-                <div class="bg-white border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl p-4">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="w-6 h-6 rounded border border-[#121110] bg-[#0052cc] text-white flex items-center justify-center font-bold">C</span>
-                        <h4 class="font-extrabold text-[#121110] text-sm">CAREER</h4>
+            <div class="space-y-3.5 text-[11px] leading-relaxed text-[#55504a] font-medium font-sans">
+                <!-- Careers category -->
+                <div class="bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl p-3">
+                    <div class="flex items-center gap-1.5 mb-1.5">
+                        <span class="w-5 h-5 rounded border border-[#121110] bg-[#0052cc] text-white flex items-center justify-center font-bold text-[10px]">C</span>
+                        <h4 class="font-extrabold text-[#121110] text-xs">CAREER</h4>
                     </div>
-                    <p class="mb-2 text-[#55504a]">The professional pathway or total journey of work done over a lifetime. Focused on credentials and promotions.</p>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">academic career</span>
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">distinguished career</span>
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">professional career</span>
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">promising career</span>
-                    </div>
-                </div>
-
-                <!-- Work -->
-                <div class="bg-white border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl p-4">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="w-6 h-6 rounded border border-[#121110] bg-[#ffb900] text-[#121110] flex items-center justify-center font-bold">W</span>
-                        <h4 class="font-extrabold text-[#121110] text-sm">WORK</h4>
-                    </div>
-                    <p class="mb-2 text-[#55504a]">The overall effort, physical or intellectual activity. Can be paid, voluntary, or simple homework.</p>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">extensive work</span>
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">physical work</span>
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">rewarding work</span>
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">unpaid work</span>
+                    <p class="mb-1.5 text-[#55504a]">Professional roadmap or aggregate experience over your life. Connected to qualifications and progress.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">academic career</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">distinguished career</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">professional career</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">promising career</span>
                     </div>
                 </div>
 
-                <!-- Job -->
-                <div class="bg-white border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl p-4">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="w-6 h-6 rounded border border-[#121110] bg-white text-[#121110] flex items-center justify-center font-bold">J</span>
-                        <h4 class="font-extrabold text-[#121110] text-sm">JOB</h4>
+                <!-- Work category -->
+                <div class="bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl p-3">
+                    <div class="flex items-center gap-1.5 mb-1.5">
+                        <span class="w-5 h-5 rounded border border-[#121110] bg-[#ffb900] text-[#121110] flex items-center justify-center font-bold text-[10px]">W</span>
+                        <h4 class="font-extrabold text-[#121110] text-xs">WORK</h4>
                     </div>
-                    <p class="mb-2 text-[#55504a]">A specific professional position or role held inside an organization, done strictly in exchange for money.</p>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">decent job</span>
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">dead-end job</span>
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">ideal job</span>
-                        <span class="bg-[#f0ede4] border border-[#121110] px-2 py-0.5 rounded text-[10px] font-mono text-[#121110]">steady job</span>
+                    <p class="mb-1.5 text-[#55504a]">Overall effort, labor or production. Can be general, paid, unpaid or domestic.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">extensive work</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">physical work</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">rewarding work</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">unpaid work</span>
+                    </div>
+                </div>
+
+                <!-- Job category -->
+                <div class="bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl p-3">
+                    <div class="flex items-center gap-1.5 mb-1.5">
+                        <span class="w-5 h-5 rounded border border-[#121110] bg-white text-[#121110] flex items-center justify-center font-bold text-[10px]">J</span>
+                        <h4 class="font-extrabold text-[#121110] text-xs">JOB</h4>
+                    </div>
+                    <p class="mb-1.5 text-[#55504a]">A distinct, specific employment position or task, typically done in exchange for financial return.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">decent job</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">dead-end job</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">ideal job</span>
+                        <span class="bg-[#f0ede4] border border-[#121110] px-1.5 py-0.2 rounded text-[9px] font-mono text-[#121110]">steady job</span>
                     </div>
                 </div>
             </div>
 
-            <button onclick="closeCollocationGuide()" class="btn-tactile mt-6 w-full py-3.5 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white font-bold text-xs uppercase rounded-xl transition shrink-0">
-                Understood!
+            <button onclick="closeCollocationGuide()" class="btn-tactile mt-5 w-full py-2.5 bg-[#0052cc] border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-white font-bold text-xs uppercase rounded-lg transition shrink-0">
+                Got it!
             </button>
         </div>
 
-        <!-- CONTENTOR DOS EXERCÍCIOS DE PRÁTICA PRINCIPAIS -->
+        <!-- SCREEN 2: ACTIVE QUESTION ROUND -->
         <div id="screen-activity" class="hidden flex-1 flex flex-col overflow-hidden relative bg-[#faf9f6]">
             
-            <!-- Cabeçalho Dinâmico da Prática -->
-            <div class="bg-white px-5 py-4 border-b-2 border-[#121110] flex items-center justify-between shrink-0">
-                <button onclick="returnToHome()" class="btn-tactile text-[#121110] flex items-center gap-1.5 text-xs font-bold py-1.5 px-3 bg-[#f0ede4] border-2 border-[#121110] rounded-lg transition shrink-0">
-                    <i class="fa-solid fa-arrow-left"></i> Home
+            <!-- Active Sub Header - Extremely slimmed down for vertical viewports -->
+            <div class="bg-white px-3 sm:px-4 py-1.5 sm:py-2.5 border-b-2 border-[#121110] flex items-center justify-between shrink-0">
+                <button onclick="returnToHome()" class="btn-tactile text-[#121110] flex items-center gap-1 text-[10px] font-bold py-1 px-2.5 bg-[#f0ede4] border-2 border-[#121110] rounded-md transition shrink-0">
+                    <i class="fa-solid fa-arrow-left text-[8px]"></i> Home
                 </button>
                 <div class="text-center flex-1 mx-2 min-w-0">
-                    <span id="activity-title" class="text-[10px] font-black tracking-wider text-[#121110] uppercase font-mono block truncate">Module</span>
+                    <span id="activity-title" class="text-[9px] sm:text-[10px] font-black tracking-wider text-[#121110] uppercase font-mono block truncate">Module</span>
                 </div>
-                <!-- Indicador de Progresso Escrito -->
-                <div class="text-right text-xs font-bold text-[#0052cc] shrink-0 min-w-[55px] whitespace-nowrap">
+                <!-- Mini written progress -->
+                <div class="text-right text-[10px] sm:text-xs font-bold text-[#0052cc] shrink-0 min-w-[45px] whitespace-nowrap">
                     <span id="header-progress">0/10</span>
                 </div>
             </div>
 
-            <!-- Barra de Progresso Visual Superior -->
-            <div class="w-full bg-[#f0ede4] h-2 shrink-0 border-b-2 border-[#121110]">
+            <!-- Active progress bar -->
+            <div class="w-full bg-[#f0ede4] h-1.5 shrink-0 border-b-2 border-[#121110]">
                 <div id="activeProgressBar" class="bg-[#0052cc] h-full w-0 transition-all duration-300"></div>
             </div>
 
-            <!-- Contentor para o Quiz/Exercício Dinâmico -->
-            <div id="activity-content" class="flex-1 overflow-y-auto p-5 flex flex-col justify-between">
-                <!-- Injetado dinamicamente via JS -->
+            <!-- Question and choices space. Optimized to allow vertical scroll if option text is extremely long -->
+            <div id="activity-content" class="flex-1 overflow-y-auto p-3.5 sm:p-5 flex flex-col justify-between">
+                <!-- programmatically loaded -->
             </div>
 
-            <!-- Painel Absoluto de Feedback (Correct/Incorrect) -->
-            <div id="feedback-sheet" class="absolute bottom-0 left-0 right-0 transform translate-y-full bg-white border-t-4 border-[#121110] p-6 transition-transform duration-300 z-50 flex flex-col shadow-[0_-8px_30px_rgba(18,17,16,0.3)] shrink-0">
-                <div class="flex items-center gap-4 mb-4">
-                    <div id="feedback-icon-container" class="w-12 h-12 rounded-full border-2 border-[#121110] flex items-center justify-center text-2xl shrink-0">
-                        <!-- Ícone dinâmico -->
+            <!-- Slide-up Feedback panel -->
+            <div id="feedback-sheet" class="absolute bottom-0 left-0 right-0 transform translate-y-full bg-white border-t-4 border-[#121110] p-4 sm:p-5 transition-transform duration-300 z-50 flex flex-col shadow-[0_-6px_24px_rgba(18,17,16,0.25)] shrink-0">
+                <div class="flex items-center gap-3 mb-2.5">
+                    <div id="feedback-icon-container" class="w-9 h-9 rounded-full border-2 border-[#121110] flex items-center justify-center text-lg shrink-0">
+                        <!-- Icon programmed -->
                     </div>
                     <div>
-                        <h4 id="feedback-title" class="font-black text-lg text-[#121110] title-font">Correct Answer!</h4>
+                        <h4 id="feedback-title" class="font-black text-sm sm:text-base text-[#121110] title-font">Correct Answer!</h4>
                     </div>
                 </div>
-                <div id="feedback-explanation" class="text-xs text-[#55504a] bg-[#f0ede4] p-4 rounded-xl border-2 border-[#121110] mb-5 leading-relaxed font-bold">
-                    <!-- Explicação teórica ou correção destacada -->
+                <div id="feedback-explanation" class="text-[11px] text-[#55504a] bg-[#f0ede4] p-2.5 sm:p-3 rounded-lg border-2 border-[#121110] mb-3.5 leading-relaxed font-bold">
+                    <!-- Text programmed -->
                 </div>
-                <button id="feedback-action-btn" class="btn-tactile w-full py-4 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-extrabold uppercase tracking-widest rounded-xl transition shrink-0">
+                <button id="feedback-action-btn" class="btn-tactile w-full py-2.5 sm:py-3 bg-[#0052cc] border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-white text-[11px] font-extrabold uppercase tracking-wider rounded-lg transition shrink-0">
                     Next Question
                 </button>
             </div>
         </div>
 
-        <!-- ECRÃ DE SUCESSO / RESULTADOS GERAIS -->
-        <div id="completion-screen" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-50 flex flex-col justify-center items-center p-8 text-center">
-            <div class="w-24 h-24 bg-[#ffb900]/20 border-4 border-[#121110] rounded-full flex items-center justify-center text-[#121110] text-4xl shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] mb-6 shrink-0">
+        <!-- SCREEN 3: COMPLETION SUMMARY OVERLAY -->
+        <div id="completion-screen" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-50 flex flex-col justify-center items-center p-6 text-center">
+            <div class="w-16 h-16 bg-[#ffb900]/20 border-3 border-[#121110] rounded-full flex items-center justify-center text-[#121110] text-2xl shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] mb-4 shrink-0">
                 <i class="fa-solid fa-trophy"></i>
             </div>
             
-            <span class="bg-[#0052cc]/10 text-[#0052cc] text-xs font-black px-3.5 py-1.5 rounded border-2 border-[#0052cc] tracking-widest uppercase mb-3 shrink-0 title-font">
+            <span class="bg-[#0052cc]/10 text-[#0052cc] text-[9px] font-black px-2.5 py-1 rounded border-2 border-[#0052cc] tracking-widest uppercase mb-2 shrink-0 title-font">
                 Practice Complete!
             </span>
             
-            <h2 id="complete-module-name" class="text-xl font-black mb-1 text-[#121110] shrink-0 max-w-xs leading-snug">
+            <h2 id="complete-module-name" class="text-lg font-black mb-1 text-[#121110] shrink-0 max-w-xs leading-snug">
                 Nature Idioms
             </h2>
             
-            <p class="text-[11px] text-[#55504a] max-w-xs mb-8 shrink-0 font-medium">
-                You have successfully completed this practice round. Replay again to get completely fresh questions!
+            <p class="text-[10px] text-[#55504a] max-w-xs mb-5 shrink-0 font-medium">
+                You have finished this round. Start another to test additional phrases!
             </p>
 
-            <!-- Tabela de Resultados -->
-            <div class="bg-white rounded-2xl p-6 border-2 border-[#121110] shadow-[4px_4px_0px_0px_rgba(18,17,16,1)] w-full max-w-xs mb-8 shrink-0">
-                <div class="grid grid-cols-2 gap-4 divide-x-2 divide-[#121110]">
+            <!-- Final statistics panel -->
+            <div class="bg-white rounded-xl p-4 border-2 border-[#121110] shadow-[2.5px_2.5px_0px_0px_rgba(18,17,16,1)] w-full max-w-xs mb-5 shrink-0">
+                <div class="grid grid-cols-2 gap-2 divide-x-2 divide-[#121110]">
                     <div>
-                        <span class="text-[#55504a] text-[10px] font-bold uppercase tracking-widest">Final Score</span>
-                        <div class="text-xl font-black text-[#0052cc] mt-1" id="complete-score">10/10</div>
+                        <span class="text-[#55504a] text-[9px] font-bold uppercase tracking-widest">Final Score</span>
+                        <div class="text-lg font-black text-[#0052cc] mt-0.5" id="complete-score">10/10</div>
                     </div>
                     <div>
-                        <span class="text-[#55504a] text-[10px] font-bold uppercase tracking-widest">Accuracy</span>
-                        <div class="text-xl font-black text-[#121110] mt-1" id="complete-accuracy">100%</div>
+                        <span class="text-[#55504a] text-[9px] font-bold uppercase tracking-widest">Accuracy</span>
+                        <div class="text-lg font-black text-[#121110] mt-0.5" id="complete-accuracy">100%</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Ações Finais -->
-            <div class="w-full max-w-xs space-y-3 shrink-0">
-                <button onclick="returnToHome()" class="btn-tactile w-full py-3.5 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition">
+            <!-- Interactive triggers -->
+            <div class="w-full max-w-xs space-y-2 shrink-0">
+                <button onclick="returnToHome()" class="btn-tactile w-full py-2.5 bg-[#0052cc] border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-white text-[10px] font-bold uppercase rounded-lg transition">
                     Keep Learning
                 </button>
-                <button id="complete-retry-btn" class="btn-tactile w-full py-3.5 bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase tracking-wider rounded-xl transition">
+                <button id="complete-retry-btn" class="btn-tactile w-full py-2.5 bg-white border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-[10px] font-bold uppercase rounded-lg transition">
                     Practice Again
                 </button>
             </div>
         </div>
 
-        <!-- MODAL CUSTOMIZADO: AVISO (ALERT) -->
-        <div id="custom-alert-overlay" class="hidden absolute inset-0 bg-[#121110]/80 z-55 flex flex-col justify-center items-center p-6 text-center">
-            <div class="bg-[#faf9f6] border-4 border-[#121110] rounded-2xl p-6 w-full max-w-xs shadow-[6px_6px_0px_0px_rgba(18,17,16,1)]">
-                <div class="w-12 h-12 rounded-full bg-[#0052cc]/10 border-2 border-[#121110] text-[#0052cc] flex items-center justify-center text-xl mx-auto mb-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+        <!-- SCREEN ALERT: CUSTOM INFO ALERT BOX -->
+        <div id="custom-alert-overlay" class="hidden absolute inset-0 bg-[#121110]/80 z-55 flex flex-col justify-center items-center p-5 text-center">
+            <div class="bg-[#faf9f6] border-3 border-[#121110] rounded-xl p-5 w-full max-w-xs shadow-[4px_4px_0px_0px_rgba(18,17,16,1)]">
+                <div class="w-10 h-10 rounded-full bg-[#0052cc]/10 border-2 border-[#121110] text-[#0052cc] flex items-center justify-center text-lg mx-auto mb-3 shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)]">
                     <i class="fa-solid fa-circle-info"></i>
                 </div>
-                <h3 id="custom-alert-title" class="font-black text-[#121110] text-lg mb-2">Title</h3>
-                <p id="custom-alert-text" class="text-xs text-[#55504a] font-semibold leading-relaxed mb-6">Explanation detail contents.</p>
-                <button onclick="dismissCustomAlert()" class="btn-tactile w-full py-2.5 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold uppercase rounded-xl transition">
+                <h3 id="custom-alert-title" class="font-black text-[#121110] text-base mb-1">Title</h3>
+                <p id="custom-alert-text" class="text-[10px] text-[#55504a] font-semibold leading-relaxed mb-4">Explanation detail contents.</p>
+                <button onclick="dismissCustomAlert()" class="btn-tactile w-full py-2 bg-[#0052cc] border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-white text-[10px] font-bold uppercase rounded-lg transition">
                     Okay
                 </button>
             </div>
         </div>
 
-        <!-- MODAL CUSTOMIZADO: CONFIRMAÇÃO (CONFIRM) -->
-        <div id="custom-confirm-overlay" class="hidden absolute inset-0 bg-[#121110]/80 z-55 flex flex-col justify-center items-center p-6 text-center">
-            <div class="bg-[#faf9f6] border-4 border-[#121110] rounded-2xl p-6 w-full max-w-xs shadow-[6px_6px_0px_0px_rgba(18,17,16,1)]">
-                <div class="w-12 h-12 rounded-full bg-[#ffb900]/20 border-2 border-[#121110] text-[#121110] flex items-center justify-center text-xl mx-auto mb-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)]">
+        <!-- SCREEN CONFIRM: CUSTOM DIALOG BOX -->
+        <div id="custom-confirm-overlay" class="hidden absolute inset-0 bg-[#121110]/80 z-55 flex flex-col justify-center items-center p-5 text-center">
+            <div class="bg-[#faf9f6] border-3 border-[#121110] rounded-xl p-5 w-full max-w-xs shadow-[4px_4px_0px_0px_rgba(18,17,16,1)]">
+                <div class="w-10 h-10 rounded-full bg-[#ffb900]/20 border-2 border-[#121110] text-[#121110] flex items-center justify-center text-lg mx-auto mb-3 shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)]">
                     <i class="fa-solid fa-triangle-exclamation text-[#ffb900]"></i>
                 </div>
-                <h3 class="font-black text-[#121110] text-base mb-2">Are you sure?</h3>
-                <p id="custom-confirm-text" class="text-xs text-[#55504a] font-semibold leading-relaxed mb-6">Action confirmation detail.</p>
-                <div class="flex gap-3">
-                    <button onclick="dismissCustomConfirm(false)" class="btn-tactile flex-1 py-2.5 bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase rounded-xl transition">
+                <h3 class="font-black text-[#121110] text-sm mb-1">Are you sure?</h3>
+                <p id="custom-confirm-text" class="text-[10px] text-[#55504a] font-semibold leading-relaxed mb-4">Action confirmation detail.</p>
+                <div class="flex gap-2">
+                    <button onclick="dismissCustomConfirm(false)" class="btn-tactile flex-1 py-2 bg-[#f0ede4] border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-[10px] font-bold uppercase rounded-lg transition">
                         Cancel
                     </button>
-                    <button onclick="dismissCustomConfirm(true)" class="btn-tactile flex-1 py-2.5 bg-[#ffb900] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold uppercase rounded-xl transition">
+                    <button onclick="dismissCustomConfirm(true)" class="btn-tactile flex-1 py-2 bg-[#ffb900] border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-[10px] font-bold uppercase rounded-lg transition">
                         Confirm
                     </button>
                 </div>
@@ -520,7 +521,7 @@
     </div>
 
     <script>
-        // Função utilitária global de baralhar arrays (Fisher-Yates) para evitar erros de referência
+        // Array Utility Shuffling (Fisher-Yates) placed at the top of script execution context
         function shuffleArray(arr) {
             const newArr = [...arr];
             for (let i = newArr.length - 1; i > 0; i--) {
@@ -752,7 +753,7 @@
                 { id: 41, sentence: "I ________ a lot of water today because of the summer heat.", choices: ["have been drinking", "had been drinking", "drink", "drank"], correct: "have been drinking" },
                 { id: 42, sentence: "Her eyes were red because she ________ onions for the stew.", choices: ["has been chopping", "had been chopping", "chops", "chopped"], correct: "has been chopping" },
                 { id: 43, sentence: "Lately, my brother ________ to the local gym on weekdays.", choices: ["has been going", "had been going", "goes", "went"], correct: "has been going" },
-                { id: 44, sentence: "They ________ the historic castle for three years before the project stopped.", choices: ["have been restoring", "had been restoring", "restore", "restored"], correct: "had been restoring" },
+                { id: 44, sentence: "They ________ the historic castle for three years before the project stopped.", choices: ["have been restoring", "had been restoring", "restore", "restored"], correct: "have been restoring" },
                 { id: 45, sentence: "I ________ for my missing wallet since I woke up this morning.", choices: ["have been looking", "had been looking", "look", "looked"], correct: "have been looking" },
                 { id: 46, sentence: "The machine was hot because it ________ at full capacity all night.", choices: ["has been running", "had been running", "runs", "ran"], correct: "had been running" },
                 { id: 47, sentence: "She ________ yoga lessons lately and feels much more relaxed.", choices: ["has been taking", "had been taking", "takes", "took"], correct: "has been taking" },
@@ -988,9 +989,9 @@
             soundMuted = !soundMuted;
             const icon = document.getElementById('soundIcon');
             if (soundMuted) {
-                icon.className = "fa-solid fa-volume-xmark text-sm";
+                icon.className = "fa-solid fa-volume-xmark text-xs sm:text-sm";
             } else {
-                icon.className = "fa-solid fa-volume-high text-sm";
+                icon.className = "fa-solid fa-volume-high text-xs sm:text-sm";
             }
         }
 
@@ -1016,17 +1017,17 @@
             if (isVocab) {
                 document.getElementById('mode-panel-title').innerText = "Select Practice Mode:";
                 choicesContainer.innerHTML = `
-                    <button onclick="launchPracticeWithMode('definition')" class="btn-tactile w-full py-3 bg-white border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold rounded-xl transition">
+                    <button onclick="launchPracticeWithMode('definition')" class="btn-tactile w-full py-2.5 bg-white border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-[#121110] text-xs font-bold rounded-lg transition">
                         Definition Match
                     </button>
-                    <button onclick="launchPracticeWithMode('sentence')" class="btn-tactile w-full py-3 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold rounded-xl transition">
+                    <button onclick="launchPracticeWithMode('sentence')" class="btn-tactile w-full py-2.5 bg-[#0052cc] border-2 border-[#121110] shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold rounded-lg transition">
                         Sentence Context
                     </button>
                 `;
             } else {
                 document.getElementById('mode-panel-title').innerText = "Ready to start?";
                 choicesContainer.innerHTML = `
-                    <button onclick="launchDirectPractice()" class="btn-tactile w-full py-3.5 bg-[#0052cc] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold uppercase rounded-xl transition shadow-lg">
+                    <button onclick="launchDirectPractice()" class="btn-tactile w-full py-3 bg-[#0052cc] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] text-white text-xs font-bold uppercase rounded-lg transition">
                         Start Activity
                     </button>
                 `;
@@ -1183,15 +1184,15 @@
             const titleMap = {
                 idioms: "Nature Idioms",
                 sorter: "Combinations",
-                careers: "Career Vocabulary",
-                grammarFuture: "Future Progressive vs Future Perfect",
-                grammarPerfect: "Past Perfect Prog vs Present Perfect Prog",
-                environment: "Environmental Problems"
+                careers: "Career Vocab.",
+                grammarFuture: "Future Prog. vs Perfect",
+                grammarPerfect: "Past vs Pres. Perfect",
+                environment: "Env. Problems"
             };
 
             let suffix = "";
-            if (state.activeMode === 'definition') suffix = " [DESCRIPTION]";
-            if (state.activeMode === 'sentence') suffix = " [SENTENCES]";
+            if (state.activeMode === 'definition') suffix = " [DESC]";
+            if (state.activeMode === 'sentence') suffix = " [SENT]";
 
             titleElem.innerText = `${titleMap[state.activeActivity]}${suffix}`;
 
@@ -1206,6 +1207,7 @@
             hideFeedback();
         }
 
+        // Optimized question loader that scales spacing depending on ecrã constraint
         function loadQuestion() {
             hideFeedback();
             state.canAnswer = true;
@@ -1224,23 +1226,23 @@
             if (state.activeActivity === 'sorter') {
                 const html = `
                     <div class="flex-1 flex flex-col justify-between">
-                        <div class="bg-white border-2 border-[#121110] rounded-2xl p-5 shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] my-auto flex flex-col items-center justify-center min-h-[140px] shrink-0">
-                            <span class="text-[10px] text-[#0052cc] font-extrabold uppercase tracking-widest block mb-2">Classify this adjective:</span>
-                            <h4 class="text-3xl font-black text-[#121110] tracking-wide title-font text-center">${question.adjective}</h4>
+                        <div class="bg-white border-2 border-[#121110] rounded-xl p-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] my-auto flex flex-col items-center justify-center min-h-[90px] sm:min-h-[120px] shrink-0">
+                            <span class="text-[9px] text-[#0052cc] font-extrabold uppercase tracking-widest block mb-1">Classify this adjective:</span>
+                            <h4 class="text-2xl sm:text-3xl font-black text-[#121110] tracking-wide title-font text-center uppercase">${question.adjective}</h4>
                         </div>
 
-                        <div class="space-y-3 mt-4 shrink-0">
-                            <button onclick="submitAnswer('Career')" class="choice-btn btn-tactile w-full py-3.5 px-4 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl text-xs font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
+                        <div class="space-y-2 sm:space-y-3 mt-3 sm:mt-4 shrink-0">
+                            <button onclick="submitAnswer('Career')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
                                 <span>________ + CAREER</span>
-                                <i class="fa-solid fa-chevron-right text-[10px] text-[#0052cc] group-hover:translate-x-1 transition"></i>
+                                <i class="fa-solid fa-chevron-right text-[9px] text-[#0052cc] group-hover:translate-x-0.5 transition"></i>
                             </button>
-                            <button onclick="submitAnswer('Work')" class="choice-btn btn-tactile w-full py-3.5 px-4 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl text-xs font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
+                            <button onclick="submitAnswer('Work')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
                                 <span>________ + WORK</span>
-                                <i class="fa-solid fa-chevron-right text-[10px] text-[#0052cc] group-hover:translate-x-1 transition"></i>
+                                <i class="fa-solid fa-chevron-right text-[9px] text-[#0052cc] group-hover:translate-x-0.5 transition"></i>
                             </button>
-                            <button onclick="submitAnswer('Job')" class="choice-btn btn-tactile w-full py-3.5 px-4 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl text-xs font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
+                            <button onclick="submitAnswer('Job')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
                                 <span>________ + JOB</span>
-                                <i class="fa-solid fa-chevron-right text-[10px] text-[#0052cc] group-hover:translate-x-1 transition"></i>
+                                <i class="fa-solid fa-chevron-right text-[9px] text-[#0052cc] group-hover:translate-x-0.5 transition"></i>
                             </button>
                         </div>
                     </div>
@@ -1248,19 +1250,19 @@
                 contentBox.innerHTML = html;
             } else {
                 const randomizedChoices = shuffleArray(question.choices);
-                const termText = question.emoji ? `<div class="text-4xl mb-3">${question.emoji}</div>` : '';
+                const termText = question.emoji ? `<div class="text-3xl mb-2">${question.emoji}</div>` : '';
                 const html = `
                     <div class="flex-1 flex flex-col justify-between">
-                        <div class="bg-white border-2 border-[#121110] rounded-2xl p-5 shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] my-auto text-center flex flex-col items-center justify-center min-h-[140px] shrink-0">
+                        <div class="bg-white border-2 border-[#121110] rounded-xl p-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] my-auto text-center flex flex-col items-center justify-center min-h-[90px] sm:min-h-[120px] shrink-0">
                             ${termText}
-                            <p class="text-xs text-[#121110] leading-relaxed font-bold">"${question.sentence || question.question}"</p>
+                            <p class="text-xs sm:text-sm text-[#121110] leading-relaxed font-bold">"${question.sentence || question.question}"</p>
                         </div>
 
-                        <div class="space-y-3 mt-4 shrink-0">
+                        <div class="space-y-2 sm:space-y-3 mt-3 sm:mt-4 shrink-0">
                             ${randomizedChoices.map(choice => `
-                                <button onclick="submitAnswer('${choice.replace(/'/g, "\\'")}')" class="choice-btn btn-tactile w-full py-3.5 px-4 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[3px_3px_0px_0px_rgba(18,17,16,1)] rounded-2xl text-xs font-black text-[#121110] text-left flex justify-between items-center transition">
-                                    <span class="capitalize">${choice}</span>
-                                    <div class="w-4 h-4 rounded-full border-2 border-[#121110] flex items-center justify-center shrink-0"></div>
+                                <button onclick="submitAnswer('${choice.replace(/'/g, "\\'")}')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-black text-[#121110] text-left flex justify-between items-center transition">
+                                    <span class="capitalize pointer-events-none">${choice}</span>
+                                    <div class="w-3.5 h-3.5 rounded-full border-2 border-[#121110] flex items-center justify-center shrink-0 pointer-events-none"></div>
                                 </button>
                             `).join('')}
                         </div>
@@ -1304,16 +1306,16 @@
                     } else {
                         if (btnVal === cleanCorrect) {
                             btn.classList.add('border-[#0052cc]', 'bg-[#0052cc]/10');
-                            const bubble = btn.querySelector('.w-4');
+                            const bubble = btn.querySelector('.w-3.5');
                             if (bubble) {
-                                bubble.className = "w-4 h-4 rounded-full bg-[#0052cc] flex items-center justify-center text-[10px] text-white font-black font-mono border border-[#121110]";
+                                bubble.className = "w-3.5 h-3.5 rounded-full bg-[#0052cc] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
                                 bubble.innerHTML = "✓";
                             }
                         } else if (btnVal === cleanAns) {
                             btn.classList.add('border-[#ff0000]', 'bg-[#ff0000]/10', 'animate-shake');
-                            const bubble = btn.querySelector('.w-4');
+                            const bubble = btn.querySelector('.w-3.5');
                             if (bubble) {
-                                bubble.className = "w-4 h-4 rounded-full bg-[#ff0000] flex items-center justify-center text-[10px] text-white font-black font-mono border border-[#121110]";
+                                bubble.className = "w-3.5 h-3.5 rounded-full bg-[#ff0000] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
                                 bubble.innerHTML = "✗";
                             }
                         }
@@ -1345,16 +1347,16 @@
 
             if (correct) {
                 sheet.style.borderTopColor = "#0052cc";
-                iconBox.className = "w-12 h-12 rounded-full bg-[#0052cc]/10 text-[#0052cc] border-2 border-[#121110] flex items-center justify-center text-2xl shrink-0";
+                iconBox.className = "w-9 h-9 rounded-full bg-[#0052cc]/10 text-[#0052cc] border-2 border-[#121110] flex items-center justify-center text-lg shrink-0";
                 iconBox.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
                 title.innerText = "Excellent Work!";
-                title.className = "font-black text-lg text-[#0052cc] title-font";
+                title.className = "font-black text-sm sm:text-base text-[#0052cc] title-font";
             } else {
                 sheet.style.borderTopColor = "#ff0000";
-                iconBox.className = "w-12 h-12 rounded-full bg-[#ff0000]/10 text-[#ff0000] border-2 border-[#121110] flex items-center justify-center text-2xl shrink-0";
+                iconBox.className = "w-9 h-9 rounded-full bg-[#ff0000]/10 text-[#ff0000] border-2 border-[#121110] flex items-center justify-center text-lg shrink-0";
                 iconBox.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
                 title.innerText = "Let's Review!";
-                title.className = "font-black text-lg text-[#ff0000] title-font";
+                title.className = "font-black text-sm sm:text-base text-[#ff0000] title-font";
             }
 
             desc.innerHTML = text;
