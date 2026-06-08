@@ -614,7 +614,7 @@
                 { id: 39, sentence: "At 8 AM next Monday, they ________ to their new office.", choices: ["will be commuting", "will have commuted", "commute", "commuted"], correct: "will be commuting" },
                 { id: 40, sentence: "I hope the postman ________ my package by tomorrow morning.", choices: ["will be delivering", "will have delivered", "delivers", "delivered"], correct: "will have delivered" },
                 { id: 41, sentence: "This evening, our family ________ to a classical music concert.", choices: ["will be listening", "will have listened", "listen", "listened"], correct: "will be listening" },
-                { id: 42, sentence: "By 2035, the city ________ three new public libraries.", choices: ["will be building", "will have built", "build", "built"], correct: "will have built" },
+                { id: 42, text_to_replace: "By 2035, the city ________ three new public libraries.", sentence: "By 2035, the city ________ three new public libraries.", choices: ["will be building", "will have built", "build", "built"], correct: "will have built" },
                 { id: 43, text_to_replace: "At noon tomorrow, the workers ________ the old highway.", sentence: "At noon tomorrow, the workers ________ the old highway.", choices: ["will be paving", "will have paved", "pave", "paved"], correct: "will be paving" },
                 { id: 44, sentence: "By tomorrow night, I ________ all my clothes for the trip.", choices: ["will be packing", "will have packed", "pack", "packed"], correct: "will have packed" },
                 { id: 45, sentence: "Next winter, they ________ their skiing skills in the Alps.", choices: ["will be practicing", "will have practiced", "practice", "practiced"], correct: "will be practicing" },
@@ -716,7 +716,7 @@
                 { id: 35, sentence: "Proper storage of ________ prevents dangerous chemical runoffs.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" },
                 { id: 36, sentence: "Our current consumption habits are producing a major ________ crisis.", choices: ["waste disposal", "acid rain", "climate change", "coastal erosion"], correct: "waste disposal" },
                 { id: 37, sentence: "High acidity in lakes, caused by ________, kills local fish species.", choices: ["acid rain", "climate change", "coastal erosion", "greenhouse gases"], correct: "acid rain" },
-                { id: 38, sentence: "The warming of global oceans is a clear effect of ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
+                { id: 38, sentence: "The warming of global oceans is a effect of ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
                 { id: 39, sentence: "Sandy beaches are gradually shrinking due to continuous ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
                 { id: 40, sentence: "Carbon dioxide is the most common human-made ________.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
                 { id: 41, sentence: "Hearing damage in industrial workers is often caused by ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
@@ -1204,7 +1204,7 @@
                                 return `
                                     <button onclick="submitAnswer(this)" data-choice="${safeChoice}" class="choice-btn btn-tactile w-full py-2 sm:py-2.5 px-3 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-black text-[#121110] text-left flex justify-between items-center transition">
                                         <span class="capitalize pointer-events-none">${choice}</span>
-                                        <div class="w-3.5 h-3.5 rounded-full border-2 border-[#121110] flex items-center justify-center shrink-0 pointer-events-none"></div>
+                                        <div class="choice-bubble w-3.5 h-3.5 rounded-full border-2 border-[#121110] flex items-center justify-center shrink-0 pointer-events-none"></div>
                                     </button>
                                 `;
                             }).join('')}
@@ -1251,16 +1251,16 @@
                         } else {
                             if (cleanVal === cleanCorrect) {
                                 b.classList.add('border-[#0052cc]', 'bg-[#0052cc]/10');
-                                const bubble = b.querySelector('.w-3.5');
+                                const bubble = b.querySelector('.choice-bubble');
                                 if (bubble) {
-                                    bubble.className = "w-3.5 h-3.5 rounded-full bg-[#0052cc] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
+                                    bubble.className = "choice-bubble w-3.5 h-3.5 rounded-full bg-[#0052cc] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
                                     bubble.innerHTML = "✓";
                                 }
                             } else if (cleanVal === cleanAns) {
                                 b.classList.add('border-[#ff0000]', 'bg-[#ff0000]/10', 'animate-shake');
-                                const bubble = b.querySelector('.w-3.5');
+                                const bubble = b.querySelector('.choice-bubble');
                                 if (bubble) {
-                                    bubble.className = "w-3.5 h-3.5 rounded-full bg-[#ff0000] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
+                                    bubble.className = "choice-bubble w-3.5 h-3.5 rounded-full bg-[#ff0000] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
                                     bubble.innerHTML = "✗";
                                 }
                             }
