@@ -66,16 +66,16 @@
     <div class="w-full max-w-[420px] h-[100dvh] sm:h-[840px] sm:max-h-[95vh] sm:my-auto sm:rounded-[28px] bg-[#faf9f6] text-[#121110] shadow-2xl flex flex-col relative border-0 sm:border-[8px] border-[#121110] overflow-hidden shrink-0">
         
         <!-- Header - Completely optimized to NEVER wrap even on very narrow viewports -->
-        <div class="bg-[#121110] px-3.5 py-2 sm:py-3 flex justify-between items-center text-[10px] sm:text-xs text-[#faf9f6] border-b-2 border-[#121110] shrink-0 min-h-[42px] select-none">
+        <div class="bg-[#121110] px-4 py-2 flex justify-between items-center text-xs text-[#faf9f6] border-b-2 border-[#121110] shrink-0 min-h-[44px] select-none">
             <span class="font-extrabold tracking-wider title-font flex items-center gap-1.5 whitespace-nowrap overflow-hidden text-ellipsis flex-1 pr-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#ffb900] shrink-0 animate-pulse"></span>
-                <span class="truncate">INTER 2 - Teacher Fernando</span>
+                <span class="truncate text-[10px] sm:text-xs">INTER 2 - Teacher Fernando</span>
             </span>
             <div class="flex items-center gap-2.5 shrink-0 whitespace-nowrap">
-                <button id="soundToggleBtn" onclick="toggleMute()" class="hover:text-[#ffb900] p-1 transition duration-200 flex items-center justify-center">
+                <button id="soundToggleBtn" onclick="toggleMute()" class="hover:text-[#ffb900] p-1.5 transition duration-200 flex items-center justify-center">
                     <i id="soundIcon" class="fa-solid fa-volume-high text-[11px] sm:text-xs"></i>
                 </button>
-                <span class="text-[8px] sm:text-[9px] font-black tracking-widest bg-[#0052cc] text-white px-1.5 py-0.5 rounded border border-white/10 uppercase whitespace-nowrap inline-block">BIMESTER 2</span>
+                <span class="text-[8px] sm:text-[9px] font-black tracking-widest bg-[#0052cc] text-white px-2 py-0.5 rounded border border-white/10 uppercase whitespace-nowrap inline-block">BIMESTER 2</span>
             </div>
         </div>
 
@@ -219,7 +219,7 @@
         </div>
 
         <!-- MODAL: MODULE START OPTIONS OVERLAY -->
-        <div id="modal-preload" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-40 flex flex-col justify-center items-center p-5 text-center">
+        <div id="modal-preload" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-40 flex flex-col justify-center items-center p-5 text-center overflow-y-auto">
             <div id="preload-icon" class="w-12 h-12 rounded-xl bg-[#ffb900]/20 text-[#121110] border-2 border-[#121110] flex items-center justify-center text-xl mb-3 shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)] shrink-0">
                 <i class="fa-solid fa-book"></i>
             </div>
@@ -313,7 +313,7 @@
         </div>
 
         <!-- SCREEN 2: ACTIVE QUESTION ROUND -->
-        <div id="screen-activity" class="hidden flex-1 flex flex-col overflow-hidden relative bg-[#faf9f6] min-h-0">
+        <div id="screen-activity" class="hidden flex-1 flex flex-col overflow-y-auto relative bg-[#faf9f6] min-h-0">
             
             <!-- Active Sub Header - Extremely compact and clean -->
             <div class="bg-white px-3 sm:px-4 py-1.5 sm:py-2 border-b-2 border-[#121110] flex items-center justify-between shrink-0 select-none">
@@ -359,7 +359,7 @@
         </div>
 
         <!-- SCREEN 3: COMPLETION SUMMARY OVERLAY -->
-        <div id="completion-screen" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-50 flex flex-col justify-center items-center p-6 text-center">
+        <div id="completion-screen" class="hidden absolute inset-0 bg-[#faf9f6]/95 z-50 flex flex-col justify-center items-center p-6 text-center overflow-y-auto">
             <div class="w-16 h-16 bg-[#ffb900]/20 border-3 border-[#121110] rounded-full flex items-center justify-center text-[#121110] text-2xl shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] mb-4 shrink-0">
                 <i class="fa-solid fa-trophy"></i>
             </div>
@@ -403,7 +403,7 @@
 
         <!-- SCREEN ALERT: CUSTOM INFO ALERT BOX -->
         <div id="custom-alert-overlay" class="hidden absolute inset-0 bg-[#121110]/80 z-55 flex flex-col justify-center items-center p-5 text-center">
-            <div class="bg-[#faf9f6] border-3 border-[#121110] rounded-xl p-5 w-full max-w-xs shadow-[4px_4px_0px_0px_rgba(18,17,16,1)]">
+            <div class="bg-[#faf9f6] border-3 border-[#121110] rounded-xl p-5 w-full max-w-xs shadow-[4px_4px_0px_0px_rgba(18,17,16,1)] animate-bounce-short">
                 <div class="w-10 h-10 rounded-full bg-[#0052cc]/10 border-2 border-[#121110] text-[#0052cc] flex items-center justify-center text-lg mx-auto mb-3 shadow-[1.5px_1.5px_0px_0px_rgba(18,17,16,1)]">
                     <i class="fa-solid fa-circle-info"></i>
                 </div>
@@ -615,7 +615,7 @@
                 { id: 40, sentence: "I hope the postman ________ my package by tomorrow morning.", choices: ["will be delivering", "will have delivered", "delivers", "delivered"], correct: "will have delivered" },
                 { id: 41, sentence: "This evening, our family ________ to a classical music concert.", choices: ["will be listening", "will have listened", "listen", "listened"], correct: "will be listening" },
                 { id: 42, sentence: "By 2035, the city ________ three new public libraries.", choices: ["will be building", "will have built", "build", "built"], correct: "will have built" },
-                { id: 43, sentence: "At noon tomorrow, the workers ________ the old highway.", choices: ["will be paving", "will have paved", "pave", "paved"], correct: "will be paving" },
+                { id: 43, text_to_replace: "At noon tomorrow, the workers ________ the old highway.", sentence: "At noon tomorrow, the workers ________ the old highway.", choices: ["will be paving", "will have paved", "pave", "paved"], correct: "will be paving" },
                 { id: 44, sentence: "By tomorrow night, I ________ all my clothes for the trip.", choices: ["will be packing", "will have packed", "pack", "packed"], correct: "will have packed" },
                 { id: 45, sentence: "Next winter, they ________ their skiing skills in the Alps.", choices: ["will be practicing", "will have practiced", "practice", "practiced"], correct: "will be practicing" },
                 { id: 46, sentence: "By the time the class ends, the teacher ________ all our questions.", choices: ["will be answering", "will have answered", "answer", "answered"], correct: "will have answered" },
@@ -710,7 +710,7 @@
                 { id: 29, sentence: "Extreme weather events like super hurricanes are linked to ________.", choices: ["climate change", "coastal erosion", "greenhouse gases", "noise pollution"], correct: "climate change" },
                 { id: 30, sentence: "Seawalls are constructed to defend communities against ________.", choices: ["coastal erosion", "greenhouse gases", "noise pollution", "oil spills"], correct: "coastal erosion" },
                 { id: 31, sentence: "Deforestation reduces the planet's ability to absorb ________.", choices: ["greenhouse gases", "noise pollution", "oil spills", "overfishing"], correct: "greenhouse gases" },
-                { id: 32, text_to_replace: "Sleeping difficulties in major cities are often linked to ________.", sentence: "Sleeping difficulties in major cities are often linked to ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
+                { id: 32, sentence: "Sleeping difficulties in major cities are often linked to ________.", choices: ["noise pollution", "oil spills", "overfishing", "toxic waste"], correct: "noise pollution" },
                 { id: 33, sentence: "A pipeline rupture led to catastrophic ________ in the river estuary.", choices: ["oil spills", "overfishing", "toxic waste", "waste disposal"], correct: "oil spills" },
                 { id: 34, sentence: "Commercial ships are being regulated to avoid ocean ________.", choices: ["overfishing", "toxic waste", "waste disposal", "acid rain"], correct: "overfishing" },
                 { id: 35, sentence: "Proper storage of ________ prevents dangerous chemical runoffs.", choices: ["toxic waste", "waste disposal", "acid rain", "climate change"], correct: "toxic waste" },
@@ -823,81 +823,104 @@
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
         }
 
         const Sound = {
             playTap() {
-                if (soundMuted) return;
-                initAudio();
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
+                try {
+                    if (soundMuted) return;
+                    initAudio();
+                    if (!audioCtx) return;
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
 
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(600, audioCtx.currentTime); 
-                osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.05);
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(600, audioCtx.currentTime); 
+                    osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.05);
 
-                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+                    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
 
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.05);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.05);
+                } catch(e) {
+                    console.warn("Sound playTap blocked or failed:", e);
+                }
             },
             playCorrect() {
-                if (soundMuted) return;
-                initAudio();
-                const playNote = (freq, delay, duration) => {
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + delay);
-                    gain.gain.setValueAtTime(0, audioCtx.currentTime + delay);
-                    gain.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + delay + 0.02);
-                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration);
-                    osc.start(audioCtx.currentTime + delay);
-                    osc.stop(audioCtx.currentTime + delay + duration);
-                };
-                playNote(659.25, 0, 0.3); // E5
-                playNote(987.77, 0.08, 0.4); // B5
+                try {
+                    if (soundMuted) return;
+                    initAudio();
+                    if (!audioCtx) return;
+                    const playNote = (freq, delay, duration) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + delay);
+                        gain.gain.setValueAtTime(0, audioCtx.currentTime + delay);
+                        gain.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + delay + 0.02);
+                        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration);
+                        osc.start(audioCtx.currentTime + delay);
+                        osc.stop(audioCtx.currentTime + delay + duration);
+                    };
+                    playNote(659.25, 0, 0.3); // E5
+                    playNote(987.77, 0.08, 0.4); // B5
+                } catch(e) {
+                    console.warn("Sound playCorrect blocked or failed:", e);
+                }
             },
             playIncorrect() {
-                if (soundMuted) return;
-                initAudio();
-                const playNote = (freq, delay, duration) => {
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(freq, delay);
-                    gain.gain.setValueAtTime(0.06, audioCtx.currentTime + delay);
-                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration);
-                    osc.start(audioCtx.currentTime + delay);
-                    osc.stop(audioCtx.currentTime + delay + duration);
-                };
-                playNote(110, 0, 0.15);
-                playNote(85, 0.08, 0.2);
+                try {
+                    if (soundMuted) return;
+                    initAudio();
+                    if (!audioCtx) return;
+                    const playNote = (freq, delay, duration) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + delay);
+                        gain.gain.setValueAtTime(0.06, audioCtx.currentTime + delay);
+                        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration);
+                        osc.start(audioCtx.currentTime + delay);
+                        osc.stop(audioCtx.currentTime + delay + duration);
+                    };
+                    playNote(110, 0, 0.15);
+                    playNote(85, 0.08, 0.2);
+                } catch(e) {
+                    console.warn("Sound playIncorrect blocked or failed:", e);
+                }
             },
             playFanfare() {
-                if (soundMuted) return;
-                initAudio();
-                const notes = [261.63, 329.63, 392.00, 493.88, 587.33];
-                notes.forEach((freq, idx) => {
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.1);
-                    gain.gain.setValueAtTime(0, audioCtx.currentTime + idx * 0.1);
-                    gain.gain.linearRampToValueAtTime(0.03, audioCtx.currentTime + idx * 0.1 + 0.05);
-                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + idx * 0.1 + 0.6);
-                    osc.start(idx * 0.1);
-                    osc.stop(audioCtx.currentTime + idx * 0.1 + 0.6);
-                });
+                try {
+                    if (soundMuted) return;
+                    initAudio();
+                    if (!audioCtx) return;
+                    const notes = [261.63, 329.63, 392.00, 493.88, 587.33];
+                    notes.forEach((freq, idx) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.1);
+                        gain.gain.setValueAtTime(0, audioCtx.currentTime + idx * 0.1);
+                        gain.gain.linearRampToValueAtTime(0.03, audioCtx.currentTime + idx * 0.1 + 0.05);
+                        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + idx * 0.1 + 0.6);
+                        osc.start(audioCtx.currentTime + idx * 0.1);
+                        osc.stop(audioCtx.currentTime + idx * 0.1 + 0.6);
+                    });
+                } catch(e) {
+                    console.warn("Sound playFanfare blocked or failed:", e);
+                }
             }
         };
 
@@ -1123,7 +1146,7 @@
             hideFeedback();
         }
 
-        // Optimized question loader that supports momentum scrolling inside portable mobile viewports (Chrome S23, iOS, etc.)
+        // Optimized question loader that supports momentum scrolling inside portable mobile viewports
         function loadQuestion() {
             hideFeedback();
             state.canAnswer = true;
@@ -1141,22 +1164,22 @@
 
             if (state.activeActivity === 'sorter') {
                 const html = `
-                    <div class="w-full flex flex-col justify-start gap-4">
+                    <div class="w-full flex flex-col justify-start gap-3 sm:gap-4">
                         <div class="bg-white border-2 border-[#121110] rounded-xl p-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex flex-col items-center justify-center min-h-[85px] sm:min-h-[110px] shrink-0">
                             <span class="text-[9px] text-[#0052cc] font-extrabold uppercase tracking-widest block mb-1">Classify this adjective:</span>
                             <h4 class="text-xl sm:text-2xl font-black text-[#121110] tracking-wide title-font text-center uppercase">${question.adjective}</h4>
                         </div>
 
                         <div class="space-y-2 sm:space-y-3 shrink-0">
-                            <button onclick="submitAnswer('Career')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
+                            <button onclick="submitAnswer(this)" data-choice="Career" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
                                 <span>________ + CAREER</span>
                                 <i class="fa-solid fa-chevron-right text-[9px] text-[#0052cc] group-hover:translate-x-0.5 transition"></i>
                             </button>
-                            <button onclick="submitAnswer('Work')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
+                            <button onclick="submitAnswer(this)" data-choice="Work" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
                                 <span>________ + WORK</span>
                                 <i class="fa-solid fa-chevron-right text-[9px] text-[#0052cc] group-hover:translate-x-0.5 transition"></i>
                             </button>
-                            <button onclick="submitAnswer('Job')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
+                            <button onclick="submitAnswer(this)" data-choice="Job" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-extrabold text-[#121110] text-left flex justify-between items-center transition group">
                                 <span>________ + JOB</span>
                                 <i class="fa-solid fa-chevron-right text-[9px] text-[#0052cc] group-hover:translate-x-0.5 transition"></i>
                             </button>
@@ -1168,19 +1191,23 @@
                 const randomizedChoices = shuffleArray(question.choices);
                 const termText = question.emoji ? `<div class="text-2xl mb-1.5">${question.emoji}</div>` : '';
                 const html = `
-                    <div class="w-full flex flex-col justify-start gap-4">
+                    <div class="w-full flex flex-col justify-start gap-3 sm:gap-4">
                         <div class="bg-white border-2 border-[#121110] rounded-xl p-4 shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] flex flex-col items-center justify-center min-h-[90px] sm:min-h-[110px] shrink-0">
                             ${termText}
                             <p class="text-xs sm:text-sm text-[#121110] leading-relaxed font-bold">"${question.sentence || question.question}"</p>
                         </div>
 
                         <div class="space-y-2 sm:space-y-3 shrink-0">
-                            ${randomizedChoices.map(choice => `
-                                <button onclick="submitAnswer('${choice.replace(/'/g, "\\'")}')" class="choice-btn btn-tactile w-full py-2.5 sm:py-3 px-3.5 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-black text-[#121110] text-left flex justify-between items-center transition">
-                                    <span class="capitalize pointer-events-none">${choice}</span>
-                                    <div class="w-3.5 h-3.5 rounded-full border-2 border-[#121110] flex items-center justify-center shrink-0 pointer-events-none"></div>
-                                </button>
-                            `).join('')}
+                            ${randomizedChoices.map(choice => {
+                                // Escaping double quotes safely for data attribute compliance
+                                const safeChoice = choice.replace(/"/g, '&quot;');
+                                return `
+                                    <button onclick="submitAnswer(this)" data-choice="${safeChoice}" class="choice-btn btn-tactile w-full py-2 sm:py-2.5 px-3 bg-white hover:bg-[#f0ede4] border-2 border-[#121110] shadow-[2px_2px_0px_0px_rgba(18,17,16,1)] rounded-xl text-[11px] font-black text-[#121110] text-left flex justify-between items-center transition">
+                                        <span class="capitalize pointer-events-none">${choice}</span>
+                                        <div class="w-3.5 h-3.5 rounded-full border-2 border-[#121110] flex items-center justify-center shrink-0 pointer-events-none"></div>
+                                    </button>
+                                `;
+                            }).join('')}
                         </div>
                     </div>
                 `;
@@ -1188,66 +1215,72 @@
             }
         }
 
-        function submitAnswer(ans) {
-            if (!state.canAnswer) return;
-            state.canAnswer = false;
-            state.selectedAnswer = ans;
+        function submitAnswer(btn) {
+            try {
+                if (!state.canAnswer) return;
+                
+                // Fetching choice directly from data attribute instead of fragile innerText
+                const ans = btn.getAttribute('data-choice');
+                if (!ans) return;
 
-            const question = state.currentQuestionPool[state.currentIndex];
-            let isCorrect = false;
+                state.canAnswer = false;
+                state.selectedAnswer = ans;
 
-            if (state.activeActivity === 'sorter') {
-                isCorrect = (ans.toLowerCase() === question.correct.toLowerCase());
-            } else {
-                isCorrect = (ans.toLowerCase() === question.correct.toLowerCase());
-            }
+                const question = state.currentQuestionPool[state.currentIndex];
+                if (!question) {
+                    state.canAnswer = true;
+                    return;
+                }
 
-            const choices = document.querySelectorAll('.choice-btn');
-            choices.forEach(btn => {
-                const btnSpan = btn.querySelector('span');
-                if (btnSpan) {
-                    const btnVal = btnSpan.innerText.toLowerCase();
-                    const cleanAns = ans.toLowerCase();
-                    const cleanCorrect = question.correct.toLowerCase();
+                const cleanAns = ans.toLowerCase().trim();
+                const cleanCorrect = question.correct.toLowerCase().trim();
+                const isCorrect = (cleanAns === cleanCorrect);
 
-                    if (state.activeActivity === 'sorter') {
-                        const wordWithPlaceholder = `________ + ${question.correct.toUpperCase()}`;
-                        const currentButtonText = btnSpan.innerText;
-                        
-                        if (currentButtonText === wordWithPlaceholder) {
-                            btn.classList.add('border-[#0052cc]', 'bg-[#0052cc]/10');
-                        } else if (currentButtonText === `________ + ${ans.toUpperCase()}`) {
-                            btn.classList.add('border-[#ff0000]', 'bg-[#ff0000]/10', 'animate-shake');
-                        }
-                    } else {
-                        if (btnVal === cleanCorrect) {
-                            btn.classList.add('border-[#0052cc]', 'bg-[#0052cc]/10');
-                            const bubble = btn.querySelector('.w-3.5');
-                            if (bubble) {
-                                bubble.className = "w-3.5 h-3.5 rounded-full bg-[#0052cc] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
-                                bubble.innerHTML = "✓";
+                const choices = document.querySelectorAll('.choice-btn');
+                choices.forEach(b => {
+                    const bVal = b.getAttribute('data-choice');
+                    if (bVal) {
+                        const cleanVal = bVal.toLowerCase().trim();
+
+                        if (state.activeActivity === 'sorter') {
+                            if (cleanVal === cleanCorrect) {
+                                b.classList.add('border-[#0052cc]', 'bg-[#0052cc]/10');
+                            } else if (cleanVal === cleanAns) {
+                                b.classList.add('border-[#ff0000]', 'bg-[#ff0000]/10', 'animate-shake');
                             }
-                        } else if (btnVal === cleanAns) {
-                            btn.classList.add('border-[#ff0000]', 'bg-[#ff0000]/10', 'animate-shake');
-                            const bubble = btn.querySelector('.w-3.5');
-                            if (bubble) {
-                                bubble.className = "w-3.5 h-3.5 rounded-full bg-[#ff0000] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
-                                bubble.innerHTML = "✗";
+                        } else {
+                            if (cleanVal === cleanCorrect) {
+                                b.classList.add('border-[#0052cc]', 'bg-[#0052cc]/10');
+                                const bubble = b.querySelector('.w-3.5');
+                                if (bubble) {
+                                    bubble.className = "w-3.5 h-3.5 rounded-full bg-[#0052cc] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
+                                    bubble.innerHTML = "✓";
+                                }
+                            } else if (cleanVal === cleanAns) {
+                                b.classList.add('border-[#ff0000]', 'bg-[#ff0000]/10', 'animate-shake');
+                                const bubble = b.querySelector('.w-3.5');
+                                if (bubble) {
+                                    bubble.className = "w-3.5 h-3.5 rounded-full bg-[#ff0000] flex items-center justify-center text-[8px] text-white font-black font-mono border border-[#121110]";
+                                    bubble.innerHTML = "✗";
+                                }
                             }
                         }
                     }
-                }
-            });
+                });
 
-            if (isCorrect) {
-                state.score++;
-                Sound.playCorrect();
-                showFeedback(true, question.meaning || question.explanation || "Excellent! You paired it correctly.");
-            } else {
-                Sound.playIncorrect();
-                const correctWordUpper = question.correct.toUpperCase();
-                const feedbackMsg = `Incorrect. The correct answer is: <strong class="font-black text-[#121110] tracking-wider uppercase">${correctWordUpper}</strong>`;
-                showFeedback(false, feedbackMsg);
+                if (isCorrect) {
+                    state.score++;
+                    Sound.playCorrect();
+                    showFeedback(true, question.meaning || question.explanation || "Excellent! You paired it correctly.");
+                } else {
+                    Sound.playIncorrect();
+                    const correctWordUpper = question.correct.toUpperCase();
+                    const feedbackMsg = `Incorrect. The correct answer is: <strong class="font-black text-[#121110] tracking-wider uppercase">${correctWordUpper}</strong>`;
+                    showFeedback(false, feedbackMsg);
+                }
+            } catch (err) {
+                console.error("Error in submitAnswer:", err);
+                state.canAnswer = true;
             }
         }
 
